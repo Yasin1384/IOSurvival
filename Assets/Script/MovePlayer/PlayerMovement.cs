@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector3 input)
     {
-        Vector3 dir = new Vector3(input.x, 0f, input.y).normalized;
+        Vector3 dir = new Vector3(input.x, 0f, input.z).normalized;
         moveStrategy.Move(rb, input, speed);
     }
 }

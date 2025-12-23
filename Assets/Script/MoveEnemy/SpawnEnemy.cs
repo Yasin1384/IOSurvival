@@ -17,8 +17,12 @@ public class SpawnEnemy : MonoBehaviour
 
     void SpawnObjects()
     {
-        Vector3 pos = GetRandomPointOnGround();
-        Instantiate(enemyPrefab, pos, Quaternion.identity);
+        for (int i = 0; i <= currentCount; i++)
+        {
+            Vector3 pos = GetRandomPointOnGround();
+            Instantiate(enemyPrefab, new Vector3(pos.x, 1, pos.z), Quaternion.identity);
+        }
+
     }
     Vector3 GetRandomPointOnGround()
     {
@@ -30,6 +34,6 @@ public class SpawnEnemy : MonoBehaviour
 
         float y = bounds.max.y;
 
-        return new Vector3(x, y, z);
+        return new Vector3(x, 1, z);
     }
 }

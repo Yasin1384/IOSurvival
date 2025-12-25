@@ -20,7 +20,7 @@ public class SpawnEnemy : MonoBehaviour
         for (int i = 0; i <= currentCount; i++)
         {
             Vector3 pos = GetRandomPointOnGround();
-            Instantiate(enemyPrefab, new Vector3(pos.x, 1, pos.z), Quaternion.identity);
+            Instantiate(enemyPrefab, new Vector3(pos.x, 0, pos.z), Quaternion.identity);
         }
 
     }

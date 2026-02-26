@@ -12,7 +12,7 @@ public class SpawnCharecter : MonoBehaviour
     {
         if (playerPrefab != null && spawnPoint != null)
         {
-            Instantiate(playerPrefab,new Vector3(0, 1, 0), spawnPoint.rotation);
+            //Instantiate(playerPrefab,new Vector3(0, 1, 0), spawnPoint.rotation);
         }
         else
         {

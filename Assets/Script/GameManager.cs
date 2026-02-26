@@ -6,10 +6,16 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     Vector3 spawnPos = new Vector3(0, 1, 0);
 
-    void Start()
+    void Start() 
+    {
+        Spawn();
+    }
+
+    private void Spawn()
     {
         GameObject player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
 
         cameraFollow.SetTarget(player.transform);
     }
+
 }

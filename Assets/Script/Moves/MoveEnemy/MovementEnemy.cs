@@ -27,12 +27,4 @@ public class MovementEnemy : MonoBehaviour
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
 }

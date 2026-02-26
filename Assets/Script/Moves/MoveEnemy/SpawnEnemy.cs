@@ -4,36 +4,82 @@ using UnityEngine.UIElements;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Transform ground;
-    public int currentCount = 0;
-    public int maxEnemies = 10;
+    public GameObject EnemyPrefab;
+    public Transform[] Ground;
+    public int CurrentCount = 0;
+    public int MaxEnemies = 10;
 
+    private float[] _spawnTimes = { 1f, 2 };
+
+    private Coroutine _spawnCoroutine;
+
+    [SerializeField] private MeshCollider _spawnArea;
+
+    [SerializeField] private TimerGame _timerGame;
+
+    private void OnEnable()
+    {
+        if (_timerGame != null)
+        {
+            _timerGame.OnMinutePassed += HandleMinutePassed;
+            _timerGame.OnTwoMinutesLeft += HandleTwoMinuteLeft;
+            _timerGame.OnTwoMinutesLeft += HandleOneMinuteLeft;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_timerGame != null)
+        {
+            _timerGame.OnMinutePassed -= HandleMinutePassed;
+            _timerGame.OnTwoMinutesLeft -= HandleTwoMinuteLeft;
+            _timerGame.OnTwoMinutesLeft -= HandleOneMinuteLeft;
+        }
+    }
 
     void Start()
     {
-        SpawnObjects();
+        _spawnCoroutine = StartCoroutine(SpawnEnemies());
     }
 
     void SpawnObjects()
     {
-        for (int i = 0; i <= currentCount; i++)
-        {
-            Vector3 pos = GetRandomPointOnGround();
-            Instantiate(enemyPrefab, new Vector3(pos.x, 0, pos.z), Quaternion.identity);
-        }
+        Transform plane = _spawnArea.transform;
+
+        float planeWidth = 10f * plane.localScale.x;
+        float planeLength = 10f * plane.localScale.z;
+
+        float randomX = Random.Range(-planeWidth / 2f, planeWidth / 2f);
+        float randomZ = Random.Range(-planeLength / 2f, planeLength / 2f);
+
+        Vector3 spawnPos = plane.position + new Vector3(randomX, 0f, randomZ);
+
+        Instantiate(EnemyPrefab, spawnPos, Quaternion.identity);
 
     }
-    Vector3 GetRandomPointOnGround()
+    private IEnumerator SpawnEnemies()
     {
-        Renderer groundRenderer = ground.GetComponent<Renderer>();
-        Bounds bounds = groundRenderer.bounds;
+        Debug.Log(_spawnTimes);
+        while (true)
+        {
+            float randomTime = _spawnTimes[Random.Range(0, _spawnTimes.Length)];
+            yield return new WaitForSeconds(randomTime);
+            SpawnObjects();
+        }
+    }
 
-        float x = Random.Range(bounds.min.x, bounds.max.x);
-        float z = Random.Range(bounds.min.z, bounds.max.z);
+    private void HandleMinutePassed(int minuteRemaining)
+    {
 
-        float y = bounds.max.y;
+    }
 
-        return new Vector3(x, 1, z);
+    private void HandleTwoMinuteLeft()
+    {
+        _spawnTimes = new float[] { 0.5f, 0.7f };
+    }
+
+    private void HandleOneMinuteLeft()
+    {
+        _spawnTimes = new float[] { 0.2f, 0.4f };
     }
 }

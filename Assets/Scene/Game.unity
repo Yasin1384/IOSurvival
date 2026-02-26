@@ -1209,10 +1209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb261b587174d934ab9f1cf0234d01d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
-  enemyPrefab: {fileID: 3136820629370392942, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
-  ground: {fileID: 953464827730749067}
-  currentCount: 3
-  maxEnemies: 10
+  EnemyPrefab: {fileID: 3136820629370392942, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
+  Ground:
+  - {fileID: 953464827730749067}
+  CurrentCount: 0
+  MaxEnemies: 10
+  _spawnArea: {fileID: 1365642545604312963}
+  _timerGame: {fileID: 1792469065}
 --- !u!114 &7212930125048486801
 MonoBehaviour:
   m_ObjectHideFlags: 0

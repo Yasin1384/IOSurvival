@@ -39,7 +39,5 @@ public class PlayerDamage : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-        Destroy(collision.gameObject);
     }
 }

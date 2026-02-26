@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 3241947330028982698}
   - component: {fileID: 2247126036214497428}
   - component: {fileID: 777297087668786144}
+  - component: {fileID: 5638508598730122348}
   m_Layer: 0
   m_Name: mini simple skeleton demo_01 1
   m_TagString: Enemy
@@ -504,6 +505,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovementEnemy
   playerTag: Player
   speed: 5
+--- !u!114 &5638508598730122348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136820629370392942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df85ca398d727814a8c8f0556e84cddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
 --- !u!1 &3190320679450232660
 GameObject:
   m_ObjectHideFlags: 0

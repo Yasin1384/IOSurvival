@@ -18,4 +18,9 @@ public class GameManager : MonoBehaviour
         cameraFollow.SetTarget(player.transform);
     }
 
+    private void TimerGame()
+    {
+
+    }
+
 }

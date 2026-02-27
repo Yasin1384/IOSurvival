@@ -7,7 +7,6 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject EnemyPrefab;
     public Transform[] Ground;
     public int CurrentCount = 0;
-    public int MaxEnemies = 10;
 
     private float[] _spawnTimes = { 1f, 2 };
 
@@ -16,6 +15,14 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private MeshCollider _spawnArea;
 
     [SerializeField] private TimerGame _timerGame;
+    private EnemyPool enemyPool;
+    [SerializeField] private int maxEnemies = 10;
+
+    private void Awake()
+    {
+        enemyPool = gameObject.AddComponent<EnemyPool>();
+        enemyPool.Initialize(EnemyPrefab, maxEnemies);
+    }
 
     private void OnEnable()
     {
@@ -37,6 +44,8 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
+
+
     void Start()
     {
         _spawnCoroutine = StartCoroutine(SpawnEnemies());
@@ -44,6 +53,8 @@ public class SpawnEnemy : MonoBehaviour
 
     void SpawnObjects()
     {
+        if (enemyPool == null) return;
+
         Transform plane = _spawnArea.transform;
 
         float planeWidth = 10f * plane.localScale.x;
@@ -54,8 +65,13 @@ public class SpawnEnemy : MonoBehaviour
 
         Vector3 spawnPos = plane.position + new Vector3(randomX, 0f, randomZ);
 
-        Instantiate(EnemyPrefab, spawnPos, Quaternion.identity);
+        GameObject enemy = enemyPool.Spawn(spawnPos);
 
+
+        if (enemy == null)
+        {
+            return;
+        }
     }
     private IEnumerator SpawnEnemies()
     {

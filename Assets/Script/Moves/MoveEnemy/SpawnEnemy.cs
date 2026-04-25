@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject EnemyPrefab;
-    public Transform[] Ground;
-    public int CurrentCount = 0;
+    //public Transform[] Ground;
+    //public int CurrentCount = 0;
 
     private float[] _spawnTimes = { 1f, 2 };
 

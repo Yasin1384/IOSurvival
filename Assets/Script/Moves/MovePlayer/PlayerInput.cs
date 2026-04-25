@@ -17,6 +17,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+            movement.AnimationCarecter(true, false);
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
@@ -25,6 +26,7 @@ public class PlayerInput : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Moved)
             {
+
                 currentTouchPos = touch.position;
                 Vector2 delta = currentTouchPos - startTouchPos;
 
@@ -37,6 +39,8 @@ public class PlayerInput : MonoBehaviour
         }
         else
         {
+            movement.AnimationCarecter(false, true);
+
             input = Vector3.zero;
         }
     }

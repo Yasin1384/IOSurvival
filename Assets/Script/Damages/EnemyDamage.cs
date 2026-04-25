@@ -7,7 +7,7 @@ public class EnemyDamage : MonoBehaviour
     {
         MovementEnemy enemy = GetComponent<MovementEnemy>();
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bullet"))
         {
             enemy.Die();
         }

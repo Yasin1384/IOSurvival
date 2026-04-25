@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public CameraFollow cameraFollow;
     public GameObject playerPrefab;
-    Vector3 spawnPos = new Vector3(0, 1, 0);
+    Vector3 spawnPos = new Vector3(0, 0, 0);
 
     void Start() 
     {

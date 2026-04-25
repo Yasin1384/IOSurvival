@@ -31,7 +31,6 @@ public class PlayerDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Desttoy");
             TakeDamage(10);
 
             if (_damage <= 0)

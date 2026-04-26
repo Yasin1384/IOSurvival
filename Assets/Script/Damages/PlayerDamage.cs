@@ -11,7 +11,6 @@ public class PlayerDamage : MonoBehaviour
     private void SetDamage(IDamageStratgy damageStratgy)
     {
         _damageStratgy = new NormalDamageStratgy();
-        Debug.Log(_damage);
     }
 
     public void TakeDamage(int baseDamage)

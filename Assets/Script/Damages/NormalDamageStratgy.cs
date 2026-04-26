@@ -6,4 +6,9 @@ public class NormalDamageStratgy : IDamageStratgy
     {
         return damage;
     }
+
+    public int EnemyDamage(int damage)
+    {
+        return damage;
+    }
 }

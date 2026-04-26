@@ -11,4 +11,9 @@ public class NormalDamageStratgy : IDamageStratgy
     {
         return damage;
     }
+
+    public int BaseDamage(int damage)
+    {
+        return damage;
+    }
 }

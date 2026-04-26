@@ -4,7 +4,8 @@ public class EnemyDamage : MonoBehaviour
 {
 
     private IDamageStratgy _damageStratgy;
-    private int _enemyDamage = 20;
+    public EnemyType_SO EnemyType_SO;
+
     private void Start()
     {
         SetDamage(new NormalDamageStratgy());
@@ -18,13 +19,13 @@ public class EnemyDamage : MonoBehaviour
     {
         if (_damageStratgy == null)
         {
-            Debug.Log(_enemyDamage);
+            Debug.Log(EnemyType_SO.EnemyDamage);
 
             return;
         }
 
         int finalDamage = _damageStratgy.EnemyDamage(baseDamage);
-        _enemyDamage -= finalDamage;
+        EnemyType_SO.EnemyDamage -= finalDamage;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,16 +36,16 @@ public class EnemyDamage : MonoBehaviour
         {
             TakeDamage(10);
 
-            if (_enemyDamage <= 0)
+            if (EnemyType_SO.EnemyDamage <= 0)
             {
                 enemy.Die();
             }
         }
         else
         {
-            TakeDamage(_enemyDamage);
+            TakeDamage(EnemyType_SO.EnemyDamage);
 
-            if (_enemyDamage <= 0)
+            if (EnemyType_SO.EnemyDamage <= 0)
             {
                 enemy.Die();
             }

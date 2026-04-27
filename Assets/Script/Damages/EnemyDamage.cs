@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-
+    
     private IDamageStratgy _damageStratgy;
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
@@ -10,12 +10,11 @@ public class EnemyDamage : MonoBehaviour
     public void Init(EnemyType_SO data)
     {
         EnemyType_SO = data;
+        
         currentHp = data.Hp;
 
         _damageStratgy = new NormalDamageStratgy();
-
     }
-
 
     public void TakeDamage(int baseDamage)
     {

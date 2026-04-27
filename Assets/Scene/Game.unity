@@ -1388,10 +1388,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 227df81785ad9c54a889c12291a76e6e, type: 2}
   - {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
   poolSize: 10
-  EnemyPrefab: {fileID: 3136820629370392942, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
   _spawnArea: {fileID: 1365642545604312963}
   _timerGame: {fileID: 1792469065}
-  maxEnemies: 10
+  maxEnemies: 5
 --- !u!114 &7212930125048486801
 MonoBehaviour:
   m_ObjectHideFlags: 0

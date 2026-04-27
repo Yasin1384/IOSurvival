@@ -31,7 +31,6 @@ public class SpawnEnemy : MonoBehaviour
         {
             EnemyPool pool = gameObject.AddComponent<EnemyPool>();
             pool.Initialize(type.EnemyPrefab, poolSize);
-
             pools.Add(type, pool);
         }
     }
@@ -74,6 +73,8 @@ public class SpawnEnemy : MonoBehaviour
         if (obj != null)
         {
             obj.GetComponent<EnemyDamage>().Init(selectedType);
+            obj.GetComponent<MovementEnemy>().SpeedSnemies(selectedType);
+            
         }
     }
 

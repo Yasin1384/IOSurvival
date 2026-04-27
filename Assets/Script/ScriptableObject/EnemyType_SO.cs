@@ -8,7 +8,7 @@ public class EnemyType_SO : ScriptableObject
    
     public GameObject EnemyPrefab;
 
-    public float Speed = 0;
+    public float Speed;
 
-    public int Hp = 0;
+    public int Hp;
 }

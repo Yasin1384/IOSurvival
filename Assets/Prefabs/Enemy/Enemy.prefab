@@ -517,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df85ca398d727814a8c8f0556e84cddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
+  EnemyType_SO: {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
 --- !u!1 &3190320679450232660
 GameObject:
   m_ObjectHideFlags: 0

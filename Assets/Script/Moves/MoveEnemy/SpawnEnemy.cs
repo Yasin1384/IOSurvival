@@ -1,12 +1,19 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject EnemyPrefab;
+    [Header("Enemy Types")]
+    public List<EnemyType_SO> enemyTypes;
+
+    private Dictionary<EnemyType_SO, EnemyPool> pools;
+
+    [SerializeField] private int poolSize = 10;
 
     private float[] _spawnTimes = { 1f, 2 };
+   
 
     private Coroutine _spawnCoroutine;
 
@@ -18,8 +25,15 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Awake()
     {
-        enemyPool = gameObject.AddComponent<EnemyPool>();
-        enemyPool.Initialize(EnemyPrefab, maxEnemies);
+        pools = new Dictionary<EnemyType_SO, EnemyPool>();
+
+        foreach (var type in enemyTypes)
+        {
+            EnemyPool pool = gameObject.AddComponent<EnemyPool>();
+            pool.Initialize(type.EnemyPrefab, poolSize);
+
+            pools.Add(type, pool);
+        }
     }
 
     private void OnEnable()
@@ -49,27 +63,31 @@ public class SpawnEnemy : MonoBehaviour
         _spawnCoroutine = StartCoroutine(SpawnEnemies());
     }
 
-    void SpawnObjects()
+    private void Spawn()
     {
-        if (enemyPool == null) return;
+        EnemyType_SO selectedType = enemyTypes[Random.Range(0, enemyTypes.Count)];
 
-        Transform plane = _spawnArea.transform;
+        Vector3 pos = GetRandomPosition();
 
-        float planeWidth = 10f * plane.localScale.x;
-        float planeLength = 10f * plane.localScale.z;
+        GameObject obj = pools[selectedType].Spawn(pos);
 
-        float randomX = Random.Range(-planeWidth / 2f, planeWidth / 2f);
-        float randomZ = Random.Range(-planeLength / 2f, planeLength / 2f);
-
-        Vector3 spawnPos = plane.position + new Vector3(randomX, 0f, randomZ);
-
-        GameObject enemy = enemyPool.Spawn(spawnPos);
-
-
-        if (enemy == null)
+        if (obj != null)
         {
-            return;
+            obj.GetComponent<EnemyDamage>().Init(selectedType);
         }
+    }
+
+    private Vector3 GetRandomPosition()
+    {
+        Transform t = _spawnArea.transform;
+
+        float width = 10f * t.localScale.x;
+        float length = 10f * t.localScale.z;
+
+        float x = Random.Range(-width / 2f, width / 2f);
+        float z = Random.Range(-length / 2f, length / 2f);
+
+        return t.position + new Vector3(x, 0f, z);
     }
     private IEnumerator SpawnEnemies()
     {
@@ -78,7 +96,7 @@ public class SpawnEnemy : MonoBehaviour
         {
             float randomTime = _spawnTimes[Random.Range(0, _spawnTimes.Length)];
             yield return new WaitForSeconds(randomTime);
-            SpawnObjects();
+            Spawn();
         }
     }
 

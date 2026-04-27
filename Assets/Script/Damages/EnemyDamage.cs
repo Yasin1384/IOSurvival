@@ -4,30 +4,30 @@ public class EnemyDamage : MonoBehaviour
 {
 
     private IDamageStratgy _damageStratgy;
-    public EnemyType_SO EnemyType_SO;
+    private EnemyType_SO EnemyType_SO;
+    private int currentHp;
 
-    private void Start()
+    public void Init(EnemyType_SO data)
     {
-        SetDamage(new NormalDamageStratgy());
-    }
-    private void SetDamage(IDamageStratgy damageStratgy)
-    {
+        EnemyType_SO = data;
+        currentHp = data.Hp;
+
         _damageStratgy = new NormalDamageStratgy();
+
     }
+
 
     public void TakeDamage(int baseDamage)
     {
-        if (_damageStratgy == null)
+        if (_damageStratgy == null) return;
+
+        currentHp -= baseDamage;
+
+        if (currentHp <= 0)
         {
-            Debug.Log(EnemyType_SO.EnemyDamage);
-
-            return;
+            GetComponent<MovementEnemy>().Die();
         }
-
-        int finalDamage = _damageStratgy.EnemyDamage(baseDamage);
-        EnemyType_SO.EnemyDamage -= finalDamage;
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         MovementEnemy enemy = GetComponent<MovementEnemy>();
@@ -36,16 +36,16 @@ public class EnemyDamage : MonoBehaviour
         {
             TakeDamage(10);
 
-            if (EnemyType_SO.EnemyDamage <= 0)
+            if (EnemyType_SO.Hp <= 0)
             {
                 enemy.Die();
             }
         }
         else
         {
-            TakeDamage(EnemyType_SO.EnemyDamage);
+            TakeDamage(EnemyType_SO.Hp);
 
-            if (EnemyType_SO.EnemyDamage <= 0)
+            if (EnemyType_SO.Hp <= 0)
             {
                 enemy.Die();
             }

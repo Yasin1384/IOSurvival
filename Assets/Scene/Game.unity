@@ -936,9 +936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c281252b3be3925499471b210675d14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  EnemyData:
-  - {fileID: 11400000, guid: 227df81785ad9c54a889c12291a76e6e, type: 2}
-  - {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
   cameraFollow: {fileID: 1398071067}
   playerPrefab: {fileID: 4392147179597143704, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
 --- !u!4 &1792469064
@@ -1387,7 +1384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb261b587174d934ab9f1cf0234d01d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
-  GameManager: {fileID: 1792469063}
+  enemyTypes:
+  - {fileID: 11400000, guid: 227df81785ad9c54a889c12291a76e6e, type: 2}
+  - {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
+  poolSize: 10
+  EnemyPrefab: {fileID: 3136820629370392942, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
   _spawnArea: {fileID: 1365642545604312963}
   _timerGame: {fileID: 1792469065}
   maxEnemies: 10

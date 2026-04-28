@@ -24,6 +24,13 @@ public class BaseDamage : MonoBehaviour
 
         int finalDamage = _damageStratgy.BaseDamage(baseDamage);
         _baseDamage -= finalDamage;
+
+
+
+        if (_baseDamage <= 0)
+        {
+            GameManager.Instance.GameOver(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,10 +39,6 @@ public class BaseDamage : MonoBehaviour
         {
             TakeDamage(10);
 
-            if (_baseDamage <= 0)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 }

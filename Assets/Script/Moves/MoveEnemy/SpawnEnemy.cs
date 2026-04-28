@@ -82,8 +82,8 @@ public class SpawnEnemy : MonoBehaviour
     {
         Transform t = _spawnArea.transform;
 
-        float width = 10f * t.localScale.x;
-        float length = 10f * t.localScale.z;
+        float width = 100f * t.localScale.x;
+        float length = 100f * t.localScale.z;
 
         float x = Random.Range(-width / 2f, width / 2f);
         float z = Random.Range(-length / 2f, length / 2f);

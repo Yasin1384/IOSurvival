@@ -3,7 +3,6 @@ using UnityEngine;
 public class MovementEnemy : MonoBehaviour
 {
     public string playerTag = "";
-    private float speed = 5f;
 
     private Transform player;
     private EnemyPool enemyPool;
@@ -30,7 +29,6 @@ public class MovementEnemy : MonoBehaviour
     public void SpeedSnemies(EnemyType_SO enemyType_SO)
     {
         this.enemyType_SO = enemyType_SO;
-        Debug.Log(enemyType_SO.Speed);
 
         if (player != null)
         {

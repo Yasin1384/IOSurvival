@@ -3,6 +3,7 @@ using UnityEngine;
 public class AutoAim : MonoBehaviour
 {
     public float detectionRadius = 10f;
+    public float RotationCharecter;
 
     public GameObject FindNearestEnemyInRange()
     {
@@ -35,7 +36,7 @@ public class AutoAim : MonoBehaviour
         transform.rotation = Quaternion.Lerp(
             transform.rotation,
             lookRotation,
-            Time.deltaTime * 5f
+            Time.deltaTime * RotationCharecter
         );
     }
 }

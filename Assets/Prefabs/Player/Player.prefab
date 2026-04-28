@@ -49,6 +49,7 @@ MonoBehaviour:
   _fireRate: 0
   _autoAim: {fileID: 2197910631419812692}
   bulletSpeed: 20
+  nextFireTime: 0.5
 --- !u!1 &4392147179597143704
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca16832c6a9d7140aa85fb5bd26fae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAim
-  detectionRadius: 10
+  detectionRadius: 20
+  RotationCharecter: 15
 --- !u!1001 &7353559281031936142
 PrefabInstance:
   m_ObjectHideFlags: 0

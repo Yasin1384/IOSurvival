@@ -17,13 +17,19 @@ public class PlayerDamage : MonoBehaviour
     {
         if (_damageStratgy == null)
         {
-            Debug.Log(_damage);
-
             return;
         }
 
         int finalDamage = _damageStratgy.Damage(baseDamage);
         _damage -= finalDamage;
+
+
+        if (_damage <= 0)
+        {
+            //TODO : panel Game Over 
+            GameManager.Instance.GameOver(gameObject);
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -31,11 +37,7 @@ public class PlayerDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(10);
-
-            if (_damage <= 0)
-            {
-                Destroy(gameObject);
-            }
+            Debug.Log(_damage);
         }
     }
 }

@@ -28,12 +28,13 @@ public class Gun : MonoBehaviour
         if (target != null)
         {
             _autoAim.RotateToEnemy(target);
+            GameObject bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.linearVelocity = _firePoint.forward * bulletSpeed;
         }
 
-        GameObject bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.linearVelocity = _firePoint.forward * bulletSpeed;
+
     }
 
     private void OnCollisionEnter(Collision collision)

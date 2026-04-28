@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimerGame : MonoBehaviour
@@ -10,6 +11,7 @@ public class TimerGame : MonoBehaviour
 
     private DateTime _endTimer;
     private int _lastMinuteNotified = -1;
+    [SerializeField] private string sceneToLoad;
 
     public event Action<int> OnMinutePassed;
     public event Action OnTwoMinutesLeft;
@@ -28,8 +30,8 @@ public class TimerGame : MonoBehaviour
 
             if (remaining.TotalSeconds <= 0)
             {
-                _timerText.text = "Time's up!";
-                Debug.Log("Time's up!");
+                SceneManager.LoadScene(sceneToLoad);
+
                 yield break;
             }
             _timerText.text = $"{remaining.Minutes:00}:{remaining.Seconds:00}";

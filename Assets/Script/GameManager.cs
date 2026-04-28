@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour
 
     public CameraFollow cameraFollow;
     public GameObject playerPrefab;
-    Vector3 spawnPos = new Vector3(0, 0, -40);
+    public Vector3 spawnPos;
+    [SerializeField] private string sceneToLoad;
 
     private void Awake()
     {
@@ -26,7 +28,6 @@ public class GameManager : MonoBehaviour
     void Start() 
     {
         Spawn();
-
     }
 
     private void Spawn()
@@ -39,6 +40,17 @@ public class GameManager : MonoBehaviour
     private void TimerGame()
     {
 
+    }
+
+    public void GameOver(GameObject gameObject)
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void WinGame()
+    {
+        SceneManager.LoadScene(sceneToLoad);
     }
 
 }

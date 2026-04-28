@@ -29,25 +29,13 @@ public class EnemyDamage : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        MovementEnemy enemy = GetComponent<MovementEnemy>();
-
         if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(10);
-
-            if (EnemyType_SO.Hp <= 0)
-            {
-                enemy.Die();
-            }
         }
-        else
+        else if(collision.gameObject.CompareTag("Base") || collision.gameObject.CompareTag("Player"))
         {
-            TakeDamage(EnemyType_SO.Hp);
-
-            if (EnemyType_SO.Hp <= 0)
-            {
-                enemy.Die();
-            }
+            TakeDamage(currentHp);
         }
     }
 }

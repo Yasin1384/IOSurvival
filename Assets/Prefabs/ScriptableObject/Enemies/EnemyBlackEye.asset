@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyType_SO
   Name: EnemyBlackEye
   EnemyPrefab: {fileID: 3136820629370392942, guid: 8ceb4afbb93f4dc40ba41d45c15f7b1a, type: 3}
-  Speed: 8
+  Speed: 6
   Hp: 20

@@ -37,7 +37,7 @@ public class PlayerDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(10);
-            Debug.Log(_damage);
+
         }
     }
 }

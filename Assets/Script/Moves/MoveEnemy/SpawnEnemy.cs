@@ -73,7 +73,7 @@ public class SpawnEnemy : MonoBehaviour
         if (obj != null)
         {
             obj.GetComponent<EnemyDamage>().Init(selectedType);
-            obj.GetComponent<MovementEnemy>().SpeedSnemies(selectedType);
+            obj.GetComponent<MovementEnemy>().SetEnemyType(selectedType);
             
         }
     }

@@ -504,6 +504,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementEnemy
   playerTag: Player
+  avoidStrength: 0.1
+  detectDistanceMultiplier: 2
+  sphereRadius: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8
+  lockDuration: 0.5
 --- !u!114 &5638508598730122348
 MonoBehaviour:
   m_ObjectHideFlags: 0

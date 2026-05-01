@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private AutoAim _autoAim;
 
     public float bulletSpeed = 20f;
-    private float nextFireTime = 0.5f;
+    public float nextFireTime;
 
 
     void Update()

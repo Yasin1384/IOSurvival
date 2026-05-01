@@ -28,8 +28,24 @@ public class AutoAim : MonoBehaviour
 
     public void RotateToEnemy(GameObject enemy)
     {
-        Vector3 direction = enemy.transform.position - transform.position;
-        direction.y = 0;
+        Vector3 targetPosition = enemy.transform.position;
+        targetPosition.y = 0;
+
+        Vector3 directionToEnemy = targetPosition - transform.position;
+        directionToEnemy.y = 0;
+        directionToEnemy.Normalize();
+
+        Vector3 enemyForward = enemy.transform.forward;
+        enemyForward.y = 0;
+        enemyForward.Normalize();
+
+
+        float lookAheadDistance = 2.0f;
+        Vector3 desiredPosition = targetPosition + enemyForward * lookAheadDistance;
+
+
+        Vector3 direction = desiredPosition - transform.position;
+        direction.y = 0; 
 
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 

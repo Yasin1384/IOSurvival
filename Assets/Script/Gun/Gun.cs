@@ -1,48 +1,69 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Properties;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _firePoint;
-    [SerializeField] private float _fireRate;
     [SerializeField] private AutoAim _autoAim;
+    [SerializeField] private int poolSize = 50;
 
-    public float bulletSpeed = 20f;
-    public float nextFireTime;
+    [SerializeField] private GameObject bulletPrefab;
+
+    private List<BulletPool> pools = new List<BulletPool>();
+
+    private BulletPool bulletPool;
+
+    [SerializeField] private Transform defaultPosition;
+
+    private float _spawnTimes = 0.5f;
+    private float _SpeedBullet = 10f;
 
 
-    void Update()
+    private void Awake()
     {
-        if (Time.time >= nextFireTime)
-        {
-            Shoot();
-            nextFireTime = Time.time + 0.5f;
-        }
+        pools = new List<BulletPool>();
+
+        BulletPool pool = gameObject.AddComponent<BulletPool>();
+        pool.Initialize(bulletPrefab, poolSize);
+        pools.Add(pool);
+
+        bulletPool = pool;
+
+        StartCoroutine(SpawnBullets());
     }
 
-    void Shoot()
+
+    private void Spawn()
     {
+
+        GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
+        
+        Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
         GameObject target = _autoAim.FindNearestEnemyInRange();
 
-        if (target != null)
-        {
-            _autoAim.RotateToEnemy(target);
-            GameObject bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            rb.useGravity = false;
-            rb.linearVelocity = _firePoint.forward * bulletSpeed;
-        }
-
-
     }
-
+    private IEnumerator SpawnBullets()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_spawnTimes);
+            Spawn();
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {        
         if (collision.gameObject.CompareTag("Enemy"))
         {
-
-            Destroy(_bulletPrefab);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        bulletPool.Despawn(gameObject);
     }
 }

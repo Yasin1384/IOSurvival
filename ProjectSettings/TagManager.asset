@@ -15,7 +15,7 @@ TagManager:
   - Obstacle
   - Water
   - UI
-  - 
+  - Base
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Obstacle
     uniqueID: 1852676333
+    locked: 0
+  - name: Base
+    uniqueID: 1866429717
     locked: 0
   m_RenderingLayers:
   - Default

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyType_SO
   Name: EnemyRedEye
   EnemyPrefab: {fileID: 3136820629370392942, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
-  Speed: 5
+  Speed: 2
   Hp: 30

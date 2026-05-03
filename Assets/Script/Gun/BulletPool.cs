@@ -7,7 +7,19 @@ public class BulletPool : MonoBehaviour
     public int poolSize = 10;
 
     private List<GameObject> pool;
+    public static BulletPool Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
 
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void Initialize(GameObject bulletPrefab, int poolSize)
     {
         this.BulletPrefab = bulletPrefab;
@@ -18,9 +30,8 @@ public class BulletPool : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(this.BulletPrefab);
-            obj.GetComponent<Bullet>().Init(this);
-
             obj.SetActive(false);
+
             pool.Add(obj);
         }
     }

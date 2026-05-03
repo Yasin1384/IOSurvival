@@ -4,14 +4,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float lifeTime = 3f;
-    private BulletPool pool;
     private bool hasCollided = false;
     private Coroutine lifeTimerCoroutine;
-
-    public void Init(BulletPool poolReference)
-    {
-        pool = poolReference;
-    }
 
     private void OnEnable()
     {
@@ -26,40 +20,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (hasCollided) return;
+        BulletPool.Instance.Despawn(gameObject);
 
-        hasCollided = true;
-
-        if (lifeTimerCoroutine != null)
-        {
-            StopCoroutine(lifeTimerCoroutine);
-        }
-
-
-        if (pool != null)
-        {
-            pool.Despawn(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(lifeTime);
-
-        if (!hasCollided)
-        {
-            if (pool != null)
-            {
-                pool.Despawn(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        this.gameObject.SetActive(false);
+        Debug.Log(gameObject);
     }
 }

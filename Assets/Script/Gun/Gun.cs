@@ -68,6 +68,7 @@ public class Gun : MonoBehaviour
         {
             Die();
         }
+        Die();
     }
 
     public void Die()

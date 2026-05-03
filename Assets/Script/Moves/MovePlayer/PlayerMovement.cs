@@ -1,5 +1,6 @@
 using Unity.Properties;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private AutoAim _autoAim;

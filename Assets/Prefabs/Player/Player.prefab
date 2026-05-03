@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca16832c6a9d7140aa85fb5bd26fae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAim
-  detectionRadius: 18
+  detectionRadius: 15
   RotationCharecter: 20
 --- !u!1001 &7353559281031936142
 PrefabInstance:

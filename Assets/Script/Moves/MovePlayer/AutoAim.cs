@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class AutoAim : MonoBehaviour
 {
@@ -31,28 +32,16 @@ public class AutoAim : MonoBehaviour
         Vector3 targetPosition = enemy.transform.position;
         targetPosition.y = 0;
 
-        Vector3 directionToEnemy = targetPosition - transform.position;
-        directionToEnemy.y = 0;
-        directionToEnemy.Normalize();
+        Vector3 directionToTarget = targetPosition - transform.position;
+        directionToTarget.y = 0;
+        directionToTarget.Normalize();
 
-        Vector3 enemyForward = enemy.transform.forward;
-        enemyForward.y = 0;
-        enemyForward.Normalize();
-
-
-        float lookAheadDistance = 2.0f;
-        Vector3 desiredPosition = targetPosition + enemyForward * lookAheadDistance;
-
-
-        Vector3 direction = desiredPosition - transform.position;
-        direction.y = 0; 
-
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
 
         transform.rotation = Quaternion.Lerp(
             transform.rotation,
             lookRotation,
             Time.deltaTime * RotationCharecter
-        );
+            );
     }
 }

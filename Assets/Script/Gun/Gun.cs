@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
         GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
         Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
         rb.useGravity = false;
-
+        rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
         if (target != null)
         {
             Vector3 directionToTarget = (target.transform.position - defaultPosition.position).normalized;

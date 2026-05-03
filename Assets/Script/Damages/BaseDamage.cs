@@ -38,7 +38,6 @@ public class BaseDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(10);
-
         }
     }
 }

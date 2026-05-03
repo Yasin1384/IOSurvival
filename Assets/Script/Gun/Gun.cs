@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour
     private float _SpeedBullet = 10f;
 
 
+
     private void Awake()
     {
         pools = new List<BulletPool>();
@@ -30,21 +31,27 @@ public class Gun : MonoBehaviour
         pools.Add(pool);
 
         bulletPool = pool;
-
         StartCoroutine(SpawnBullets());
-    }
 
+    }
 
     private void Spawn()
     {
-
-        GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
-        
-        Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
         GameObject target = _autoAim.FindNearestEnemyInRange();
 
+        GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
+        Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+
+        if (target != null)
+        {
+            Vector3 directionToTarget = (target.transform.position - defaultPosition.position).normalized;
+            rb.linearVelocity = directionToTarget * _SpeedBullet;
+        }
+        else
+        {
+            rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
+        }
     }
     private IEnumerator SpawnBullets()
     {
@@ -52,6 +59,7 @@ public class Gun : MonoBehaviour
         {
             yield return new WaitForSeconds(_spawnTimes);
             Spawn();
+
         }
     }
     private void OnCollisionEnter(Collision collision)

@@ -18,6 +18,8 @@ public class BulletPool : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(this.BulletPrefab);
+            obj.GetComponent<Bullet>().Init(this);
+
             obj.SetActive(false);
             pool.Add(obj);
         }

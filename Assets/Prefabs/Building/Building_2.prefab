@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4984657733105976505}
   - component: {fileID: 8251390946594294556}
   - component: {fileID: 6153644495841820630}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Building_2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

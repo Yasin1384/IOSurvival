@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1366173003644953536}
   - component: {fileID: 2691539106163551333}
   - component: {fileID: 197793102740822191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bush_4
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,11 +58,16 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f32795ac20efe24db5bc75b96f6ac3a, type: 2}
-  - {fileID: 2100000, guid: 55a8e210157674a4191e3a2ae9c5b1a5, type: 2}
+  - {fileID: 2100000, guid: 601186bebbb529342abce1d5b6faae4d, type: 2}
+  - {fileID: 2100000, guid: 63fd7bdf2fcb555449d6b0c8d03c83b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +85,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}

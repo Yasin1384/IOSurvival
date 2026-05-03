@@ -28,6 +28,5 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(lifeTime);
         this.gameObject.SetActive(false);
-        Debug.Log(gameObject);
     }
 }

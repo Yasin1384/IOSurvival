@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Transform defaultPosition;
 
-    private float _spawnTimes = 0.5f;
+    private float _spawnTimes = 0.1f;
     private float _SpeedBullet = 10f;
 
 
@@ -39,17 +39,12 @@ public class Gun : MonoBehaviour
     {
         GameObject target = _autoAim.FindNearestEnemyInRange();
 
-        GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
-        Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
+
         if (target != null)
         {
-            Vector3 directionToTarget = (target.transform.position - defaultPosition.position).normalized;
-            rb.linearVelocity = directionToTarget * _SpeedBullet;
-        }
-        else
-        {
+            GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
+            Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
+            rb.useGravity = false;
             rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
         }
     }

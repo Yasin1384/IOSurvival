@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1366173003644953536}
   - component: {fileID: 2691539106163551333}
   - component: {fileID: 197793102740822191}
+  - component: {fileID: 7177162212854940379}
   m_Layer: 3
   m_Name: Bush_4
   m_TagString: Obstacle
@@ -91,3 +92,25 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7177162212854940379
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855007745486109050}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2615067232605357275, guid: b3785c43dd51ba347a7fcefaea52dbdc, type: 3}

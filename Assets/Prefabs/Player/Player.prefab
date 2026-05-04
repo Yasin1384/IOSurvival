@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   _autoAim: {fileID: 2197910631419812692}
-  poolSize: 10
+  poolSize: 50
   bulletPrefab: {fileID: 5473513466018784023, guid: e7d898b3c9bbe3045b3810ff6a8655c3, type: 3}
   defaultPosition: {fileID: 4925132548206278775}
 --- !u!1 &4392147179597143704

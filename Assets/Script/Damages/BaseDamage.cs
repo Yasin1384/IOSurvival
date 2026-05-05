@@ -32,10 +32,9 @@ public class BaseDamage : MonoBehaviour
             GameManager.Instance.GameOver(gameObject);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(10);
         }

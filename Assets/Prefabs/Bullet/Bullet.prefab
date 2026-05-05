@@ -306,6 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24e848f092b8c74fa7a266d44f5ce1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  BulletMeshRenderer: {fileID: 3435729880039465344}
+  BulletTrailRenderer: {fileID: 2391903472753798609}
 --- !u!1 &5900011073525115301
 GameObject:
   m_ObjectHideFlags: 0

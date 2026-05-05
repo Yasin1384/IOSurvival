@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Transform defaultPosition;
 
-    private float _spawnTimes = 0.1f;
+    private float _spawnTimes = 0.5f;
     private float _SpeedBullet = 10f;
 
 
@@ -54,20 +54,6 @@ public class Gun : MonoBehaviour
         {
             yield return new WaitForSeconds(_spawnTimes);
             Spawn();
-
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {        
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Die();
-        }
-        Die();
-    }
-
-    public void Die()
-    {
-        bulletPool.Despawn(gameObject);
     }
 }

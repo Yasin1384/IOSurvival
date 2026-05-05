@@ -2,11 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
-{
-    private void OnCollisionEnter(Collision collision)
+{   private void OnTriggerEnter(Collider other)
     {
-        gameObject.SetActive(false);
         BulletPool.Instance.Despawn(gameObject);
+
     }
 }
 

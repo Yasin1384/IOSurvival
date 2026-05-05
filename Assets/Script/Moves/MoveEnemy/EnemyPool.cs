@@ -7,6 +7,7 @@ public class EnemyPool : MonoBehaviour
     public int poolSize = 10;
 
     private List<GameObject> pool;
+    private List<GameObject> saveingPool;
 
     public void Initialize(GameObject enemyPrefab, int poolSize)
     {
@@ -24,12 +25,15 @@ public class EnemyPool : MonoBehaviour
     }
     public GameObject Spawn(Vector3 position)
     {
+        saveingPool = new List<GameObject>();
+
         foreach (var enemy in pool)
         {
             if (!enemy.activeInHierarchy)
             {
                 enemy.transform.position = position;
                 enemy.SetActive(true);
+
                 return enemy;
             }
         }

@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   _autoAim: {fileID: 2197910631419812692}
+  PlayerType: {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
   speed: 5
   _animator: {fileID: 7353559281024601582}
 --- !u!114 &7175383732632487511
@@ -244,7 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAim
   detectionRadius: 15
-  RotationCharecter: 20
+  rotationSpeed: 5
+  bulletSpeed: 20
 --- !u!1001 &7353559281031936142
 PrefabInstance:
   m_ObjectHideFlags: 0

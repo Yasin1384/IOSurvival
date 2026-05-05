@@ -13,4 +13,6 @@ public class PlayerType_SO : ScriptableObject
     public int Hp;
 
     public float BulletSpeed;
+
+    public float SpeedSpawnBullet;
 }

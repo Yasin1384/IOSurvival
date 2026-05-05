@@ -17,13 +17,16 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Transform defaultPosition;
 
-    private float _spawnTimes = 0.5f;
-    private float _SpeedBullet = 10f;
+    private float _spawnTimes;
+    private float _SpeedBullet;
 
 
 
     private void Awake()
     {
+        PlayerType_SO playerType = GameManager.Instance.PlayerType;
+        _spawnTimes = playerType.SpeedSpawnBullet;
+        _SpeedBullet = playerType.BulletSpeed;
         pools = new List<BulletPool>();
 
         BulletPool pool = gameObject.AddComponent<BulletPool>();

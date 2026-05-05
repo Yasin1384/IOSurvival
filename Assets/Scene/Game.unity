@@ -2636,6 +2636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c281252b3be3925499471b210675d14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  PlayerType: {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
   cameraFollow: {fileID: 1398071067}
   playerPrefab: {fileID: 4392147179597143704, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
   spawnPos: {x: 0, y: 0, z: -30}

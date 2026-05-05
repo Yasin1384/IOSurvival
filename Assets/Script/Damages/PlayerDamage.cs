@@ -3,13 +3,18 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     private IDamageStratgy _damageStratgy;
-    private int _damage = 30;
+    private int _damage;
     private void Start()
     {
-        SetDamage(new NormalDamageStratgy());
+        var damage = GameManager.Instance.PlayerType;
+        _damage = damage.Hp;
+        SetDamage(_damageStratgy);
     }
     private void SetDamage(IDamageStratgy damageStratgy)
     {
+
+        Debug.Log(_damage);
+
         _damageStratgy = new NormalDamageStratgy();
     }
 

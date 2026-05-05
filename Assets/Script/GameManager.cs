@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
 
-
+    public PlayerType_SO PlayerType;
     public CameraFollow cameraFollow;
     public GameObject playerPrefab;
     public Vector3 spawnPos;

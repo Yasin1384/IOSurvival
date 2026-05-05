@@ -32,6 +32,8 @@ public class MovementEnemy : MonoBehaviour
     {
         this.enemyType_SO = enemyType_SO;
 
+        NavMeshAgentAi.speed = enemyType_SO.Speed;
+
         if (player != null)
         {
             Vector3 targetPlayer = new Vector3(player.position.x, transform.position.y, player.position.z);

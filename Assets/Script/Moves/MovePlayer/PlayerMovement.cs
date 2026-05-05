@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private AutoAim _autoAim;
 
-    public float speed = 10f;
+    public float speed;
     Rigidbody rb;
 
     IStrategyMove moveStrategy;
@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        PlayerType_SO playerType = GameManager.Instance.PlayerType;
+        speed = playerType.Speed;
         rb = GetComponent<Rigidbody>();
         moveStrategy = new JoystickMove();
     }

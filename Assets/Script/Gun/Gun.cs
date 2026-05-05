@@ -42,10 +42,22 @@ public class Gun : MonoBehaviour
 
         if (target != null)
         {
+            Vector3 predictedPos = _autoAim.PredictEnemyPosition(target);
+
             GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
+
+            Bullet bullet = bulletInstance.GetComponent<Bullet>();
+            
+            bullet.SetPool(bulletPool);
+
             Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
             rb.useGravity = false;
-            rb.linearVelocity = defaultPosition.forward * _SpeedBullet;
+
+            Vector3 direction = (predictedPos - defaultPosition.position).normalized;
+
+            rb.linearVelocity = direction * _SpeedBullet;
+
+            bulletInstance.transform.forward = direction;
         }
     }
     private IEnumerator SpawnBullets()

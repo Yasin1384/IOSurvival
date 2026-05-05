@@ -2,10 +2,20 @@ using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
-{   private void OnTriggerEnter(Collider other)
-    {
-        BulletPool.Instance.Despawn(gameObject);
+{
+    private BulletPool pool;
 
+    public void SetPool(BulletPool p)
+    {
+        pool = p;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (pool != null)
+        {
+            pool.Despawn(gameObject);
+        }
     }
 }
 

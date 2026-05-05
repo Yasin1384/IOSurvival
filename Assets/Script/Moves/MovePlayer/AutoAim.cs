@@ -4,7 +4,33 @@ using static UnityEngine.GraphicsBuffer;
 public class AutoAim : MonoBehaviour
 {
     public float detectionRadius = 10f;
-    public float RotationCharecter;
+    public float rotationSpeed = 5f;
+    public float bulletSpeed = 20f;
+
+    private Rigidbody rb;
+
+    private Vector3 lastEnemyPosition;
+    private GameObject currentTarget;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        if (rb == null)
+        {
+            Debug.LogWarning("AutoAim requires a Rigidbody.");
+        }
+    }
+
+    void FixedUpdate()
+    {
+        currentTarget = FindNearestEnemyInRange();
+
+        if (currentTarget != null)
+        {
+            RotateToEnemy(currentTarget);
+        }
+    }
 
     public GameObject FindNearestEnemyInRange()
     {
@@ -29,19 +55,43 @@ public class AutoAim : MonoBehaviour
 
     public void RotateToEnemy(GameObject enemy)
     {
-        Vector3 targetPosition = enemy.transform.position;
-        targetPosition.y = 0;
+        Vector3 predictedPosition = PredictEnemyPosition(enemy);
 
-        Vector3 directionToTarget = targetPosition - transform.position;
-        directionToTarget.y = 0;
-        directionToTarget.Normalize();
+        Vector3 direction = predictedPosition - rb.position;
+        direction.y = 0f;
 
-        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+        if (direction.sqrMagnitude < 0.001f)
+            return;
 
-        transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            lookRotation,
-            Time.deltaTime * RotationCharecter
-            );
+        direction.Normalize();
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        rb.MoveRotation(Quaternion.Lerp(
+            rb.rotation,
+            targetRotation,
+            Time.fixedDeltaTime * rotationSpeed
+        ));
+    }
+
+    public Vector3 PredictEnemyPosition(GameObject enemy)
+    {
+        Vector3 currentPos = enemy.transform.position;
+
+        if (enemy != currentTarget)
+        {
+            lastEnemyPosition = currentPos;
+            return currentPos;
+        }
+
+        Vector3 velocity = (currentPos - lastEnemyPosition) / Time.fixedDeltaTime;
+
+        lastEnemyPosition = currentPos;
+
+        float distance = Vector3.Distance(transform.position, currentPos);
+
+        float timeToHit = distance / bulletSpeed;
+
+        return currentPos + velocity * timeToHit;
     }
 }

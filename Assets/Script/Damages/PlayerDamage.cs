@@ -36,7 +36,6 @@ public class PlayerDamage : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(10);
-
         }
     }
 

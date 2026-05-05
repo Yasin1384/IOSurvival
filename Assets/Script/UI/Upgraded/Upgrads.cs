@@ -9,6 +9,7 @@ public class Upgrads : MonoBehaviour
 
     private void Start()
     {
+        
         HpUpgrad();
     }
 

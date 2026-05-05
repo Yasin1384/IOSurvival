@@ -30,8 +30,8 @@ public class TimerGame : MonoBehaviour
 
             if (remaining.TotalSeconds <= 0)
             {
-                SceneManager.LoadScene(sceneToLoad);
-
+                GameManager.Instance.WinGame();
+                CurrencyManager.Instance.AddCoin(100);
                 yield break;
             }
             _timerText.text = $"{remaining.Minutes:00}:{remaining.Seconds:00}";

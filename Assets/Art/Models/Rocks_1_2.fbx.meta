@@ -1,19 +1,19 @@
 fileFormatVersion: 2
 guid: cf37cd465559fae4a9606af88d928d97
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Grass.003
-    second: {fileID: 2100000, guid: eea91ad8041fece4facc271f1d7c504d, type: 2}
+    second: {fileID: 2100000, guid: 733de528c86bffc4fad9af4b8aba7631, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rocks.001
-    second: {fileID: 2100000, guid: abcfa3c62ea5be941999fdb79a451ff3, type: 2}
+    second: {fileID: 2100000, guid: bc3521976cfaecb4285f65e565f04382, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -26,8 +26,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -68,6 +66,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
 guid: b3785c43dd51ba347a7fcefaea52dbdc
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bush.002
-    second: {fileID: 2100000, guid: c55838b623244b042a9f0efec77f9c28, type: 2}
+    second: {fileID: 2100000, guid: 601186bebbb529342abce1d5b6faae4d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: REd.001
-    second: {fileID: 2100000, guid: 009083a5a6927654fb7a3527ffaca9a2, type: 2}
+    second: {fileID: 2100000, guid: 63fd7bdf2fcb555449d6b0c8d03c83b7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -26,8 +26,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -68,6 +66,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

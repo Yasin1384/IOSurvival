@@ -1,79 +1,79 @@
 fileFormatVersion: 2
 guid: ee07a42e67cf378428d6a8ee02575483
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Clay.001
-    second: {fileID: 2100000, guid: 3dd27136b63ff304b896669454575515, type: 2}
+    second: {fileID: 2100000, guid: 52d1cbf10c9951f44a36148c9e429cba, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Concrate.001
-    second: {fileID: 2100000, guid: 374c06e9f13e22742b9650f22bcfcced, type: 2}
+    second: {fileID: 2100000, guid: c91dd34cba6467045bcaaa837c40563f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: REd.001
-    second: {fileID: 2100000, guid: 009083a5a6927654fb7a3527ffaca9a2, type: 2}
+    second: {fileID: 2100000, guid: 1a72ffe59a92eb848965a347265bc38a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rock02.002
-    second: {fileID: 2100000, guid: 04380e05e7c4ee0409492c479b66bde0, type: 2}
+    second: {fileID: 2100000, guid: b277beb11ac9924459b876841a1163af, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rocks.001
-    second: {fileID: 2100000, guid: abcfa3c62ea5be941999fdb79a451ff3, type: 2}
+    second: {fileID: 2100000, guid: 2470bb19d2d111c4682af9c02716791d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Roof.006
-    second: {fileID: 2100000, guid: 168e1bc7f8e234d4d93f51a00aebd3b7, type: 2}
+    second: {fileID: 2100000, guid: e4c6a6d5f4aea904f8e0a7cb06667c27, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wall.002
-    second: {fileID: 2100000, guid: 3dd27136b63ff304b896669454575515, type: 2}
+    second: {fileID: 2100000, guid: d1e789325fce0a04ab342710c7716c45, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wall2.001
-    second: {fileID: 2100000, guid: 374c06e9f13e22742b9650f22bcfcced, type: 2}
+    second: {fileID: 2100000, guid: bb5ec9031642ae04387929f031cc5777, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wood_1.004
-    second: {fileID: 2100000, guid: c6c488a6f520c8847b916fdc4e80c114, type: 2}
+    second: {fileID: 2100000, guid: d7d3808d291743146a70acd7167cc7de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wood_2.001
-    second: {fileID: 2100000, guid: 6ad75fb6a28adaa4f898320a4e393197, type: 2}
+    second: {fileID: 2100000, guid: 3b754a76d4ba2e244afda120513c9893, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wood_4.001
-    second: {fileID: 2100000, guid: 91eefb9926a596845b7f12bcc0bdce5e, type: 2}
+    second: {fileID: 2100000, guid: 0456c816992528c4497778b8d23e76c4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: b1.001
-    second: {fileID: 2100000, guid: 3dd27136b63ff304b896669454575515, type: 2}
+    second: {fileID: 2100000, guid: 8dfd12060010bf940b24f0bff69e18b5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: b2.001
-    second: {fileID: 2100000, guid: abcfa3c62ea5be941999fdb79a451ff3, type: 2}
+    second: {fileID: 2100000, guid: be398f752f848294aa17f571bdf9f6e2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: window
-    second: {fileID: 2100000, guid: e79a27b49cf23fb449e7fb994d680ad0, type: 2}
+    second: {fileID: 2100000, guid: 7b6ee15c7b7e4cb41a74db8be9eb2495, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -86,8 +86,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -128,6 +126,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

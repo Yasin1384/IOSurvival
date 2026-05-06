@@ -16,6 +16,8 @@ public class TimerGame : MonoBehaviour
     public event Action<int> OnMinutePassed;
     public event Action OnTwoMinutesLeft;
     public event Action OnOneMinuteLeft;
+
+
     private void Start()
     {
         _endTimer = DateTime.Now.AddMinutes(_timeLow);
@@ -31,7 +33,9 @@ public class TimerGame : MonoBehaviour
             if (remaining.TotalSeconds <= 0)
             {
                 GameManager.Instance.WinGame();
-                CurrencyManager.Instance.AddCoin(100);
+                CurrencyManager.Instance.AddCoin(100); 
+                XpPlayer.Instance.AddXP(50);
+
                 yield break;
             }
             _timerText.text = $"{remaining.Minutes:00}:{remaining.Seconds:00}";

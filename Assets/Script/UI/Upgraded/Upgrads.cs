@@ -15,11 +15,12 @@ public class Upgrads : MonoBehaviour
 
     private void HpUpgrad()
     {
-        var playerType = GameManager.Instance.PlayerType;
 
         speedButton.onClick.RemoveAllListeners();
         speedButton.onClick.AddListener(() =>
         {
+            var playerType = GameManager.Instance.PlayerType;
+
             float speed = playerType.Speed + 2;
 
             playerType.Speed = speed;
@@ -28,6 +29,8 @@ public class Upgrads : MonoBehaviour
         hpButton.onClick.RemoveAllListeners();
         hpButton.onClick.AddListener(() =>
         {
+            var playerType = GameManager.Instance.PlayerType;
+
             int hp = playerType.Hp + 2;
 
             playerType.Hp = hp;
@@ -36,6 +39,8 @@ public class Upgrads : MonoBehaviour
         gunButton.onClick.RemoveAllListeners();
         gunButton.onClick.AddListener(() =>
         {
+            var playerType = GameManager.Instance.PlayerType;
+
             float speedSpawnBullet = playerType.SpeedSpawnBullet + 2;
             float bulletSpeed = playerType.BulletSpeed + 2;
 

@@ -1,10 +1,9 @@
-using System.Drawing;
 using UnityEngine;
 
 public class XpPlayer : MonoBehaviour
 {
     public static XpPlayer Instance;
-
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)

@@ -1,9 +1,15 @@
+using System.Drawing;
 using UnityEngine;
 
 public class XpPlayer : MonoBehaviour
 {
     public static XpPlayer Instance;
-    
+    private const string SAVE_KEY = "CURRENCY_SAVE";
+
+    public int currentLevel = 1;
+    public int currentXP = 0;
+    public int xpToNextLevel = 100;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -12,13 +18,10 @@ public class XpPlayer : MonoBehaviour
             return;
         }
         Instance = this;
-        LoadProgress();
+        LoadXp();
         DontDestroyOnLoad(gameObject);
 
     }
-    public int currentLevel = 1;
-    public int currentXP = 0;
-    public int xpToNextLevel = 100;
 
     public void AddXP(int amount)
     {
@@ -30,7 +33,7 @@ public class XpPlayer : MonoBehaviour
             LevelUp();
 
         }
-        SaveProgress();
+        SaveXp();
     }
 
     private void LevelUp()
@@ -43,32 +46,39 @@ public class XpPlayer : MonoBehaviour
     {
         return Mathf.RoundToInt(xpToNextLevel * 1.25f);
     }
-    private void SaveProgress()
+
+    private void SaveXp()
     {
-        PlayerPrefs.SetInt("SavedLevel", currentLevel);
-        PlayerPrefs.SetInt("SavedXP", currentXP);
-        PlayerPrefs.SetInt("SavedXPToNextLevel", xpToNextLevel);
+        SaveCurrencyData data = new SaveCurrencyData();
+        WriteToSaveData(data);
+
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString(SAVE_KEY, json);
         PlayerPrefs.Save();
-        Debug.Log("Progress Saved: Level=" + currentLevel + ", XP=" + currentXP + "/" + xpToNextLevel);
     }
 
-    private void LoadProgress()
+    private void LoadXp()
     {
-        currentLevel = PlayerPrefs.GetInt("SavedLevel", 1);
-        currentXP = PlayerPrefs.GetInt("SavedXP", 0);
-        xpToNextLevel = PlayerPrefs.GetInt("SavedXPToNextLevel", 100);
+        if (!PlayerPrefs.HasKey(SAVE_KEY))
+            return;
 
+        string json = PlayerPrefs.GetString(SAVE_KEY);
+        SaveCurrencyData data = JsonUtility.FromJson<SaveCurrencyData>(json);
 
-        if (currentLevel == 1 && currentXP == 0 && xpToNextLevel == 100)
-        {
-            if (!PlayerPrefs.HasKey("SavedLevel"))
-            {
-                currentLevel = 1;
-                currentXP = 0;
-                xpToNextLevel = 100;
-            }
-        }
+        ReadFromSaveData(data);
+    }
 
-        Debug.Log("Progress Loaded: Level=" + currentLevel + ", XP=" + currentXP + "/" + xpToNextLevel);
+    public void WriteToSaveData(SaveCurrencyData data)
+    {
+        data.currentLevel = currentLevel;
+        data.xpToNextLevel = xpToNextLevel;
+        data.currentXP = currentXP;
+    }
+
+    public void ReadFromSaveData(SaveCurrencyData data)
+    {
+        currentLevel = data.currentLevel;
+        xpToNextLevel = data.xpToNextLevel;
+        currentXP = data.currentXP;
     }
 }

@@ -5,6 +5,23 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
+
+    public static UiManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public PlayerType_SO playerType_SO;
+
     [SerializeField] private Button button;
     [SerializeField] private string sceneToLoad;
 
@@ -21,7 +38,5 @@ public class UiManager : MonoBehaviour
         {
             SceneManager.LoadScene(sceneToLoad);
         });
-
-
     }
 }

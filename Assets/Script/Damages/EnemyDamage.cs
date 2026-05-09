@@ -14,7 +14,7 @@ public class EnemyDamage : MonoBehaviour
     {
         EnemyManager.Instance.LoadDamageEnemy();
         currentHp = EnemyManager.Instance.CurrentHp;
-        
+
         EnemyType_SO = data;
         _damageStratgy = new NormalDamageStratgy();
     }

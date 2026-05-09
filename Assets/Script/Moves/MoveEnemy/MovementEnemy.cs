@@ -1,6 +1,8 @@
+using Unity.Android.Gradle.Manifest;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.Progress;
 
 public class MovementEnemy : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class MovementEnemy : MonoBehaviour
     
     private Vector3 moveDir;
 
+    public NavMeshAgent NavMeshAgentAI;
 
     void Start()
     {
@@ -38,7 +41,10 @@ public class MovementEnemy : MonoBehaviour
 
         this.enemyType_SO = enemyType_SO;
 
-        enemyManager.NavMeshAgentAi.speed = enemyType_SO.Speed;
+
+        NavMeshAgentAI.speed = enemyType_SO.Speed;
+
+        enemyManager.Speed = NavMeshAgentAI.speed;
 
         enemyManager.SaveSpeedEnemy();
 
@@ -46,7 +52,8 @@ public class MovementEnemy : MonoBehaviour
         {
             Vector3 targetPlayer = new Vector3(player.position.x, transform.position.y, player.position.z);
 
-            enemyManager.NavMeshAgentAi.SetDestination(targetPlayer);
+            NavMeshAgentAI.SetDestination(targetPlayer);
+
         }
     }
 

@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementEnemy
   playerTag: Base
-  NavMeshAgentAi: {fileID: 5631787549079771599}
+  NavMeshAgentAI: {fileID: 5631787549079771599}
 --- !u!114 &7980455561420812014
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,11 +9,8 @@ public class EnemyManager : MonoBehaviour, ISaveEnemy
 
     private const string SAVE_KEY = "DATAENEMY_SAVE";
 
-    public NavMeshAgent NavMeshAgentAi;
-
-
+    public float Speed;
     public int CurrentHp;
-
 
     private void Awake()
     {
@@ -70,12 +69,15 @@ public class EnemyManager : MonoBehaviour, ISaveEnemy
     public void WriteToSaveData(SaveEnemyData data)
     {
         data.Hp = CurrentHp;
-        data.Speed = NavMeshAgentAi.speed;
+
+        data.Speed = Speed;
+
     }
 
     public void ReadFromSaveData(SaveEnemyData data)
     {
         CurrentHp = data.Hp;
-        NavMeshAgentAi.speed = data.Speed;
+        Speed = data.Speed;
+
     }
 }

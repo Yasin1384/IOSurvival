@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   _autoAim: {fileID: 2197910631419812692}
-  PlayerType: {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
   speed: 5
   _animator: {fileID: 7353559281024601582}
 --- !u!114 &7175383732632487511
@@ -255,7 +254,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6396455195278411202}
     m_Modifications:
+    - target: {fileID: 100000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100040, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100058, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

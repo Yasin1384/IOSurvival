@@ -31,9 +31,8 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         text.text = CurrencyManager.Instance.coins.ToString();
-
-        textXP.text = XpPlayer.Instance.currentXP.ToString();
-        textEndXP.text = XpPlayer.Instance.xpToNextLevel.ToString();
+        textXP.text = CurrencyManager.Instance.currentXP.ToString();
+        textEndXP.text = CurrencyManager.Instance.xpToNextLevel.ToString();
         button.onClick.AddListener(() =>
         {
             SceneManager.LoadScene(sceneToLoad);

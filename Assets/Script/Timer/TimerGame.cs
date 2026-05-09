@@ -33,8 +33,8 @@ public class TimerGame : MonoBehaviour
             if (remaining.TotalSeconds <= 0)
             {
                 GameManager.Instance.WinGame();
-                CurrencyManager.Instance.AddCoin(100); 
-                XpPlayer.Instance.AddXP(50);
+                CurrencyManager.Instance.AddXP(50);
+                CurrencyManager.Instance.AddCoin(50); 
 
                 yield break;
             }

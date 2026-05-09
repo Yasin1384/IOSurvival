@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
         {
             pool.Despawn(gameObject);
         }
+        pool.Despawn(gameObject);
     }
 }
 

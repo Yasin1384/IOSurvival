@@ -4,8 +4,6 @@ using UnityEngine.AI;
 
 public class MovementEnemy : MonoBehaviour
 {
-    private const string SAVE_KEY = "DATAENEMY_SAVE";
-
     public string playerTag = "";
 
     private Transform player;
@@ -14,13 +12,13 @@ public class MovementEnemy : MonoBehaviour
     
     private Vector3 moveDir;
 
-    public NavMeshAgent NavMeshAgentAi;
-
-
 
     void Start()
     {
-        LoadSpeed();
+        var enemyManager = EnemyManager.Instance;
+
+        enemyManager.LoadSpeedEnemy();
+
         GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
         if (playerObj != null)
             player = playerObj.transform;
@@ -35,53 +33,25 @@ public class MovementEnemy : MonoBehaviour
 
     public void SpeedSnemies(EnemyType_SO enemyType_SO)
     {
+        var enemyManager = EnemyManager.Instance;
+
+
         this.enemyType_SO = enemyType_SO;
 
-        NavMeshAgentAi.speed = enemyType_SO.Speed;
+        enemyManager.NavMeshAgentAi.speed = enemyType_SO.Speed;
 
-        SaveSpeed();
+        enemyManager.SaveSpeedEnemy();
 
         if (player != null)
         {
             Vector3 targetPlayer = new Vector3(player.position.x, transform.position.y, player.position.z);
 
-            NavMeshAgentAi.SetDestination(targetPlayer);
+            enemyManager.NavMeshAgentAi.SetDestination(targetPlayer);
         }
     }
+
     public void Die()
     {
         enemyPool.Despawn(gameObject);
-    }
-
-
-    private void SaveSpeed()
-    {
-        SaveEnemyData data = new SaveEnemyData();
-        WriteToSaveData(data);
-
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(SAVE_KEY, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadSpeed()
-    {
-        if (!PlayerPrefs.HasKey(SAVE_KEY))
-            return;
-
-        string json = PlayerPrefs.GetString(SAVE_KEY);
-        SaveEnemyData data = JsonUtility.FromJson<SaveEnemyData>(json);
-
-        ReadFromSaveData(data);
-    }
-
-    public void WriteToSaveData(SaveEnemyData data)
-    {
-        data.Speed = NavMeshAgentAi.speed;
-    }
-
-    public void ReadFromSaveData(SaveEnemyData data)
-    {
-        NavMeshAgentAi.speed = data.Hp;
     }
 }

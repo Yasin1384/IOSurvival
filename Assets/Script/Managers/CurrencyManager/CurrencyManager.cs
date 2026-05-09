@@ -1,28 +1,33 @@
 using System.Drawing;
 using UnityEngine;
 
-public class XpPlayer : MonoBehaviour
+public class CurrencyManager : MonoBehaviour, ISavable
 {
-    public static XpPlayer Instance;
-    private const string SAVE_KEY = "CURRENCY_SAVE";
+    public static CurrencyManager Instance;
+    public const string SAVE_KEY = "CURRENCY_SAVE";
+
+
 
     public int currentLevel = 1;
     public int currentXP = 0;
     public int xpToNextLevel = 100;
+    public int coins {  get; private set; }
+
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance == null)
+        {
+            Instance = this;
+            LoadCurrnecy();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-        Instance = this;
-        LoadXp();
-        DontDestroyOnLoad(gameObject);
-
     }
-
+    // XP 
     public void AddXP(int amount)
     {
         currentXP += amount;
@@ -33,21 +38,40 @@ public class XpPlayer : MonoBehaviour
             LevelUp();
 
         }
-        SaveXp();
+        SaveCurrnecy();
     }
-
     private void LevelUp()
     {
         currentLevel++;
         xpToNextLevel = CalculateNextXP();
     }
-
     private int CalculateNextXP()
     {
         return Mathf.RoundToInt(xpToNextLevel * 1.25f);
     }
 
-    private void SaveXp()
+    // Coin
+
+    public void AddCoin(int amount)
+    {
+        coins += amount;
+        SaveCurrnecy();
+    }
+
+    public bool SpendCoins(int amount)
+    {
+        if (coins >= amount)
+        {
+            coins -= amount;
+            return true;
+        }
+        SaveCurrnecy();
+        return false;
+    }
+
+
+    // SVE DATA JSON
+    private void SaveCurrnecy()
     {
         SaveCurrencyData data = new SaveCurrencyData();
         WriteToSaveData(data);
@@ -57,7 +81,7 @@ public class XpPlayer : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void LoadXp()
+    private void LoadCurrnecy()
     {
         if (!PlayerPrefs.HasKey(SAVE_KEY))
             return;
@@ -67,9 +91,9 @@ public class XpPlayer : MonoBehaviour
 
         ReadFromSaveData(data);
     }
-
     public void WriteToSaveData(SaveCurrencyData data)
     {
+        data.Coins = coins;
         data.currentLevel = currentLevel;
         data.xpToNextLevel = xpToNextLevel;
         data.currentXP = currentXP;
@@ -77,6 +101,7 @@ public class XpPlayer : MonoBehaviour
 
     public void ReadFromSaveData(SaveCurrencyData data)
     {
+        coins = data.Coins;
         currentLevel = data.currentLevel;
         xpToNextLevel = data.xpToNextLevel;
         currentXP = data.currentXP;

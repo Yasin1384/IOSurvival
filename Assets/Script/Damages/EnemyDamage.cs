@@ -1,24 +1,21 @@
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour, ISaveEnemy
+public class EnemyDamage : MonoBehaviour
 {
-    private const string SAVE_KEY = "DATAENEMY_SAVE";
-
     private IDamageStratgy _damageStratgy;
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
-
     private void Awake()
     {
-        SaveDamage();
+        EnemyManager.Instance.SaveDamageEnemy();
     }
+
     public void Init(EnemyType_SO data)
     {
-        LoadDamage();
-        EnemyType_SO = data;
+        EnemyManager.Instance.LoadDamageEnemy();
+        currentHp = EnemyManager.Instance.CurrentHp;
         
-        currentHp = data.Hp;
-
+        EnemyType_SO = data;
         _damageStratgy = new NormalDamageStratgy();
     }
 
@@ -33,6 +30,7 @@ public class EnemyDamage : MonoBehaviour, ISaveEnemy
             GetComponent<MovementEnemy>().Die();
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet"))
@@ -43,36 +41,5 @@ public class EnemyDamage : MonoBehaviour, ISaveEnemy
         {
             TakeDamage(currentHp);
         }
-    }
-
-    private void SaveDamage()
-    {
-        SaveEnemyData data = new SaveEnemyData();
-        WriteToSaveData(data);
-
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(SAVE_KEY, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadDamage()
-    {
-        if (!PlayerPrefs.HasKey(SAVE_KEY))
-            return;
-
-        string json = PlayerPrefs.GetString(SAVE_KEY);
-        SaveEnemyData data = JsonUtility.FromJson<SaveEnemyData>(json);
-
-        ReadFromSaveData(data);
-    }
-
-    public void WriteToSaveData(SaveEnemyData data)
-    {
-        data.Hp = currentHp;
-    }
-
-    public void ReadFromSaveData(SaveEnemyData data)
-    {
-        currentHp = data.Hp;
     }
 }

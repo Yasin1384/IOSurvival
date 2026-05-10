@@ -12,10 +12,16 @@ public class EnemyDamage : MonoBehaviour
 
     public void Init(EnemyType_SO data)
     {
-        EnemyManager.Instance.LoadDamageEnemy();
-        currentHp = EnemyManager.Instance.CurrentHp;
-
+        float enemyHp = EnemyManager.Instance.CurrentHp;
+        
         EnemyType_SO = data;
+        
+        currentHp = data.Hp;
+
+        EnemyManager.Instance.LoadDamageEnemy();
+
+        enemyHp = currentHp;
+
         _damageStratgy = new NormalDamageStratgy();
     }
 

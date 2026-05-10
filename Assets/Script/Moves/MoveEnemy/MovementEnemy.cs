@@ -41,7 +41,6 @@ public class MovementEnemy : MonoBehaviour
 
         this.enemyType_SO = enemyType_SO;
 
-
         NavMeshAgentAI.speed = enemyType_SO.Speed;
 
         enemyManager.Speed = NavMeshAgentAI.speed;

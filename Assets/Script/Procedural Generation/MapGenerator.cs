@@ -20,10 +20,14 @@ public class MapGenerator : MonoBehaviour
     public float xOffset = 0f;
     public float yOffset = 0f;
     public float zOffset = 0f;
-
+    
+    [Range(0f, 1f)]
     public float percentage;
+    public float centerExclusionRadius = 1f;
+
 
     public NavMeshSurface meshSurface;
+
 
     void Start()
     {
@@ -48,13 +52,16 @@ public class MapGenerator : MonoBehaviour
 
     void GenerateForestTiles()
     {
+        Vector2 mapCenter = new Vector2(mapWidth / 2f, mapHeight / 2f);
+
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                if (Random.value < percentage)
+                Vector2 currentPosition = new Vector2(x, y);
+                if (Vector2.Distance(currentPosition, mapCenter) > centerExclusionRadius)
                 {
-                    if (mapData[x, y] == TileType.Ground)
+                    if (mapData[x, y] == TileType.Ground && Random.value < percentage)
                     {
                         mapData[x, y] = TileType.Tree;
                     }
@@ -63,13 +70,15 @@ public class MapGenerator : MonoBehaviour
         }
 
 
+
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                if (Random.value < percentage)
+                Vector2 currentPosition = new Vector2(x, y);
+                if (Vector2.Distance(currentPosition, mapCenter) > centerExclusionRadius)
                 {
-                    if (mapData[x, y] == TileType.Ground)
+                    if (mapData[x, y] == TileType.Ground && Random.value < percentage)
                     {
                         mapData[x, y] = TileType.Bush;
                     }
@@ -98,14 +107,14 @@ public class MapGenerator : MonoBehaviour
                         if (treePrefab != null)
                         {
                             Vector3 treePosition = position + new Vector3(xOffset, yOffset, zOffset);
-                            Quaternion treeRotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
+                            Quaternion treeRotation = Quaternion.Euler(0, Random.Range(0f, 0f), 0);
                             tileObject = Instantiate(treePrefab, treePosition, treeRotation, parent);
                         }
                         break;
                     case TileType.Bush:
                         {
                             Vector3 bushPosition = position + new Vector3(xOffset, yOffset, zOffset);
-                            Quaternion bushRotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
+                            Quaternion bushRotation = Quaternion.Euler(0, Random.Range(0f, 0), 0);
                             tileObject = Instantiate(bushPrefab, bushPosition, bushRotation, parent);
                             meshSurface.BuildNavMesh();
                         }

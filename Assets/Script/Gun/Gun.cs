@@ -27,14 +27,10 @@ public class Gun : MonoBehaviour, ISavePlayer
     {
         playerTypes = GameManager.Instance.PlayerTypes;
 
-        Debug.Log("Hay" + playerTypes);
-
-
         foreach (var item in playerTypes)
         {
             _spawnTimes = item.SpeedSpawnBullet;
             _SpeedBullet = item.BulletSpeed;
-            Debug.Log("Hay" + _spawnTimes);
         }
     }
 

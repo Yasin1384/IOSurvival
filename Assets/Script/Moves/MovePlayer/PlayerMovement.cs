@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Properties;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -8,18 +9,24 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
 
     [SerializeField] private AutoAim _autoAim;
 
-    public float speed;
+    private float speed;
     Rigidbody rb;
 
     IStrategyMove moveStrategy;
+
+    private List<PlayerType_SO> PlayerTypes = new List<PlayerType_SO>();
 
     [SerializeField] private Animator _animator;
 
     void Awake()
     {
         LoadSpeed();
-        PlayerType_SO playerType = GameManager.Instance.PlayerType;
-        speed = playerType.Speed;
+        PlayerTypes = GameManager.Instance.PlayerTypes;
+        foreach (var item in PlayerTypes)
+        {
+            speed = item.Speed;
+        }
+
         rb = GetComponent<Rigidbody>();
         moveStrategy = new JoystickMove();
 

@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour, ISavePlayer
     [SerializeField] private GameObject bulletPrefab;
 
     private List<BulletPool> pools = new List<BulletPool>();
+    private List<PlayerType_SO> playerTypes = new List<PlayerType_SO>();
 
     private BulletPool bulletPool;
 
@@ -22,15 +23,27 @@ public class Gun : MonoBehaviour, ISavePlayer
     private float _spawnTimes;
     private float _SpeedBullet;
 
+    private void Start()
+    {
+        playerTypes = GameManager.Instance.PlayerTypes;
 
+        Debug.Log("Hay" + playerTypes);
+
+
+        foreach (var item in playerTypes)
+        {
+            _spawnTimes = item.SpeedSpawnBullet;
+            _SpeedBullet = item.BulletSpeed;
+            Debug.Log("Hay" + _spawnTimes);
+        }
+    }
 
     private void Awake()
     {
         LoadSpeedBullet();
 
-        PlayerType_SO playerType = GameManager.Instance.PlayerType;
-        _spawnTimes = playerType.SpeedSpawnBullet;
-        _SpeedBullet = playerType.BulletSpeed;
+
+
         pools = new List<BulletPool>();
 
         BulletPool pool = gameObject.AddComponent<BulletPool>();
@@ -45,8 +58,9 @@ public class Gun : MonoBehaviour, ISavePlayer
 
     private void Spawn()
     {
-        GameObject target = _autoAim.FindNearestEnemyInRange();
+        Debug.Log(_spawnTimes);
 
+        GameObject target = _autoAim.FindNearestEnemyInRange();
 
         if (target != null)
         {
@@ -71,6 +85,7 @@ public class Gun : MonoBehaviour, ISavePlayer
     }
     private IEnumerator SpawnBullets()
     {
+
         while (true)
         {
             yield return new WaitForSeconds(_spawnTimes);

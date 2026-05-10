@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour, ISavePlayer
 {
@@ -7,11 +9,16 @@ public class PlayerDamage : MonoBehaviour, ISavePlayer
 
     private IDamageStratgy _damageStratgy;
     private int _damage;
-
+    private List<PlayerType_SO> playerTypes = new List<PlayerType_SO>();
     private void Start()
     {
-        var damage = GameManager.Instance.PlayerType;
-        _damage = damage.Hp;
+        playerTypes = GameManager.Instance.PlayerTypes;
+
+        foreach (var item in playerTypes)
+        {
+            _damage = item.Hp;
+        }
+
         SetDamage(_damageStratgy);
         SaveDamage();
     }

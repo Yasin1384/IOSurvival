@@ -735,8 +735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiManager
   playerType_SO: {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
+  gunType_SO: {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
   button: {fileID: 1806126542}
-  buttonDelete: {fileID: 1542675778}
   sceneToLoad: Game
   text: {fileID: 1792872166}
   textXP: {fileID: 1501571756}
@@ -768,6 +768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603c19217227f1345850b8a08fbc4c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
+  currentLevel: 1
+  currentXP: 0
+  xpToNextLevel: 100
 --- !u!114 &932323997
 MonoBehaviour:
   m_ObjectHideFlags: 0

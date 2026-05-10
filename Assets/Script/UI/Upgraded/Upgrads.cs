@@ -10,12 +10,17 @@ public class Upgrads : MonoBehaviour
 
     private void Start()
     {
-        var playerType = UiManager.Instance.playerType_SO;
+        //var playerType = GameManager.Instance.PlayerTypes;
+        //var gunType = GameManager.Instance.GunTypes;
 
-        HpUpgrad(playerType);
+        //foreach (var item in gunType)
+        //{
+            
+        //}
+        //HpUpgrad(playerType, gunType);
     }
 
-    private void HpUpgrad(PlayerType_SO playerType)
+    private void HpUpgrad(PlayerType_SO playerType, GunTypes_SO gunTypes_SO)
     {
 
         speedButton.onClick.RemoveAllListeners();
@@ -40,11 +45,11 @@ public class Upgrads : MonoBehaviour
         gunButton.onClick.RemoveAllListeners();
         gunButton.onClick.AddListener(() =>
         {
-            float speedSpawnBullet = playerType.SpeedSpawnBullet + 2;
-            float bulletSpeed = playerType.BulletSpeed + 2;
+            float speedSpawnBullet = gunTypes_SO.SpeedSpawnBullet + 2;
+            float bulletSpeed = gunTypes_SO.BulletSpeed + 2;
 
-            playerType.SpeedSpawnBullet = speedSpawnBullet;
-            playerType.BulletSpeed = bulletSpeed;
+            gunTypes_SO.SpeedSpawnBullet = speedSpawnBullet;
+            gunTypes_SO.BulletSpeed = bulletSpeed;
         });
     }
 }

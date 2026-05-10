@@ -20,8 +20,6 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public PlayerType_SO playerType_SO;
-
     [SerializeField] private Button button;
     [SerializeField] private string sceneToLoad;
 

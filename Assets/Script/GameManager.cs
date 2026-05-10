@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public List<PlayerType_SO> PlayerTypes;
+    public List<GunTypes_SO> GunTypes;
     public CameraFollow cameraFollow;
     public GameObject playerPrefab;
     public Vector3 spawnPos;

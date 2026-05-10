@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour, ISavePlayer
     [SerializeField] private GameObject bulletPrefab;
 
     private List<BulletPool> pools = new List<BulletPool>();
-    private List<PlayerType_SO> playerTypes = new List<PlayerType_SO>();
+    private List<GunTypes_SO> gunTypes = new List<GunTypes_SO>();
 
     private BulletPool bulletPool;
 
@@ -25,9 +25,9 @@ public class Gun : MonoBehaviour, ISavePlayer
 
     private void Start()
     {
-        playerTypes = GameManager.Instance.PlayerTypes;
+        gunTypes = GameManager.Instance.GunTypes;
 
-        foreach (var item in playerTypes)
+        foreach (var item in gunTypes)
         {
             _spawnTimes = item.SpeedSpawnBullet;
             _SpeedBullet = item.BulletSpeed;

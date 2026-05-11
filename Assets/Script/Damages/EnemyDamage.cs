@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
 
-    private int killBonus;
+    public int killBonus;
     private void Awake()
     {
         EnemyManager.Instance.SaveDamageEnemy();

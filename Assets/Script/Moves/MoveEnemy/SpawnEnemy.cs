@@ -42,6 +42,7 @@ public class SpawnEnemy : MonoBehaviour
             _timerGame.OnMinutePassed += HandleMinutePassed;
             _timerGame.OnTwoMinutesLeft += HandleTwoMinuteLeft;
             _timerGame.OnTwoMinutesLeft += HandleOneMinuteLeft;
+            _timerGame.Finish += HandleFinishTime;
         }
     }
 
@@ -52,6 +53,7 @@ public class SpawnEnemy : MonoBehaviour
             _timerGame.OnMinutePassed -= HandleMinutePassed;
             _timerGame.OnTwoMinutesLeft -= HandleTwoMinuteLeft;
             _timerGame.OnTwoMinutesLeft -= HandleOneMinuteLeft;
+            _timerGame.Finish -= HandleFinishTime;
         }
     }
 
@@ -114,5 +116,12 @@ public class SpawnEnemy : MonoBehaviour
     private void HandleOneMinuteLeft()
     {
         _spawnTimes = new float[] { 0.2f, 0.4f };
+    }
+
+    private void HandleFinishTime()
+    {
+        GameManager.Instance.WinGame();
+        CurrencyManager.Instance.AddXP(50);
+        CurrencyManager.Instance.AddCoin(50);
     }
 }

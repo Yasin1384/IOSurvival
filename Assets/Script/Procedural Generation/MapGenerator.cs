@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TreeEditor;
 using Unity.AI.Navigation;
 using UnityEngine;
@@ -9,8 +11,7 @@ public class MapGenerator : MonoBehaviour
     public int mapHeight;
     public float tileSize = 1f;
 
-    public GameObject treePrefab;
-    public GameObject bushPrefab;
+    private List<LevelTypes_SO> levelTypesList;
 
     public Transform parent;
 
@@ -21,7 +22,6 @@ public class MapGenerator : MonoBehaviour
     public float yOffset = 0f;
     public float zOffset = 0f;
     
-    [Range(0f, 1f)]
     public float percentage;
     public float centerExclusionRadius = 1f;
 
@@ -90,6 +90,7 @@ public class MapGenerator : MonoBehaviour
 
     void BuildMap()
     {
+        levelTypesList = GameManager.Instance.LevelTypes;
         
         for (int x = 0; x < mapWidth; x++)
         {
@@ -104,19 +105,25 @@ public class MapGenerator : MonoBehaviour
                     case TileType.Ground:
                         break;
                     case TileType.Tree:
-                        if (treePrefab != null)
+                        foreach (var item in levelTypesList)
                         {
-                            Vector3 treePosition = position + new Vector3(xOffset, yOffset, zOffset);
-                            Quaternion treeRotation = Quaternion.Euler(0, Random.Range(0f, 0f), 0);
-                            tileObject = Instantiate(treePrefab, treePosition, treeRotation, parent);
+                            if (item.ObstaclesGameObjects[0] != null)
+                            {
+                                Vector3 treePosition = position + new Vector3(xOffset, yOffset, zOffset);
+                                Quaternion treeRotation = Quaternion.Euler(0, Random.Range(0f, 0f), 0);
+                                tileObject = Instantiate(item.ObstaclesGameObjects[0], treePosition, treeRotation, parent);
+                            }
                         }
                         break;
                     case TileType.Bush:
                         {
-                            Vector3 bushPosition = position + new Vector3(xOffset, yOffset, zOffset);
-                            Quaternion bushRotation = Quaternion.Euler(0, Random.Range(0f, 0), 0);
-                            tileObject = Instantiate(bushPrefab, bushPosition, bushRotation, parent);
-                            meshSurface.BuildNavMesh();
+                            foreach (var item in levelTypesList)
+                            {
+                                Vector3 bushPosition = position + new Vector3(xOffset, yOffset, zOffset);
+                                Quaternion bushRotation = Quaternion.Euler(0, Random.Range(0f, 0), 0);
+                                tileObject = Instantiate(item.ObstaclesGameObjects[1], bushPosition, bushRotation, parent);
+                                meshSurface.BuildNavMesh();
+                            }
                         }
                         break;
                     case TileType.Rock:

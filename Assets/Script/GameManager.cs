@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    public List<LevelTypes_SO> LevelTypes;
     public List<PlayerType_SO> PlayerTypes;
     public List<GunTypes_SO> GunTypes;
     public CameraFollow cameraFollow;
@@ -52,5 +53,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         SceneManager.LoadScene(sceneToLoad);
+        CurrencyManager.Instance.AddXP(50);
+        CurrencyManager.Instance.AddCoin(50);
     }
 }

@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
             
             countWave = item.Waves - 1;
 
-            Debug.Log(countWave);
             if (countWave > 0)
             {
                 Debug.Log(countWave);

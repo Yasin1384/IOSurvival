@@ -51,7 +51,6 @@ public class SpawnEnemy : MonoBehaviour
     private void OnDisable()
     {
         _timerGame = GameManager.Instance.timerGame;
-        Debug.Log(_timerGame);
 
         if (_timerGame != null)
         {

@@ -11,6 +11,7 @@ public class TimerGame : MonoBehaviour
 
     private DateTime _endTimer;
     private int _lastMinuteNotified = -1;
+
     [SerializeField] private string sceneToLoad;
 
     public event Action<int> OnMinutePassed;
@@ -18,15 +19,42 @@ public class TimerGame : MonoBehaviour
     public event Action OnOneMinuteLeft;
     public event Action Finish;
 
+    private Coroutine _timerCoroutine;
 
     private void Start()
     {
-        _endTimer = DateTime.Now.AddMinutes(_timeLow);
-
-        StartCoroutine(TimeGame());
+        RestartTimer();
     }
+
+    public void RestartTimer()
+    {
+        ResetTimer();
+        StartTimer();
+    }
+
+    public void StartTimer()
+    {
+        if (_timerCoroutine != null)
+        {
+            StopCoroutine(_timerCoroutine);
+        }
+        _timerCoroutine = StartCoroutine(TimeGame());
+    }
+    public void ResetTimer()
+    {
+        _endTimer = DateTime.Now.AddMinutes(_timeLow);
+        _lastMinuteNotified = -1;
+
+        if (_timerText != null)
+        {
+            _timerText.text = $"{_timeLow:00}:00";
+        }
+    }
+
     IEnumerator TimeGame()
     {
+        _endTimer = DateTime.Now.AddMinutes(_timeLow);
+
         while (true)
         {
             TimeSpan remaining = _endTimer - DateTime.Now;
@@ -42,8 +70,7 @@ public class TimerGame : MonoBehaviour
 
             if (currentSecond == 0 && currentMinute == 0)
             {
-                Debug.Log(currentMinute);
-                Debug.Log(currentSecond);
+                Debug.Log("Finished");
                 Finish?.Invoke();
             }
 

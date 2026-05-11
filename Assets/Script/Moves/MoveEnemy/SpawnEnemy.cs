@@ -13,13 +13,14 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private int poolSize = 10;
 
     private float[] _spawnTimes = { 1f, 2 };
-   
+
+    private TimerGame _timerGame;
+
 
     private Coroutine _spawnCoroutine;
 
     [SerializeField] private MeshCollider _spawnArea;
 
-    [SerializeField] private TimerGame _timerGame;
     private EnemyPool enemyPool;
     [SerializeField] private int maxEnemies = 10;
 
@@ -37,23 +38,26 @@ public class SpawnEnemy : MonoBehaviour
 
     private void OnEnable()
     {
+        _timerGame = GameManager.Instance.timerGame;
+
         if (_timerGame != null)
         {
             _timerGame.OnMinutePassed += HandleMinutePassed;
             _timerGame.OnTwoMinutesLeft += HandleTwoMinuteLeft;
             _timerGame.OnTwoMinutesLeft += HandleOneMinuteLeft;
-            _timerGame.Finish += HandleFinishTime;
         }
     }
 
     private void OnDisable()
     {
+        _timerGame = GameManager.Instance.timerGame;
+        Debug.Log(_timerGame);
+
         if (_timerGame != null)
         {
             _timerGame.OnMinutePassed -= HandleMinutePassed;
             _timerGame.OnTwoMinutesLeft -= HandleTwoMinuteLeft;
             _timerGame.OnTwoMinutesLeft -= HandleOneMinuteLeft;
-            _timerGame.Finish -= HandleFinishTime;
         }
     }
 
@@ -94,7 +98,6 @@ public class SpawnEnemy : MonoBehaviour
     }
     private IEnumerator SpawnEnemies()
     {
-        Debug.Log(_spawnTimes);
         while (true)
         {
             float randomTime = _spawnTimes[Random.Range(0, _spawnTimes.Length)];
@@ -116,12 +119,5 @@ public class SpawnEnemy : MonoBehaviour
     private void HandleOneMinuteLeft()
     {
         _spawnTimes = new float[] { 0.2f, 0.4f };
-    }
-
-    private void HandleFinishTime()
-    {
-        GameManager.Instance.WinGame();
-        CurrencyManager.Instance.AddXP(50);
-        CurrencyManager.Instance.AddCoin(50);
     }
 }

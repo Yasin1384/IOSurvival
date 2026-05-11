@@ -542,6 +542,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 953464827730749067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1147567195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1147567197}
+  - component: {fileID: 1147567196}
+  - component: {fileID: 1147567198}
+  m_Layer: 0
+  m_Name: TimerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1147567196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147567195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2d8463bb80f6e4aa41ccfd56f98d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerGame
+  _timerText: {fileID: 389593106}
+  _timeLow: 1
+  sceneToLoad: Ui
+--- !u!4 &1147567197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147567195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9222, y: 0, z: 0.24953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147567198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147567195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c45ac14b12abe41bad74be5aed4f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
 --- !u!1 &1355195760
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +920,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1792469064}
   - component: {fileID: 1792469063}
-  - component: {fileID: 1792469065}
   - component: {fileID: 1792469066}
   m_Layer: 0
   m_Name: GameManager
@@ -881,6 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c281252b3be3925499471b210675d14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  timerGame: {fileID: 1147567196}
   LevelTypes:
   - {fileID: 11400000, guid: 7574e92c1bb8c4246b08aec174ff0c0d, type: 2}
   PlayerTypes:
@@ -906,21 +966,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1792469065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792469062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c2d8463bb80f6e4aa41ccfd56f98d41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimerGame
-  _timerText: {fileID: 389593106}
-  _timeLow: 1
-  sceneToLoad: Ui
 --- !u!114 &1792469066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,7 +1185,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
   poolSize: 10
   _spawnArea: {fileID: 1001803957}
-  _timerGame: {fileID: 1792469065}
   maxEnemies: 5
 --- !u!114 &7212930125048486801
 MonoBehaviour:
@@ -1199,3 +1243,4 @@ SceneRoots:
   - {fileID: 439261974}
   - {fileID: 144485761}
   - {fileID: 1836661532}
+  - {fileID: 1147567197}

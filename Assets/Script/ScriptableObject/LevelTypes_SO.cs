@@ -9,5 +9,7 @@ public class LevelTypes_SO : ScriptableObject
     
     public int Level;
 
+    public int Waves;
+
     public List<GameObject> ObstaclesGameObjects;
 }

@@ -54,7 +54,6 @@ public class Gun : MonoBehaviour, ISavePlayer
 
     private void Spawn()
     {
-        Debug.Log(_spawnTimes);
 
         GameObject target = _autoAim.FindNearestEnemyInRange();
 

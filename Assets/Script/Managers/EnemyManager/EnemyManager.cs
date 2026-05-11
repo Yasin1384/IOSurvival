@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour, ISaveEnemy
 
     public float Speed;
     public int CurrentHp;
+    public int KillBonus;
 
     private void Awake()
     {
@@ -72,12 +73,14 @@ public class EnemyManager : MonoBehaviour, ISaveEnemy
 
         data.Speed = Speed;
 
+        data.KillBonus = KillBonus;
     }
 
     public void ReadFromSaveData(SaveEnemyData data)
     {
         CurrentHp = data.Hp;
         Speed = data.Speed;
+        KillBonus = data.KillBonus;
 
     }
 }

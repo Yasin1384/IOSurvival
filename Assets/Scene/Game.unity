@@ -623,6 +623,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   PlayerTypes:
   - {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
+  GunTypes:
+  - {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
   cameraFollow: {fileID: 1398071067}
   playerPrefab: {fileID: 4392147179597143704, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
   spawnPos: {x: 0, y: 0, z: 5}

@@ -11,4 +11,6 @@ public class EnemyType_SO : ScriptableObject
     public float Speed;
 
     public int Hp;
+
+    public int KillBonus;
 }

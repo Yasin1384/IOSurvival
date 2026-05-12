@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 public class SpawnEnemy : MonoBehaviour
 {
     [Header("Enemy Types")]
-    public List<EnemyType_SO> enemyTypes;
 
     private Dictionary<EnemyType_SO, EnemyPool> pools;
 
@@ -26,6 +25,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Awake()
     {
+        List<EnemyType_SO> enemyTypes = GameManager.Instance.EnemyTypes; 
         pools = new Dictionary<EnemyType_SO, EnemyPool>();
 
         foreach (var type in enemyTypes)
@@ -69,6 +69,8 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Spawn()
     {
+        List<EnemyType_SO> enemyTypes = GameManager.Instance.EnemyTypes;
+
         EnemyType_SO selectedType = enemyTypes[Random.Range(0, enemyTypes.Count)];
 
         Vector3 pos = GetRandomPosition();

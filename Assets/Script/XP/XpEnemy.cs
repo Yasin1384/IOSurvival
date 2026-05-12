@@ -1,15 +1,16 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class XpEnemy : MonoBehaviour
 {
     public int killBonus;
 
-    List<EnemyType_SO> enemyList;
     private void Start()
     {
-        
+        List<EnemyType_SO> enemyList;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,11 +26,8 @@ public class XpEnemy : MonoBehaviour
 
     private void AddXp()
     {
-        foreach (var item in enemyList)
-        {
-            killBonus += item.KillBonus;
-            Debug.Log(killBonus);
-        }
-
+        int xpAmount = 2;
     }
+
+
 }

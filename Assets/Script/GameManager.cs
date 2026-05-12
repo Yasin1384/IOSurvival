@@ -7,13 +7,14 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
     public TimerGame timerGame;
+    public CameraFollow cameraFollow;
+    public GameObject playerPrefab;
 
     public List<LevelTypes_SO> LevelTypes;
     public List<PlayerType_SO> PlayerTypes;
     public List<EnemyType_SO> EnemyTypes;
     public List<GunTypes_SO> GunTypes;
-    public CameraFollow cameraFollow;
-    public GameObject playerPrefab;
+    public List<DefenseTypes_SO> defenseTypes;
 
     public Vector3 spawnPos;
     [SerializeField] private string sceneToLoad;

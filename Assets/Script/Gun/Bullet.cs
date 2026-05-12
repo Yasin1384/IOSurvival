@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private BulletPool pool;
+    private BulletTowerPool poolTower;
 
     public void SetPool(BulletPool p)
     {
@@ -16,7 +17,7 @@ public class Bullet : MonoBehaviour
         {
             pool.Despawn(gameObject);
         }
-        pool.Despawn(gameObject);
+        pool.Despawn(gameObject); 
     }
 }
 

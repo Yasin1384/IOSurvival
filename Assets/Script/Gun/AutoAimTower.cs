@@ -1,7 +1,6 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class AutoAim : MonoBehaviour
+public class AutoAimTower : MonoBehaviour
 {
     public float detectionRadius = 10f;
     public float rotationSpeed = 5f;
@@ -61,6 +60,12 @@ public class AutoAim : MonoBehaviour
         Vector3 originPos = (rb != null) ? rb.position : transform.position;
 
         Vector3 direction = predictedPosition - originPos;
+
+        float distanceToEnemy = direction.magnitude;
+
+        if (distanceToEnemy < 2f)
+            return;
+
         direction.y = 0f;
 
         if (direction.sqrMagnitude < 0.001f)

@@ -6,7 +6,6 @@ public class EnemyDamage : MonoBehaviour
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
 
-    public int killBonus;
     private void Awake()
     {
         EnemyManager.Instance.SaveDamageEnemy();
@@ -27,10 +26,7 @@ public class EnemyDamage : MonoBehaviour
         _damageStratgy = new NormalDamageStratgy();
     }
 
-    private void AddXp(EnemyType_SO data)
-    {
-        killBonus += data.KillBonus;
-    }
+
 
     public void TakeDamage(int baseDamage)
     {
@@ -40,7 +36,6 @@ public class EnemyDamage : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            AddXp(EnemyType_SO);
             GetComponent<MovementEnemy>().Die();
         }
     }

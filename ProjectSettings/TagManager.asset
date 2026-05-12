@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Base
   - Obstacle
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Base
-  - 
+  - Coin
   - 
   - 
   - 
@@ -50,6 +51,9 @@ TagManager:
     locked: 0
   - name: Base
     uniqueID: 1866429717
+    locked: 0
+  - name: Coin
+    uniqueID: 1626690721
     locked: 0
   m_RenderingLayers:
   - Default

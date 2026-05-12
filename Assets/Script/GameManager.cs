@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public List<LevelTypes_SO> LevelTypes;
     public List<PlayerType_SO> PlayerTypes;
+    public List<EnemyType_SO> EnemyTypes;
     public List<GunTypes_SO> GunTypes;
     public CameraFollow cameraFollow;
     public GameObject playerPrefab;

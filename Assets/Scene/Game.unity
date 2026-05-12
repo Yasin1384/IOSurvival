@@ -945,6 +945,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7574e92c1bb8c4246b08aec174ff0c0d, type: 2}
   PlayerTypes:
   - {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
+  EnemyTypes: []
   GunTypes:
   - {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
   cameraFollow: {fileID: 1398071067}
@@ -981,6 +982,9 @@ MonoBehaviour:
   Speed: 0
   CurrentHp: 0
   KillBonus: 0
+  xpPrefab: {fileID: 2976959032818682172, guid: 89b1070e386f38145b7a17a127e84950, type: 3}
+  xpAmount: 1
+  xpPrefabTrans: {fileID: 3854269363171675655, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
 --- !u!1001 &1836661532
 PrefabInstance:
   m_ObjectHideFlags: 0

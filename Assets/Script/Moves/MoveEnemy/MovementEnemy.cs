@@ -11,7 +11,7 @@ public class MovementEnemy : MonoBehaviour
     private Transform player;
     private EnemyPool enemyPool;
     private EnemyType_SO enemyType_SO;
-    
+
     private Vector3 moveDir;
 
     public NavMeshAgent NavMeshAgentAI;
@@ -58,6 +58,8 @@ public class MovementEnemy : MonoBehaviour
 
     public void Die()
     {
+        Vector3 deathPosition = transform.position;
+        EnemyManager.Instance.DropCoin(deathPosition);
         enemyPool.Despawn(gameObject);
     }
 }

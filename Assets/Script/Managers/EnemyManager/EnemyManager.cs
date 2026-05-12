@@ -13,6 +13,10 @@ public class EnemyManager : MonoBehaviour, ISaveEnemy
     public int CurrentHp;
     public int KillBonus;
 
+    public GameObject xpPrefab;
+    public int xpAmount = 1;
+    public Transform xpPrefabTrans;
+
     private void Awake()
     {
         if (Instance == null)
@@ -24,7 +28,13 @@ public class EnemyManager : MonoBehaviour, ISaveEnemy
             Destroy(gameObject);
         }
     }
-
+    public void DropCoin(Vector3 dropPosition)
+    {
+        for (int i = 0; i < xpAmount; i++)
+        {
+            Instantiate(xpPrefab, dropPosition, Quaternion.identity);
+        }
+    }
     //Damage
     public void SaveDamageEnemy()
     {

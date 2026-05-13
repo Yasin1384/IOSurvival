@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletT : MonoBehaviour
+public class BulletTower : MonoBehaviour
 {
     private BulletTowerPool poolTower;
 

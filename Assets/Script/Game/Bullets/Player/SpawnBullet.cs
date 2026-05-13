@@ -4,7 +4,7 @@ using Unity.Properties;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class Gun : MonoBehaviour, ISavePlayer
+public class SpawnBullets : MonoBehaviour, ISavePlayer
 {
     private const string SAVE_KEY = "DATAPLAYER_SAVE";
 
@@ -47,7 +47,7 @@ public class Gun : MonoBehaviour, ISavePlayer
         pools.Add(pool);
 
         bulletPool = pool;
-        StartCoroutine(SpawnBullets());
+        StartCoroutine(SpawnBullet());
         SaveSpeedBullet();
 
     }
@@ -78,7 +78,7 @@ public class Gun : MonoBehaviour, ISavePlayer
 
         }
     }
-    private IEnumerator SpawnBullets()
+    private IEnumerator SpawnBullet()
     {
 
         while (true)

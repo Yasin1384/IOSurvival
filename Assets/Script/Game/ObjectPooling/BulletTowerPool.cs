@@ -7,19 +7,7 @@ public class BulletTowerPool : MonoBehaviour
     public int poolSize = 10;
 
     private Queue<GameObject> pool;
-    public static BulletTowerPool Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
 
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     public void Initialize(GameObject BulletTowerPrefab, int poolSize)
     {
         this.BulletTowerPrefab = BulletTowerPrefab;

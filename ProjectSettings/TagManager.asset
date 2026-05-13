@@ -9,6 +9,7 @@ TagManager:
   - Base
   - Obstacle
   - Coin
+  - BulletTower
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Base
   - Coin
-  - 
+  - BulletTower
   - 
   - 
   - 
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: Coin
     uniqueID: 1626690721
+    locked: 0
+  - name: BulletTower
+    uniqueID: 3708498203
     locked: 0
   m_RenderingLayers:
   - Default

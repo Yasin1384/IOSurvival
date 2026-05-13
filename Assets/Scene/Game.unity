@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d168c0162d579834493612b46a8d2640, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -717,7 +717,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+  m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -824,7 +824,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.38888884, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.38888884, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -847,7 +847,7 @@ Camera:
     height: 1
   near clip plane: 0.7
   far clip plane: 100
-  field of view: 75
+  field of view: 86
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -873,14 +873,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398071063}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 0, y: 15, z: -7}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
+  m_LocalPosition: {x: 0, y: 25, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1761275116}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!114 &1398071067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +927,7 @@ RectTransform:
   m_Children:
   - {fileID: 373567404}
   - {fileID: 389593105}
-  m_Father: {fileID: 1398071066}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1239,9 +1238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb261b587174d934ab9f1cf0234d01d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
-  poolSize: 10
+  poolSize: 20
   _spawnArea: {fileID: 1001803957}
-  maxEnemies: 5
+  maxEnemies: 15
 --- !u!114 &7212930125048486801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,6 +1293,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1893692464}
   - {fileID: 1398071066}
+  - {fileID: 1761275116}
   - {fileID: 1355195762}
   - {fileID: 428230749}
   - {fileID: 953464827730749067}

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletTowerPool : MonoBehaviour
+public class BulletTowerMillitaryPool : MonoBehaviour
 {
     public GameObject BulletTowerPrefab;
     public int poolSize = 10;

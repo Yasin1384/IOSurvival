@@ -4,7 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private BulletPool pool;
-    private BulletTowerPool poolTower;
+    private BulletTowerMillitaryPool poolTower;
 
     public void SetPool(BulletPool p)
     {

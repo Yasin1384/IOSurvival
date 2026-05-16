@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BulletTower : MonoBehaviour
 {
-    private BulletTowerPool poolTower;
+    private BulletTowerMillitaryPool poolTower;
 
-    public void SetPool(BulletTowerPool p)
+    public void SetPool(BulletTowerMillitaryPool p)
     {
         poolTower = p;
     }

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBulletTower : MonoBehaviour
+public class SpawnBulletTowerMillitary : MonoBehaviour
 {
     [SerializeField] private AutoAimTower _autoAim;
     [SerializeField] private int poolSize = 50;
 
     [SerializeField] private GameObject bulletPrefab;
 
-    private List<BulletTowerPool> pools = new List<BulletTowerPool>();
-    public DefenseTypes_SO gunTypes;
+    private List<BulletTowerMillitaryPool> pools = new List<BulletTowerMillitaryPool>();
+    public TowerDataTypes_SO gunTypes;
 
-    public BulletTowerPool bulletPool;
+    public BulletTowerMillitaryPool bulletPool;
 
     [SerializeField] private Transform defaultPosition;
 
@@ -27,7 +27,7 @@ public class SpawnBulletTower : MonoBehaviour
 
     private void Awake()
     {
-        pools = new List<BulletTowerPool>();
+        pools = new List<BulletTowerMillitaryPool>();
 
         bulletPool.Initialize(bulletPrefab, poolSize);
         pools.Add(bulletPool);
@@ -58,7 +58,6 @@ public class SpawnBulletTower : MonoBehaviour
             rb.linearVelocity = direction * _SpeedBullet;
 
             bulletInstance.transform.forward = direction;
-
         }
     }
     private IEnumerator SpawnBullets()

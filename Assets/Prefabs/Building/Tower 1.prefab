@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1731787881070305109}
   - component: {fileID: 4882610602776159156}
   - component: {fileID: 2963205191433666753}
-  - component: {fileID: 6939697387795042290}
+  - component: {fileID: 8726485470376779166}
   m_Layer: 6
-  m_Name: Tower
+  m_Name: Tower 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4512d6a84658e540871dc1fd91e04ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTowerPool
-  BulletTowerPrefab: {fileID: 5473513466018784023, guid: ca8d6d8cd643e89469478a24c7e9b5b0, type: 3}
+  BulletTowerPrefab: {fileID: 5473513466018784023, guid: 1e034d31df7ecbc4db2a77aa7b4a233b, type: 3}
   poolSize: 10
---- !u!114 &6939697387795042290
+--- !u!114 &8726485470376779166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,8 +84,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletTower
   _autoAim: {fileID: 5412269628430964076}
   poolSize: 50
-  bulletPrefab: {fileID: 5473513466018784023, guid: ca8d6d8cd643e89469478a24c7e9b5b0, type: 3}
-  gunTypes: {fileID: 11400000, guid: 64fa2d4ff16258c48aa83729a7ec8a20, type: 2}
+  bulletPrefab: {fileID: 5473513466018784023, guid: 1e034d31df7ecbc4db2a77aa7b4a233b, type: 3}
+  gunTypes: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
   bulletPool: {fileID: 2963205191433666753}
   defaultPosition: {fileID: 2382856168601307437}
 --- !u!1 &8297169793600821114
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2382856168601307437}
   - component: {fileID: 5412269628430964076}
   m_Layer: 6
-  m_Name: AutoAim
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,7 +6,7 @@ public class PlayerType_SO : ScriptableObject
 {
     public string Name;
 
-    public GameObject EnemyPrefab;
+    public GameObject PlayerPrefab;
 
     public float Speed;
 

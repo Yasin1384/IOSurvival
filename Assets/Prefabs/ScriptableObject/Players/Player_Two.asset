@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Player_Two
   m_EditorClassIdentifier: Assembly-CSharp::PlayerType_SO
   Name: Player_Two
-  EnemyPrefab: {fileID: 4392147179597143704, guid: eede984bc49dc5c4293b6258ddf687d9, type: 3}
+  PlayerPrefab: {fileID: 4392147179597143704, guid: eede984bc49dc5c4293b6258ddf687d9, type: 3}
   Speed: 4
   Hp: 20
-  BulletSpeed: 30
-  SpeedSpawnBullet: 0.5

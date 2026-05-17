@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Properties;
 using UnityEngine;
+using static UnityEditor.Progress;
 using static UnityEngine.GraphicsBuffer;
 public class PlayerMovement : MonoBehaviour, ISavePlayer
 {
@@ -14,17 +15,19 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
 
     IStrategyMove moveStrategy;
 
-    private List<PlayerType_SO> PlayerTypes = new List<PlayerType_SO>();
+    private PlayerType_SO PlayerTypes;
 
     [SerializeField] private Animator _animator;
 
     void Awake()
     {
+        var player = PlayerManager.Instance.spawnSuportPlayerDatas;
+
         LoadSpeed();
-        PlayerTypes = GameManager.Instance.PlayerTypes;
-        foreach (var item in PlayerTypes)
+        for (int i = 0; i < player.Count; i++)
         {
-            speed = item.Speed;
+            PlayerTypes = player[i].PlayerTypes;
+            speed = player[i].PlayerTypes.Speed;
         }
 
         rb = GetComponent<Rigidbody>();

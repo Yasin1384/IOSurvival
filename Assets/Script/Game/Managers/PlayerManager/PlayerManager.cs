@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject SoliderPlayer;
     public Transform SoliderPosition;
     public CameraFollow cameraFollow;
-
+    
     public List<SpawnSuportPlayerData> spawnSuportPlayerDatas;
     private void Awake()
     {

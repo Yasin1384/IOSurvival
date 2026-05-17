@@ -7,6 +7,7 @@ using static UnityEditor.Progress;
 public class PlayerDamage : MonoBehaviour, ISavePlayer
 {
     private const string SAVE_KEY = "DATAPLAYER_SAVE";
+    public int playerIndex;
 
 
     private IDamageStratgy _damageStratgy;
@@ -14,13 +15,8 @@ public class PlayerDamage : MonoBehaviour, ISavePlayer
     private PlayerType_SO playerTypes;
     private void Start()
     {
-        var player = PlayerManager.Instance.spawnSuportPlayerDatas;
-
-        for (int i = 0; i < player.Count; i++)
-        {
-            playerTypes = player[i].PlayerTypes;
-            _damage = player[i].PlayerTypes.Hp;
-        }
+        var playerData = PlayerManager.Instance.spawnSuportPlayerDatas[playerIndex];
+        _damage = playerData.PlayerTypes.Hp;
 
 
         SetDamage(_damageStratgy);

@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
     public TimerGame timerGame;
-    public GameObject playerPrefab;
 
     public List<LevelTypes_SO> LevelTypes;
     public List<EnemyType_SO> EnemyTypes;

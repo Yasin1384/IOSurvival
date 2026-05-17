@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 2996553409864378329}
   - component: {fileID: 2197910631419812692}
   m_Layer: 0
-  m_Name: Player_Two
+  m_Name: Player_Three
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213c9a7c7050ff946bf2ec074df3aa95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  playerIndex: 0
   _autoAim: {fileID: 2197910631419812692}
   _animator: {fileID: 7353559281024601582}
 --- !u!114 &7175383732632487511

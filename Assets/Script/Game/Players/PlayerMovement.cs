@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
 {
     private const string SAVE_KEY = "DATAPLAYER_SAVE";
 
-
+    public int playerIndex;
     [SerializeField] private AutoAim _autoAim;
 
     private float speed;
@@ -21,18 +21,13 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
 
     void Awake()
     {
-        var player = PlayerManager.Instance.spawnSuportPlayerDatas;
-
         LoadSpeed();
-        for (int i = 0; i < player.Count; i++)
-        {
-            PlayerTypes = player[i].PlayerTypes;
-            speed = player[i].PlayerTypes.Speed;
-        }
+
+        var playerData = PlayerManager.Instance.spawnSuportPlayerDatas[playerIndex];
+        speed = playerData.PlayerTypes.Speed;
 
         rb = GetComponent<Rigidbody>();
         moveStrategy = new JoystickMove();
-
     }
 
     public void Move(Vector3 input)
@@ -46,14 +41,12 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
         Vector3 dir = new Vector3(input.x, 0f, input.z).normalized;
         moveStrategy.Move(rb, input, speed);
         SaveSpeed();
-
     }
 
     public void AnimationCarecter(bool isRun, bool isIdel)
     {
         _animator.SetBool("Idel", isIdel);
         _animator.SetBool("Run", isRun);
-
     }
 
     private void SaveSpeed()

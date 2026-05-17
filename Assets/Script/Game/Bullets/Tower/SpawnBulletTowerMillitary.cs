@@ -42,11 +42,11 @@ public class SpawnBulletTowerMillitary : MonoBehaviour
 
         if (target != null)
         {
-            Vector3 predictedPos = _autoAim.PredictEnemyPosition(target);
+            Vector3 predictedPos = _autoAim.PredictDirectEnemyPosition(target);
 
             GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
 
-            BulletTower bullet = bulletInstance.GetComponent<BulletTower>();
+            BulletTowerMilitary bullet = bulletInstance.GetComponent<BulletTowerMilitary>();
 
             bullet.SetPool(bulletPool);
 
@@ -60,14 +60,13 @@ public class SpawnBulletTowerMillitary : MonoBehaviour
             bulletInstance.transform.forward = direction;
         }
     }
+
     private IEnumerator SpawnBullets()
     {
-
         while (true)
         {
             yield return new WaitForSeconds(_spawnTimes);
             Spawn();
         }
     }
-
 }

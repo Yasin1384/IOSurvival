@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1731787881070305109}
   - component: {fileID: 4882610602776159156}
-  - component: {fileID: 2963205191433666753}
-  - component: {fileID: 8726485470376779166}
+  - component: {fileID: 3175330932709639525}
+  - component: {fileID: 5743911582015721101}
   m_Layer: 6
   m_Name: Tower 1
   m_TagString: Untagged
@@ -56,7 +56,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2963205191433666753
+--- !u!114 &3175330932709639525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,12 +65,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2154088773743335582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4512d6a84658e540871dc1fd91e04ad, type: 3}
+  m_Script: {fileID: 11500000, guid: edf2e14f10d6ff941a6335c83c12c351, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletTowerPool
+  m_EditorClassIdentifier: Assembly-CSharp::BulletTowerCannonPool
   BulletTowerPrefab: {fileID: 5473513466018784023, guid: 1e034d31df7ecbc4db2a77aa7b4a233b, type: 3}
   poolSize: 10
---- !u!114 &8726485470376779166
+--- !u!114 &5743911582015721101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,14 +79,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2154088773743335582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db012cd4ffca8a4a8b180865599b878, type: 3}
+  m_Script: {fileID: 11500000, guid: 85cd932a4d766534189baec454cab672, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletTower
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnBulletTowerCannon
   _autoAim: {fileID: 5412269628430964076}
   poolSize: 50
   bulletPrefab: {fileID: 5473513466018784023, guid: 1e034d31df7ecbc4db2a77aa7b4a233b, type: 3}
   gunTypes: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
-  bulletPool: {fileID: 2963205191433666753}
+  bulletPool: {fileID: 3175330932709639525}
   defaultPosition: {fileID: 2382856168601307437}
 --- !u!1 &8297169793600821114
 GameObject:
@@ -135,6 +135,7 @@ MonoBehaviour:
   detectionRadius: 30
   rotationSpeed: 5
   bulletSpeed: 20
+  aimType: 1
 --- !u!1001 &2153294434769577438
 PrefabInstance:
   m_ObjectHideFlags: 0

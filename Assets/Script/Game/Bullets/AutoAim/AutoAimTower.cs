@@ -5,13 +5,19 @@ public class AutoAimTower : MonoBehaviour
     public float detectionRadius = 10f;
     public float rotationSpeed = 5f;
     public float bulletSpeed = 20f;
-
     private Rigidbody rb;
 
     private Vector3 lastEnemyPosition;
     private GameObject currentTarget;
 
+    public AimType aimType = AimType.Direct;
 
+
+    public enum AimType
+    {
+        Direct,
+        Ballistic
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,6 +31,7 @@ public class AutoAimTower : MonoBehaviour
     void FixedUpdate()
     {
         currentTarget = FindNearestEnemyInRange();
+        currentTarget = FindNormalEnemyInRange();
 
         if (currentTarget != null)
         {
@@ -53,10 +60,32 @@ public class AutoAimTower : MonoBehaviour
         return nearest;
     }
 
+    public GameObject FindNormalEnemyInRange()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        GameObject farthest = null;
+        float maxDistance = 0f;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distance <= detectionRadius && distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthest = enemy;
+            }
+        }
+
+        return farthest;
+    }
+
     public void RotateToEnemy(GameObject enemy)
     {
-        Vector3 predictedPosition = PredictEnemyPosition(enemy);
-
+        Vector3 predictedPosition = (aimType == AimType.Direct)
+                    ? PredictDirectEnemyPosition(enemy)
+                    : PredictBallisticEnemyPosition(enemy);
         Vector3 originPos = (rb != null) ? rb.position : transform.position;
 
         Vector3 direction = predictedPosition - originPos;
@@ -88,25 +117,32 @@ public class AutoAimTower : MonoBehaviour
             );
         }
     }
-
-    public Vector3 PredictEnemyPosition(GameObject enemy)
+    public Vector3 PredictDirectEnemyPosition(GameObject enemy)
     {
-        Vector3 currentPos = enemy.transform.position;
+        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
+        if (enemyRb == null) return enemy.transform.position;
 
-        if (enemy != currentTarget)
-        {
-            lastEnemyPosition = currentPos;
-            return currentPos;
-        }
+        Vector3 targetPos = enemy.transform.position;
+        Vector3 targetVel = enemyRb.linearVelocity;
 
-        Vector3 velocity = (currentPos - lastEnemyPosition) / Time.fixedDeltaTime;
-
-        lastEnemyPosition = currentPos;
-
-        float distance = Vector3.Distance(transform.position, currentPos);
-
+        float distance = Vector3.Distance(transform.position, targetPos);
         float timeToHit = distance / bulletSpeed;
 
-        return currentPos + velocity * timeToHit;
+        return targetPos + targetVel * timeToHit;
+    }
+
+    public Vector3 PredictBallisticEnemyPosition(GameObject enemy)
+    {
+        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
+        if (enemyRb == null) return enemy.transform.position;
+
+        Vector3 targetPos = enemy.transform.position;
+        Vector3 targetVel = enemyRb.linearVelocity;
+
+        float distance = Vector3.Distance(transform.position, targetPos);
+
+        float leadTime = distance / bulletSpeed * 0.5f;
+
+        return targetPos + targetVel * leadTime;
     }
 }

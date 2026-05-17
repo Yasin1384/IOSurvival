@@ -11,10 +11,10 @@ public class SpawnBullets : MonoBehaviour, ISavePlayer
     [SerializeField] private AutoAim _autoAim;
     [SerializeField] private int poolSize = 50;
 
-    [SerializeField] private GameObject bulletPrefab;
+
+    public int playerIndex;
 
     private List<BulletPool> pools = new List<BulletPool>();
-    private List<GunTypes_SO> gunTypes = new List<GunTypes_SO>();
 
     private BulletPool bulletPool;
 
@@ -25,25 +25,23 @@ public class SpawnBullets : MonoBehaviour, ISavePlayer
 
     private void Start()
     {
-        gunTypes = GameManager.Instance.GunTypes;
 
-        foreach (var item in gunTypes)
-        {
-            _spawnTimes = item.SpeedSpawnBullet;
-            _SpeedBullet = item.BulletSpeed;
-        }
     }
 
     private void Awake()
     {
         LoadSpeedBullet();
 
+        var bulletType = BulletManager.Instance.spawnBulletDatas[playerIndex];
+        _spawnTimes = bulletType.GunTypes.SpeedSpawnBullet;
+        _SpeedBullet = bulletType.GunTypes.BulletSpeed;
+        GameObject _gameObject = bulletType.GunTypes.BulletPrefab;
 
 
         pools = new List<BulletPool>();
 
         BulletPool pool = gameObject.AddComponent<BulletPool>();
-        pool.Initialize(bulletPrefab, poolSize);
+        pool.Initialize(_gameObject, poolSize);
         pools.Add(pool);
 
         bulletPool = pool;

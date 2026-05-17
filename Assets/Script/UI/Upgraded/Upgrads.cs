@@ -20,7 +20,7 @@ public class Upgrads : MonoBehaviour
         //HpUpgrad(playerType, gunType);
     }
 
-    private void HpUpgrad(PlayerType_SO playerType, GunTypes_SO gunTypes_SO)
+    private void HpUpgrad(PlayerType_SO playerType, BulletTypes_SO gunTypes_SO)
     {
 
         speedButton.onClick.RemoveAllListeners();

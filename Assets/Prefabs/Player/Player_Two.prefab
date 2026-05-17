@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4925132548206278775}
   - component: {fileID: 124051463389741535}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: AutoAim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   _autoAim: {fileID: 2197910631419812692}
   poolSize: 50
   bulletPrefab: {fileID: 5473513466018784023, guid: e7d898b3c9bbe3045b3810ff6a8655c3, type: 3}
+  playerIndex: 1
   defaultPosition: {fileID: 4925132548206278775}
 --- !u!1 &4392147179597143704
 GameObject:
@@ -231,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70611a1cef8e8584bb89de65f222ffc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerIndex: 0
 --- !u!114 &2197910631419812692
 MonoBehaviour:
   m_ObjectHideFlags: 0

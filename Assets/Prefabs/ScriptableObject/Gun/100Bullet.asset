@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 100Bullet
   m_EditorClassIdentifier: Assembly-CSharp::GunTypes_SO
   Name: 100Bullet
-  EnemyPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 5473513466018784023, guid: 412c58e41a568ac4a8c586a727e3c82b, type: 3}
   BulletSpeed: 30
-  SpeedSpawnBullet: 0.2
+  SpeedSpawnBullet: 0.1

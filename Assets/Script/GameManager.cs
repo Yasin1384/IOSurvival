@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     public List<LevelTypes_SO> LevelTypes;
     public List<EnemyType_SO> EnemyTypes;
-    public List<GunTypes_SO> GunTypes;
 
     public Vector3 spawnPos;
     [SerializeField] private string sceneToLoad;

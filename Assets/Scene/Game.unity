@@ -580,6 +580,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1348174588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &877406089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 877406091}
+  - component: {fileID: 877406090}
+  m_Layer: 0
+  m_Name: GunManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &877406090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877406089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d65da0921b00d4c8a6f7a868a1ce59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletManager
+  spawnBulletDatas:
+  - GunTypes: {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
+  - GunTypes: {fileID: 11400000, guid: ff6cf3f76f3692c4aad02c88b09e405e, type: 2}
+--- !u!4 &877406091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877406089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001803956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,14 +1191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   timerGame: {fileID: 1147567196}
-  playerPrefab: {fileID: 4392147179597143704, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
   LevelTypes:
   - {fileID: 11400000, guid: 7574e92c1bb8c4246b08aec174ff0c0d, type: 2}
   EnemyTypes:
   - {fileID: 11400000, guid: 227df81785ad9c54a889c12291a76e6e, type: 2}
   - {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
-  GunTypes:
-  - {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
   spawnPos: {x: 0, y: 0, z: 5}
   sceneToLoad: Ui
 --- !u!4 &1792469064
@@ -1413,3 +1457,4 @@ SceneRoots:
   - {fileID: 364493204}
   - {fileID: 1147567197}
   - {fileID: 1348174588}
+  - {fileID: 877406091}

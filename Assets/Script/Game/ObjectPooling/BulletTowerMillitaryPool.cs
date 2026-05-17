@@ -48,7 +48,7 @@ public class BulletTowerMillitaryPool : MonoBehaviour
         }
 
         bullet.SetActive(false);
-        pool.Contains(bullet);
+        pool.Enqueue(bullet);
 
     }
 }

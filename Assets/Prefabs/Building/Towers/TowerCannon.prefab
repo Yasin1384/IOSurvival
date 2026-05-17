@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3175330932709639525}
   - component: {fileID: 5743911582015721101}
   m_Layer: 6
-  m_Name: Tower 1
+  m_Name: TowerCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2382856168601307437}
   - component: {fileID: 5412269628430964076}
   m_Layer: 6
-  m_Name: Gun
+  m_Name: AutoAim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAimTower
   detectionRadius: 30
+  minDetectionDistanceForCannon: 20
   rotationSpeed: 5
   bulletSpeed: 20
   aimType: 1

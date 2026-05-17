@@ -3,6 +3,7 @@ using UnityEngine;
 public class AutoAimTower : MonoBehaviour
 {
     public float detectionRadius = 10f;
+    public float minDetectionDistanceForCannon = 5f;
     public float rotationSpeed = 5f;
     public float bulletSpeed = 20f;
     private Rigidbody rb;
@@ -30,8 +31,19 @@ public class AutoAimTower : MonoBehaviour
 
     void FixedUpdate()
     {
-        currentTarget = FindNearestEnemyInRange();
-        currentTarget = FindNormalEnemyInRange();
+        switch (aimType)
+        {
+            case AimType.Direct:
+                {
+                    currentTarget = FindNearestEnemyInRange();
+                    break;
+                }
+            case AimType.Ballistic:
+                {
+                    currentTarget = FindNormalEnemyInRange();
+                    break;
+                }
+        }
 
         if (currentTarget != null)
         {
@@ -63,22 +75,27 @@ public class AutoAimTower : MonoBehaviour
     public GameObject FindNormalEnemyInRange()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject bestTarget = null;
+        float bestDistanceSqr = Mathf.Infinity;
 
-        GameObject farthest = null;
-        float maxDistance = 0f;
+        float maxDistanceSqr = detectionRadius * detectionRadius;
+        float minDistanceSqr = minDetectionDistanceForCannon * minDetectionDistanceForCannon;
 
         foreach (GameObject enemy in enemies)
         {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
 
-            if (distance <= detectionRadius && distance > maxDistance)
+            if (distanceSqr <= maxDistanceSqr && distanceSqr >= minDistanceSqr)
             {
-                maxDistance = distance;
-                farthest = enemy;
+                if (distanceSqr < bestDistanceSqr)
+                {
+                    bestDistanceSqr = distanceSqr;
+                    bestTarget = enemy;
+                }
             }
         }
+        return bestTarget;
 
-        return farthest;
     }
 
     public void RotateToEnemy(GameObject enemy)
@@ -119,30 +136,43 @@ public class AutoAimTower : MonoBehaviour
     }
     public Vector3 PredictDirectEnemyPosition(GameObject enemy)
     {
-        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
-        if (enemyRb == null) return enemy.transform.position;
+        Vector3 currentPos = enemy.transform.position;
 
-        Vector3 targetPos = enemy.transform.position;
-        Vector3 targetVel = enemyRb.linearVelocity;
+        if (enemy != currentTarget)
+        {
+            lastEnemyPosition = currentPos;
+            return currentPos;
+        }
 
-        float distance = Vector3.Distance(transform.position, targetPos);
+        Vector3 velocity = (currentPos - lastEnemyPosition) / Time.fixedDeltaTime;
+
+        lastEnemyPosition = currentPos;
+
+        float distance = Vector3.Distance(transform.position, currentPos);
+
         float timeToHit = distance / bulletSpeed;
 
-        return targetPos + targetVel * timeToHit;
+        return currentPos + velocity * timeToHit;
     }
 
     public Vector3 PredictBallisticEnemyPosition(GameObject enemy)
     {
-        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
-        if (enemyRb == null) return enemy.transform.position;
+        Vector3 currentPos = enemy.transform.position;
 
-        Vector3 targetPos = enemy.transform.position;
-        Vector3 targetVel = enemyRb.linearVelocity;
+        if (enemy != currentTarget)
+        {
+            lastEnemyPosition = currentPos;
+            return currentPos;
+        }
 
-        float distance = Vector3.Distance(transform.position, targetPos);
+        Vector3 velocity = (currentPos - lastEnemyPosition) / Time.fixedDeltaTime;
 
-        float leadTime = distance / bulletSpeed * 0.5f;
+        lastEnemyPosition = currentPos;
 
-        return targetPos + targetVel * leadTime;
+        float distance = Vector3.Distance(transform.position, currentPos);
+
+        float timeToHit = distance / bulletSpeed;
+
+        return currentPos + velocity * timeToHit;
     }
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DefenseTypes_SO
   Name: Tower
   TowerPrefab: {fileID: 2154088773743335582, guid: 6fdbb3e8a521cae4c9ceb60592b5bc40, type: 3}
-  BulletSpeed: 5
+  BulletSpeed: 10
   SpeedSpawnBullet: 1

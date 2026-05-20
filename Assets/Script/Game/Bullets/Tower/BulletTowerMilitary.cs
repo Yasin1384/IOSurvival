@@ -3,7 +3,6 @@ using UnityEngine;
 public class BulletTowerMilitary : MonoBehaviour
 {
     private BulletTowerMillitaryPool poolTower;
-    private BulletTowerCannonPool poolCannon;
 
     public void SetPool(BulletTowerMillitaryPool p)
     {
@@ -11,11 +10,10 @@ public class BulletTowerMilitary : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        poolTower.Despawn(gameObject);
         if (poolTower != null)
         {
             poolTower.Despawn(gameObject);
         }
-        poolTower.Despawn(gameObject);
-
     }
 }

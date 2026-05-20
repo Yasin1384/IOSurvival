@@ -1,0 +1,321 @@
+fileFormatVersion: 2
+guid: 5d2cdba4f6afa1d4d8fe9f2957556d78
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 49
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Package Game_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1319
+        width: 412
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0b1660974718740bb106bc8c985b9c
+      internalID: -1321420432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Package Game_1
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1319
+        width: 412
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b4adcbaea9fc346b49410e96cafb38
+      internalID: -843887259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Package Game_14
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1135
+        width: 412
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf8913d32bfbbd4a8251d437aa2bbaa
+      internalID: 67273585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Package Game_15
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1138
+        width: 412
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e89918a50f87304b8d29c43e210d8e8
+      internalID: 2018358996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Package Game_24
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 956
+        width: 412
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c7d339d63e02b429373316e28bacc1
+      internalID: -1227973781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Package Game_25
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 956
+        width: 412
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0701b0f5ef6b464408f05d7e30cecbfc
+      internalID: -1829326083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 64d4e8301ad149048a309d73a71117bf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Package Game_0: -1321420432
+      Package Game_1: -843887259
+      Package Game_10: 1059330233
+      Package Game_11: -2035140620
+      Package Game_12: -1711687166
+      Package Game_13: -1117961957
+      Package Game_14: 67273585
+      Package Game_15: 2018358996
+      Package Game_16: 95248232
+      Package Game_17: -455929476
+      Package Game_18: -1275912127
+      Package Game_19: -1688157238
+      Package Game_2: 1461320711
+      Package Game_20: -1935775776
+      Package Game_21: 305844311
+      Package Game_22: 1332429375
+      Package Game_23: -2014234323
+      Package Game_24: -1227973781
+      Package Game_25: -1829326083
+      Package Game_26: 399238854
+      Package Game_27: 757496338
+      Package Game_28: -468786156
+      Package Game_29: 1692910973
+      Package Game_3: 959594915
+      Package Game_30: -1228188551
+      Package Game_31: -940912893
+      Package Game_32: -1601655955
+      Package Game_33: 917755703
+      Package Game_34: 2132429125
+      Package Game_35: -2102728448
+      Package Game_36: 1060146839
+      Package Game_37: 1064500228
+      Package Game_38: 475998019
+      Package Game_39: 2087412069
+      Package Game_4: 223675689
+      Package Game_40: 1141964472
+      Package Game_41: 1413029474
+      Package Game_42: 926580651
+      Package Game_43: 965754245
+      Package Game_44: -1044376359
+      Package Game_45: 296505624
+      Package Game_46: 1717689667
+      Package Game_47: 561015145
+      Package Game_48: 1151335716
+      Package Game_49: -262860536
+      Package Game_5: -1393803012
+      Package Game_50: -441389382
+      Package Game_51: -663830469
+      Package Game_52: 1119305118
+      Package Game_53: 398438021
+      Package Game_54: 1926943206
+      Package Game_55: 1960943807
+      Package Game_56: 1676938739
+      Package Game_6: 907659557
+      Package Game_7: -702412595
+      Package Game_8: 2125198257
+      Package Game_9: -663803679
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

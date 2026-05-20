@@ -222,7 +222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3411791e8282214985a396de2477ec8, type: 2}
+  - {fileID: 2100000, guid: 52d1cbf10c9951f44a36148c9e429cba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,6 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3893706b0182f46428845347dec93e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTowerCannon
+  explosionRadius: 100
+  explosionDamage: 100
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &5900011073525115301
 GameObject:
   m_ObjectHideFlags: 0

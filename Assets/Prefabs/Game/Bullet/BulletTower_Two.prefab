@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3893706b0182f46428845347dec93e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTowerCannon
-  explosionRadius: 100
+  explosionRadius: 10
   explosionDamage: 100
   enemyLayer:
     serializedVersion: 2

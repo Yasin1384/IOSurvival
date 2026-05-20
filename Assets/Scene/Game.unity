@@ -399,6 +399,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6485559261212701735, guid: e3bb7c0757faa9949ae01c32498f5d7a, type: 3}
+      propertyPath: TowerData.Array.data[0].TowerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 64fa2d4ff16258c48aa83729a7ec8a20, type: 2}
+    - target: {fileID: 6485559261212701735, guid: e3bb7c0757faa9949ae01c32498f5d7a, type: 3}
+      propertyPath: TowerData.Array.data[1].TowerData
+      value: 
+      objectReference: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -722,8 +730,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletManager
   spawnBulletDatas:
-  - GunTypes: {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
-  - GunTypes: {fileID: 11400000, guid: ff6cf3f76f3692c4aad02c88b09e405e, type: 2}
+  - bulletTypeName: 
+    GunTypes: {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
+    poolSize: 10
+  - bulletTypeName: 
+    GunTypes: {fileID: 11400000, guid: ff6cf3f76f3692c4aad02c88b09e405e, type: 2}
+    poolSize: 10
 --- !u!4 &877406091
 Transform:
   m_ObjectHideFlags: 0

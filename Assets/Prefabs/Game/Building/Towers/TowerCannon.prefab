@@ -71,7 +71,7 @@ MonoBehaviour:
   bulletPoolConfigs:
     bulletTypeName: Missile
     GunTypes: {fileID: 11400000, guid: 1dd5e24282f125e4ab65bebefb5edfa1, type: 2}
-    poolSize: 10
+    poolSize: 30
 --- !u!114 &5743911582015721101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   firePoint: {fileID: 2382856168601307437}
   towerData: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
   currentBulletType: Missile
-  arcHeight: 10
+  arcHeight: 30
 --- !u!1 &8297169793600821114
 GameObject:
   m_ObjectHideFlags: 0

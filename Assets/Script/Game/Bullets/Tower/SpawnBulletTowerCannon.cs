@@ -4,55 +4,103 @@ using UnityEngine;
 
 public class SpawnBulletTowerCannon : MonoBehaviour
 {
+    [Header("Dependencies")]
     [SerializeField] private AutoAimTower _autoAim;
-    [SerializeField] private int poolSize = 50;
+    [SerializeField] private BulletTowerPool bulletPool;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private TowerDataTypes_SO towerData;
 
-    [SerializeField] private GameObject bulletPrefab;
+    [Header("Bullet Settings")]
+    public string currentBulletType = "Missile";
 
-    private List<BulletTowerCannonPool> pools = new List<BulletTowerCannonPool>();
-    public TowerDataTypes_SO gunTypes;
-
-    public BulletTowerCannonPool bulletPool;
-
-    [SerializeField] private Transform defaultPosition;
-
+    [Header("Shooting Logic")]
+    [SerializeField] private float arcHeight = 10f;
     private float _spawnTimes;
-    private float _SpeedBullet;
-    private float arcHeight = 10;
-    private void Start()
+    private float nextFireTime = 0f;
+
+    public void Initialize(BulletTowerPool poolManager)
     {
-        _spawnTimes = gunTypes.SpeedSpawnBullet;
-        _SpeedBullet = gunTypes.BulletSpeed;
+        bulletPool = poolManager;
+        if (bulletPool != null)
+        {
+            bulletPool.Initialize();
+        }
+        else
+        {
+        }
     }
+
     private void Awake()
     {
-        pools = new List<BulletTowerCannonPool>();
-
-        bulletPool.Initialize(bulletPrefab, poolSize);
-        pools.Add(bulletPool);
-
-        StartCoroutine(SpawnBullets());
+        if (bulletPool == null)
+        {
+            bulletPool = FindObjectOfType<BulletTowerPool>();
+            if (bulletPool == null)
+            {
+            }
+        }
     }
 
-    private void Spawn()
+    private void Start()
     {
-        GameObject target = _autoAim.FindNormalEnemyInRange();
-        if (target == null) return;
+        if (towerData != null)
+        {
+            _spawnTimes = towerData.SpeedSpawnBullet;
+        }
+        else
+        {
+            _spawnTimes = 1.0f;
+        }
+
+        if (bulletPool != null)
+        {
+            StartCoroutine(SpawnBulletsRoutine());
+        }
+    }
+
+    private IEnumerator SpawnBulletsRoutine()
+    {
+        while (true)
+        {
+            if (Time.time >= nextFireTime)
+            {
+                if (_autoAim != null && _autoAim.enabled)
+                {
+                    GameObject target = _autoAim.FindNormalEnemyInRange();
+                    if (target != null)
+                    {
+                        FireAtTarget(target);
+                        nextFireTime = Time.time + _spawnTimes;
+                    }
+                }
+                else
+                {
+                    nextFireTime = Time.time + _spawnTimes;
+                }
+            }
+            yield return null;
+        }
+    }
+
+    private void FireAtTarget(GameObject target)
+    {
+
+        BulletTypes_SO bulletSettings = bulletPool.GetBulletData(currentBulletType);
 
         Vector3 predictedPos = _autoAim.PredictBallisticEnemyPosition(target);
 
-        GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
-        if (bulletInstance == null) return;
+        GameObject bulletInstance = bulletPool.Spawn(currentBulletType, firePoint.position);
 
         BulletTowerCannon bullet = bulletInstance.GetComponent<BulletTowerCannon>();
-        bullet.SetPoolCannon(bulletPool);
+        if (bullet != null)
+        {
+            bullet.SetPoolCannon(bulletPool);
+        }
 
         Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
-        if (rb == null) return;
 
-        Vector3 start = defaultPosition.position;
-
-        Vector3 launchVelocity = GetCannonLaunchVelocity(start, predictedPos, 60f);
+        Vector3 startPosition = firePoint.position;
+        Vector3 launchVelocity = GetCannonLaunchVelocity(startPosition, predictedPos, arcHeight);
 
         rb.useGravity = true;
         rb.linearVelocity = launchVelocity;
@@ -92,14 +140,5 @@ public class SpawnBulletTowerCannon : MonoBehaviour
             Vector3.up * speed * sin;
 
         return velocity;
-    }
-
-    private IEnumerator SpawnBullets()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(_spawnTimes);
-            Spawn();
-        }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1731787881070305109}
   - component: {fileID: 4882610602776159156}
-  - component: {fileID: 3175330932709639525}
+  - component: {fileID: 6391597741206821616}
   - component: {fileID: 5743911582015721101}
   m_Layer: 6
   m_Name: TowerCannon
@@ -56,7 +56,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3175330932709639525
+--- !u!114 &6391597741206821616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,11 +65,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2154088773743335582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf2e14f10d6ff941a6335c83c12c351, type: 3}
+  m_Script: {fileID: 11500000, guid: d4512d6a84658e540871dc1fd91e04ad, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletTowerCannonPool
-  BulletTowerPrefab: {fileID: 5473513466018784023, guid: 1e034d31df7ecbc4db2a77aa7b4a233b, type: 3}
-  poolSize: 10
+  m_EditorClassIdentifier: Assembly-CSharp::BulletTowerMillitaryPool
+  bulletPoolConfigs:
+    bulletTypeName: Missile
+    GunTypes: {fileID: 11400000, guid: 1dd5e24282f125e4ab65bebefb5edfa1, type: 2}
+    poolSize: 10
 --- !u!114 &5743911582015721101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,11 +85,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnBulletTowerCannon
   _autoAim: {fileID: 5412269628430964076}
-  poolSize: 50
-  bulletPrefab: {fileID: 5473513466018784023, guid: 1e034d31df7ecbc4db2a77aa7b4a233b, type: 3}
-  gunTypes: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
-  bulletPool: {fileID: 3175330932709639525}
-  defaultPosition: {fileID: 2382856168601307437}
+  bulletPool: {fileID: 6391597741206821616}
+  firePoint: {fileID: 2382856168601307437}
+  towerData: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
+  currentBulletType: Missile
+  arcHeight: 10
 --- !u!1 &8297169793600821114
 GameObject:
   m_ObjectHideFlags: 0

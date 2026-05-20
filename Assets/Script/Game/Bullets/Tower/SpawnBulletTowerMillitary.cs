@@ -4,69 +4,85 @@ using UnityEngine;
 
 public class SpawnBulletTowerMillitary : MonoBehaviour
 {
+    [Header("Dependencies")]
     [SerializeField] private AutoAimTower _autoAim;
-    [SerializeField] private int poolSize = 50;
+    [SerializeField] private BulletTowerPool bulletPool;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private TowerDataTypes_SO towerData;
 
-    [SerializeField] private GameObject bulletPrefab;
+    [Header("Bullet Settings")]
+    public string currentBulletType = "Missile";
 
-    private List<BulletTowerMillitaryPool> pools = new List<BulletTowerMillitaryPool>();
-    public TowerDataTypes_SO gunTypes;
-
-    public BulletTowerMillitaryPool bulletPool;
-
-    [SerializeField] private Transform defaultPosition;
-
-    private float _spawnTimes;
-    private float _SpeedBullet;
-
-    private void Start()
-    {
-        _spawnTimes = gunTypes.SpeedSpawnBullet;
-        _SpeedBullet = gunTypes.BulletSpeed;
-    }
+    private float _spawnInterval;
+    private float _bulletSpeed;
 
     private void Awake()
     {
-        pools = new List<BulletTowerMillitaryPool>();
+        if (bulletPool == null)
+        {
+            bulletPool = FindObjectOfType<BulletTowerPool>();
+        }
 
-        bulletPool.Initialize(bulletPrefab, poolSize);
-        pools.Add(bulletPool);
-
-        StartCoroutine(SpawnBullets());
+        if (bulletPool != null)
+        {
+            bulletPool.Initialize();
+        }
     }
 
-    private void Spawn()
+    private void Start()
     {
+        if (towerData != null)
+        {
+            _spawnInterval = towerData.SpeedSpawnBullet;
+            _bulletSpeed = towerData.BulletSpeed;
+        }
+        else
+        {
+            _spawnInterval = 1.0f;
+            _bulletSpeed = 20.0f;
+        }
 
-        GameObject target = _autoAim.FindNearestEnemyInRange(); 
+        if (bulletPool != null)
+        {
+            StartCoroutine(SpawnBulletsRoutine());
+        }
+    }
+
+    private void Fire()
+    {
+        BulletTypes_SO bulletSettings = bulletPool.GetBulletData(currentBulletType);
+
+        GameObject target = _autoAim.FindNearestEnemyInRange();
 
         if (target != null)
         {
             Vector3 predictedPos = _autoAim.PredictDirectEnemyPosition(target);
 
-            GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
+            GameObject bulletInstance = bulletPool.Spawn(currentBulletType, firePoint.position);
 
             BulletTowerMilitary bullet = bulletInstance.GetComponent<BulletTowerMilitary>();
 
-            bullet.SetPool(bulletPool);
-
+            if (bullet != null)
+            {
+                bullet.SetPool(bulletPool);
+            }
             Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
             rb.useGravity = false;
 
-            Vector3 direction = (predictedPos - defaultPosition.position).normalized;
+            Vector3 direction = (predictedPos - firePoint.position).normalized;
 
-            rb.linearVelocity = direction * _SpeedBullet;
+            rb.linearVelocity = direction * _bulletSpeed;
 
             bulletInstance.transform.forward = direction;
         }
     }
 
-    private IEnumerator SpawnBullets()
+    private IEnumerator SpawnBulletsRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(_spawnTimes);
-            Spawn();
+            yield return new WaitForSeconds(_spawnInterval);
+            Fire();
         }
     }
 }

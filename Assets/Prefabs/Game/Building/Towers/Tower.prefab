@@ -68,8 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4512d6a84658e540871dc1fd91e04ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTowerPool
-  BulletTowerPrefab: {fileID: 5473513466018784023, guid: ca8d6d8cd643e89469478a24c7e9b5b0, type: 3}
-  poolSize: 10
+  bulletPoolConfigs:
+    bulletTypeName: issile
+    GunTypes: {fileID: 11400000, guid: a36a2498c450abf498d33627325bf0c8, type: 2}
+    poolSize: 10
 --- !u!114 &6939697387795042290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,11 +85,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTower
   _autoAim: {fileID: 8958813173026317024}
-  poolSize: 50
-  bulletPrefab: {fileID: 5473513466018784023, guid: ca8d6d8cd643e89469478a24c7e9b5b0, type: 3}
-  gunTypes: {fileID: 11400000, guid: 64fa2d4ff16258c48aa83729a7ec8a20, type: 2}
   bulletPool: {fileID: 2963205191433666753}
-  defaultPosition: {fileID: 1255918517036710578}
+  firePoint: {fileID: 1255918517036710578}
+  towerData: {fileID: 11400000, guid: 64fa2d4ff16258c48aa83729a7ec8a20, type: 2}
+  currentBulletType: issile
 --- !u!1 &4512071738701753738
 GameObject:
   m_ObjectHideFlags: 0

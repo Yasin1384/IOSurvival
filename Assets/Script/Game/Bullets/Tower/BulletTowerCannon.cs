@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletTowerCannon : MonoBehaviour
 {
-    private BulletTowerCannonPool poolCannon;
+    private BulletTowerPool poolCannon;
 
     [Header("Explosion")]
     private bool explodeOnHit = true;
@@ -10,7 +10,7 @@ public class BulletTowerCannon : MonoBehaviour
     [SerializeField] private int explosionDamage = 2050;
     [SerializeField] private LayerMask enemyLayer;
 
-    public void SetPoolCannon(BulletTowerCannonPool p)
+    public void SetPoolCannon(BulletTowerPool p)
     {
         poolCannon = p;
     }

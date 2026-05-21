@@ -1248,7 +1248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: IronMan
+  m_Text: Roboot
 --- !u!1 &1097128203818586178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,7 +3483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &629521590366741045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3747,6 +3747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8585236181875617499}
+  - component: {fileID: 6561161646075798834}
   m_Layer: 5
   m_Name: MilitarySupplies
   m_TagString: Untagged
@@ -3780,6 +3781,43 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1450, y: 3100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6561161646075798834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6115549779955432292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d111f00c79b15043a2d2614236783b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Panel_MilitaryCards
+  agressiveButton: {fileID: 1164013512044337311}
+  defeansiveButton: {fileID: 5724547007584059772}
+  soliderButton: {fileID: 6451003655622274931}
+  supportSoliderButton: {fileID: 3240165043453446905}
+  tankButton: {fileID: 7938167764414137392}
+  robootButton: {fileID: 7493048489389953077}
+  towerButton: {fileID: 1291901489800964036}
+  troopButton: {fileID: 1520245947467087141}
+  machingGunButton: {fileID: 1950815581365277151}
+  luncherButton: {fileID: 1871530909525365777}
+  headerButtonSpriteList:
+  - {fileID: 1193131805, guid: 08adea4dc1bd1a748908850c78b4492c, type: 3}
+  - {fileID: -1557958720, guid: 08adea4dc1bd1a748908850c78b4492c, type: 3}
+  spriteList:
+  - {fileID: -1353265104, guid: c3b45d84931d2634086cc93b29ccc6ee, type: 3}
+  - {fileID: -979635108, guid: c3b45d84931d2634086cc93b29ccc6ee, type: 3}
+  buttonGameObject:
+  - {fileID: 403488475429210856}
+  - {fileID: 6457233414247534427}
+  cardsData:
+    itemCardsDataList:
+    - {fileID: 11400000, guid: fe61bf05e268eef48b92c6335a4a60dc, type: 2}
+    - {fileID: 11400000, guid: 36ac889198fbacc4ebdf777c2cc6d681, type: 2}
+  itemCardsData: {fileID: 7820401971209910768, guid: 3840103012f6b4141965d2d312134d1a, type: 3}
+  parent: {fileID: 1891478464981853381}
 --- !u!1 &6144722763206750407
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,6 +4497,14 @@ MonoBehaviour:
   _xpText: {fileID: 6315404874475221086}
   _levelText: {fileID: 5450235701842369175}
   startButton: {fileID: 8235768949036852312}
+  homeButton: {fileID: 4251454740367602798}
+  shopButton: {fileID: 6956187148461002968}
+  cardsButton: {fileID: 2079467479834577565}
+  panelsGameObjectList:
+  - {fileID: 7669882898145764547}
+  - {fileID: 5689228680196148552}
+  - {fileID: 6115549779955432292}
+  militaryCards: {fileID: 6561161646075798834}
 --- !u!1 &7667135505291942068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4553,7 +4599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9173480009107830982
 RectTransform:
   m_ObjectHideFlags: 0

@@ -98,5 +98,35 @@ public class UiManager : MonoBehaviour
         _popups.Clear();
     }
     #endregion
+}
+public enum TabButtonType
+{
+    None,
+    Home,
+    Shop,
+    Cards,
+}
 
+public enum TabMilitaryButtonType
+{
+    None,
+    Aggressive,
+    Defeansive,
+}
+
+public enum TabDefeansiveButtonType
+{
+    None,
+    Tower,
+    Troops,
+    MachingGun,
+    Luncher
+}
+public enum TabAggressiveButtonType
+{
+    None,
+    Solider,
+    SupportSolider,
+    Tank,
+    Roboot
 }

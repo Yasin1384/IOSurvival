@@ -9,7 +9,6 @@ public class Panel_Main : Panel
     [SerializeField] private Text _coinText;
     [SerializeField] private Text _xpText;
     [SerializeField] private Text _levelText;
-    [SerializeField] private Text _xpToNextLevelText;
 
     private int currentCoin;
 

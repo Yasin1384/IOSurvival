@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class CardsData
 {
-    public List<ItemCardsData_SO> itemCardsDataList;
+    public List<ItemCardsTowerData_SO> itemCardsTowerDataList;
+    public List<ItemCardsSoliderData_SO> itemCardsSoliderDataList;
 
 }

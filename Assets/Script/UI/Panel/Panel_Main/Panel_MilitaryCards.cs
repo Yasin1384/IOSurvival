@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Panel_MilitaryCards : MonoBehaviour
 {
@@ -130,6 +131,12 @@ public class Panel_MilitaryCards : MonoBehaviour
 
     private void SetupModeAgressiveButtons(TabAggressiveButtonType tabAggressiveButtonType)
     {
+        var cardData = cardsData.itemCardsSoliderDataList;
+
+        foreach (Transform child in parent)
+        {
+            Destroy(child.gameObject);
+        }
         switch (tabAggressiveButtonType)
         {
             case TabAggressiveButtonType.None:
@@ -142,6 +149,11 @@ public class Panel_MilitaryCards : MonoBehaviour
                     supportSoliderButton.GetComponent<Image>().sprite = spriteList[1];
                     tankButton.GetComponent<Image>().sprite = spriteList[1];
                     robootButton.GetComponent<Image>().sprite = spriteList[1];
+
+                    foreach (var item in cardData)
+                    {
+                        Instantiate(itemCardsData, parent).Setup(item.NameItems, item.Sprite, item.Price, null);
+                    }
                     break;
                 }
             case TabAggressiveButtonType.SupportSolider:
@@ -173,7 +185,11 @@ public class Panel_MilitaryCards : MonoBehaviour
 
     private void SetupModeDefeansiveButtons(TabDefeansiveButtonType tabDefeansiveButtonType)
     {
-        var cardData = cardsData.itemCardsDataList;
+        foreach (Transform child in parent)
+        {
+            Destroy(child.gameObject);
+        }
+        var cardData = cardsData.itemCardsTowerDataList;
         switch (tabDefeansiveButtonType)
         {
             case TabDefeansiveButtonType.None:
@@ -182,7 +198,7 @@ public class Panel_MilitaryCards : MonoBehaviour
                 }
             case TabDefeansiveButtonType.Tower:
                 {
-                    cardData.Clear();
+
                     towerButton.GetComponent<Image>().sprite = spriteList[0];
                     troopButton.GetComponent<Image>().sprite = spriteList[1];
                     machingGunButton.GetComponent<Image>().sprite = spriteList[1];
@@ -190,14 +206,12 @@ public class Panel_MilitaryCards : MonoBehaviour
 
                     foreach (var item in cardData)
                     {
-                        Instantiate(itemCardsData, parent).Setup(item.NameItems, item.Sprite, item.Price);
+                        Instantiate(itemCardsData, parent).Setup(item.NameItems, item.Sprite, item.Price, item);
                     }
                     break;
                 }
             case TabDefeansiveButtonType.Troops:
                 {
-                    cardData.Clear();
-
                     towerButton.GetComponent<Image>().sprite = spriteList[1];
                     troopButton.GetComponent<Image>().sprite = spriteList[0];
                     machingGunButton.GetComponent<Image>().sprite = spriteList[1];
@@ -206,8 +220,6 @@ public class Panel_MilitaryCards : MonoBehaviour
                 }
             case TabDefeansiveButtonType.MachingGun:
                 {
-                    cardData.Clear();
-
                     towerButton.GetComponent<Image>().sprite = spriteList[1];
                     troopButton.GetComponent<Image>().sprite = spriteList[1];
                     machingGunButton.GetComponent<Image>().sprite = spriteList[0];
@@ -216,7 +228,6 @@ public class Panel_MilitaryCards : MonoBehaviour
                 }
             case TabDefeansiveButtonType.Luncher:
                 {
-                    cardData.Clear();
 
                     towerButton.GetComponent<Image>().sprite = spriteList[1];
                     troopButton.GetComponent<Image>().sprite = spriteList[1];

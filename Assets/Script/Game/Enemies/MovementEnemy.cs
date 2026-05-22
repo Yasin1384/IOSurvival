@@ -1,4 +1,3 @@
-using Unity.Android.Gradle.Manifest;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;

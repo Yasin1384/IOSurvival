@@ -3813,9 +3813,12 @@ MonoBehaviour:
   - {fileID: 403488475429210856}
   - {fileID: 6457233414247534427}
   cardsData:
-    itemCardsDataList:
-    - {fileID: 11400000, guid: fe61bf05e268eef48b92c6335a4a60dc, type: 2}
+    itemCardsTowerDataList:
     - {fileID: 11400000, guid: 36ac889198fbacc4ebdf777c2cc6d681, type: 2}
+    - {fileID: 11400000, guid: fe61bf05e268eef48b92c6335a4a60dc, type: 2}
+    itemCardsSoliderDataList:
+    - {fileID: 11400000, guid: b6b9ffd48348e534a9a57ff6b8fbfdb8, type: 2}
+    - {fileID: 11400000, guid: 6081e5df543e2714abf5aae010d76c6d, type: 2}
   itemCardsData: {fileID: 7820401971209910768, guid: 3840103012f6b4141965d2d312134d1a, type: 3}
   parent: {fileID: 1891478464981853381}
 --- !u!1 &6144722763206750407

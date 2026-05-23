@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         {
             timerGame.Finish += HandleFinishWave;
             Debug.Log(timerGame);
-
         }
     }
 

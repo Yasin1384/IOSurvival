@@ -50,10 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerManager
   TowerData:
-  - TowerData: {fileID: 11400000, guid: 6b1bdf93c955f9d45b9385319a546cc3, type: 2}
-    TowerPosition: {fileID: 3790254596859223671}
-  - TowerData: {fileID: 11400000, guid: 847da00953522924e8745349ea274564, type: 2}
-    TowerPosition: {fileID: 4289329355234622148}
+  - TowerData: {fileID: 11400000, guid: 64fa2d4ff16258c48aa83729a7ec8a20, type: 2}
+    TowerPosition: {fileID: 3494442539215620936}
 --- !u!1 &1722111435270721129
 GameObject:
   m_ObjectHideFlags: 0

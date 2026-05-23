@@ -7,6 +7,5 @@ public class ItemCardsTowerData_SO : ScriptableObject
     public Sprite Sprite;
     public string Price;
 
-    public GameObject TowerGameObject;
     public TowerDataTypes_SO TowerBehaviorData;
 }

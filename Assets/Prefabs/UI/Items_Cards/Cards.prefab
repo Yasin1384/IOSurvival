@@ -291,12 +291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfdfdc183b971b4da1eb53b688dcfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardsData
-  label: {fileID: 1527843052773618885}
+  lable: {fileID: 1527843052773618885}
   iconSprite: {fileID: 2068664020032092733}
   price: {fileID: 3504476246843804854}
-  selectButton: {fileID: 3501325266115565013}
-  cardData: {fileID: 11400000, guid: fe61bf05e268eef48b92c6335a4a60dc, type: 2}
-  targetSpawnPoint: {fileID: 0}
+  button: {fileID: 3501325266115565013}
 --- !u!1 &7519877187926270085
 GameObject:
   m_ObjectHideFlags: 0

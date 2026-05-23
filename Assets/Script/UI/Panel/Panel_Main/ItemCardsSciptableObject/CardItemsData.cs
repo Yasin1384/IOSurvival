@@ -1,4 +1,6 @@
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class CardItemsData : MonoBehaviour
@@ -7,12 +9,26 @@ public class CardItemsData : MonoBehaviour
     [SerializeField] private Image iconSprite;
     [SerializeField] private Text price;
 
+    [SerializeField] private Button button;
+    private ItemCardsTowerData_SO currentData;
 
-    public void Setup(string lable, Sprite sprite, string price)
+    private void Awake()
     {
-        this.lable.text = lable;
-        iconSprite.sprite = sprite;
-        this.price.text = price;
+        button.onClick.AddListener(OnCardClicked);
     }
+    public void Setup(ItemCardsTowerData_SO data)
+    {
+        currentData = data;
 
+        lable.text = data.NameItems;
+        iconSprite.sprite = data.Sprite;
+        price.text = data.Price;
+
+    }
+    private void OnCardClicked()
+    {
+        Debug.Log("Selected: " + currentData.NameItems);
+
+        SelectedTowerHolder.SelectedTower = currentData.TowerBehaviorData;
+    }
 }

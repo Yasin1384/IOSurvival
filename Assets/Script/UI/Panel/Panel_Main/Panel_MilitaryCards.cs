@@ -152,7 +152,7 @@ public class Panel_MilitaryCards : MonoBehaviour
 
                     foreach (var item in cardData)
                     {
-                        Instantiate(itemCardsData, parent).Setup(item.NameItems, item.Sprite, item.Price, null);
+                        //Instantiate(itemCardsData, parent).Setup(item);
                     }
                     break;
                 }
@@ -206,7 +206,7 @@ public class Panel_MilitaryCards : MonoBehaviour
 
                     foreach (var item in cardData)
                     {
-                        Instantiate(itemCardsData, parent).Setup(item.NameItems, item.Sprite, item.Price, item);
+                        Instantiate(itemCardsData, parent).Setup(item);
                     }
                     break;
                 }

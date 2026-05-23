@@ -9,12 +9,15 @@ public class TowerManager : MonoBehaviour
     {
         SpawnTowers();
     }
-
     private void SpawnTowers()
     {
         for (int i = 0; i < TowerData.Count; i++)
         {
-            Instantiate(TowerData[i].TowerData.TowerPrefab, TowerData[i].TowerPosition);
+            Instantiate(
+                SelectedTowerHolder.SelectedTower.TowerPrefab,
+                TowerData[i].TowerPosition.position,
+                TowerData[i].TowerPosition.rotation
+            );
         }
     }
 }

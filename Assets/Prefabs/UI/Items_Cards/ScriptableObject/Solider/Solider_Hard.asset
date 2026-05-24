@@ -15,3 +15,4 @@ MonoBehaviour:
   NameItems: Solider Hard
   Sprite: {fileID: 21300000, guid: b9730e50face0c741a0a7fa220f466f6, type: 3}
   Price: 2000
+  soliderType: {fileID: 11400000, guid: 447bf3176b9a5fb49ad56580e9cabde6, type: 2}

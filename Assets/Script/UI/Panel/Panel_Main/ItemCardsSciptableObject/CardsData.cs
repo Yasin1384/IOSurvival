@@ -6,5 +6,6 @@ public class CardsData
 {
     public List<ItemCardsTowerData_SO> itemCardsTowerDataList;
     public List<ItemCardsSoliderData_SO> itemCardsSoliderDataList;
+    public List<ItemCardsSupportSoliderData_SO> itemCardsSupportSoliderDataList;
 
 }

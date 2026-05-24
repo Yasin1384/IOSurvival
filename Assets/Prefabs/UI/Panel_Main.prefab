@@ -3819,7 +3819,11 @@ MonoBehaviour:
     itemCardsSoliderDataList:
     - {fileID: 11400000, guid: b6b9ffd48348e534a9a57ff6b8fbfdb8, type: 2}
     - {fileID: 11400000, guid: 6081e5df543e2714abf5aae010d76c6d, type: 2}
-  itemCardsData: {fileID: 7820401971209910768, guid: 3840103012f6b4141965d2d312134d1a, type: 3}
+    itemCardsSupportSoliderDataList:
+    - {fileID: 11400000, guid: 2254bf175a6343b4f9575971e53bb16c, type: 2}
+  towerCardsData: {fileID: 7820401971209910768, guid: 3840103012f6b4141965d2d312134d1a, type: 3}
+  soliderCardsData: {fileID: 940868855498573926, guid: 5212f1ef96f73d7409e7c4883a9836be, type: 3}
+  supportSoliderCardsData: {fileID: -92519983223910027, guid: 3cfe5ddeb1ae04c409cc8a270ef04bd1, type: 3}
   parent: {fileID: 1891478464981853381}
 --- !u!1 &6144722763206750407
 GameObject:

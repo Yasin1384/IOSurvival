@@ -31,7 +31,9 @@ public class Panel_MilitaryCards : MonoBehaviour
 
     [Header("--- ListItems ---")]
     [SerializeField] private CardsData cardsData;
-    [SerializeField] private CardItemsData itemCardsData;
+    [SerializeField] private CardTowersData towerCardsData;
+    [SerializeField] private CardsSoliderData soliderCardsData;
+    [SerializeField] private CardsSupportSoliderData supportSoliderCardsData;
     [SerializeField] private RectTransform parent;
 
     public void Setup()
@@ -131,7 +133,8 @@ public class Panel_MilitaryCards : MonoBehaviour
 
     private void SetupModeAgressiveButtons(TabAggressiveButtonType tabAggressiveButtonType)
     {
-        var cardData = cardsData.itemCardsSoliderDataList;
+        var cardData = cardsData;
+
 
         foreach (Transform child in parent)
         {
@@ -145,23 +148,30 @@ public class Panel_MilitaryCards : MonoBehaviour
                 }
             case TabAggressiveButtonType.Solider:
                 {
+
                     soliderButton.GetComponent<Image>().sprite = spriteList[0];
                     supportSoliderButton.GetComponent<Image>().sprite = spriteList[1];
                     tankButton.GetComponent<Image>().sprite = spriteList[1];
                     robootButton.GetComponent<Image>().sprite = spriteList[1];
 
-                    foreach (var item in cardData)
+                    foreach (var item in cardData.itemCardsSoliderDataList)
                     {
-                        //Instantiate(itemCardsData, parent).Setup(item);
+                        Instantiate(soliderCardsData, parent).Setup(item);
                     }
                     break;
                 }
             case TabAggressiveButtonType.SupportSolider:
                 {
+
                     soliderButton.GetComponent<Image>().sprite = spriteList[1];
                     supportSoliderButton.GetComponent<Image>().sprite = spriteList[0];
                     tankButton.GetComponent<Image>().sprite = spriteList[1];
                     robootButton.GetComponent<Image>().sprite = spriteList[1];
+
+                    foreach (var item in cardData.itemCardsSupportSoliderDataList)
+                    {
+                        Instantiate(supportSoliderCardsData, parent).Setup(item);
+                    }
                     break;
                 }
             case TabAggressiveButtonType.Tank:
@@ -206,7 +216,7 @@ public class Panel_MilitaryCards : MonoBehaviour
 
                     foreach (var item in cardData)
                     {
-                        Instantiate(itemCardsData, parent).Setup(item);
+                        Instantiate(towerCardsData, parent).Setup(item);
                     }
                     break;
                 }

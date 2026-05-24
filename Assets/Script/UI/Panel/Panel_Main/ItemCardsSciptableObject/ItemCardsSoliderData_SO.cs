@@ -7,5 +7,5 @@ public class ItemCardsSoliderData_SO : ScriptableObject
     public Sprite Sprite;
     public string Price;
 
-    public GameObject soliderGameObject;
+    public PlayerType_SO soliderType;
 }

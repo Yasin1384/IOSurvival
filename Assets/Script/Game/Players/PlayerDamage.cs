@@ -14,8 +14,8 @@ public class PlayerDamage : MonoBehaviour, ISavePlayer
     private PlayerType_SO playerTypes;
     private void Start()
     {
-        var playerData = PlayerManager.Instance.spawnSuportPlayerDatas[playerIndex];
-        _damage = playerData.PlayerTypes.Hp;
+        var playerData = SelectedCardsHolder.SelectedPlayer;
+        _damage = playerData.Hp;
 
 
         SetDamage(_damageStratgy);

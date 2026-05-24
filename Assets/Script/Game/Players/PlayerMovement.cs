@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
     {
         LoadSpeed();
 
-        var playerData = PlayerManager.Instance.spawnSuportPlayerDatas[playerIndex];
-        speed = playerData.PlayerTypes.Speed;
+        var playerData = SelectedCardsHolder.SelectedPlayer;
+        speed = playerData.Speed;
 
         rb = GetComponent<Rigidbody>();
         moveStrategy = new JoystickMove();

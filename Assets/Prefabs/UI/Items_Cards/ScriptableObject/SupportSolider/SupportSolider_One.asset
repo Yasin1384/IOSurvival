@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c129ab982db5042a2630b5daa3df49, type: 3}
+  m_Name: SupportSolider_One
+  m_EditorClassIdentifier: Assembly-CSharp::ItemCardsSupportSoliderData_SO
+  NameItems: ss
+  Sprite: {fileID: 450768436, guid: bea85ccb01e03474196122f7ee98b643, type: 3}
+  Price: 100
+  SupportSoliderBehaviorData: {fileID: 11400000, guid: 4e18b732026451443a5689888315114c, type: 2}

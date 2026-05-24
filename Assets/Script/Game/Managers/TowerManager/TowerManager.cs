@@ -14,7 +14,7 @@ public class TowerManager : MonoBehaviour
         for (int i = 0; i < TowerData.Count; i++)
         {
             Instantiate(
-                SelectedTowerHolder.SelectedTower.TowerPrefab,
+                SelectedCardsHolder.SelectedTower.TowerPrefab,
                 TowerData[i].TowerPosition.position,
                 TowerData[i].TowerPosition.rotation
             );

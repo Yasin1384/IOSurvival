@@ -1,22 +1,20 @@
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class CardItemsData : MonoBehaviour
+public class CardsSoliderData : MonoBehaviour
 {
     [SerializeField] private Text lable;
     [SerializeField] private Image iconSprite;
     [SerializeField] private Text price;
 
     [SerializeField] private Button button;
-    private ItemCardsTowerData_SO currentData;
+    private ItemCardsSoliderData_SO currentData;
 
     private void Awake()
     {
         button.onClick.AddListener(OnCardClicked);
     }
-    public void Setup(ItemCardsTowerData_SO data)
+    public void Setup(ItemCardsSoliderData_SO data)
     {
         currentData = data;
 
@@ -29,6 +27,6 @@ public class CardItemsData : MonoBehaviour
     {
         Debug.Log("Selected: " + currentData.NameItems);
 
-        SelectedTowerHolder.SelectedTower = currentData.TowerBehaviorData;
+        SelectedCardsHolder.SelectedPlayer = currentData.soliderType;
     }
 }

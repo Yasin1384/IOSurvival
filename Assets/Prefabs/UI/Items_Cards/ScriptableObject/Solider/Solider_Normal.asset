@@ -15,3 +15,4 @@ MonoBehaviour:
   NameItems: Solider Normal
   Sprite: {fileID: 21300000, guid: d8777378c6e6b2d44811049789804a77, type: 3}
   Price: 3000
+  soliderType: {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}

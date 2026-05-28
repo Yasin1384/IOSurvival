@@ -5,5 +5,5 @@ public static class SelectedCardsHolder
 {
     public static List<TowerDataTypes_SO> SelectedTowers = new List<TowerDataTypes_SO>();
     public static PlayerType_SO SelectedPlayer;
-    public static SoliderSupport_SO SelectedSupportSolider;
+    public static List<SoliderSupport_SO> SelectedSupportSolider = new List<SoliderSupport_SO>();
 }

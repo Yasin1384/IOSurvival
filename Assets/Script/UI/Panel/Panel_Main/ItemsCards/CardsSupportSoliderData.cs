@@ -27,6 +27,6 @@ public class CardsSupportSoliderData : MonoBehaviour
     {
         Debug.Log("Selected: " + currentData.NameItems);
 
-        SelectedCardsHolder.SelectedSupportSolider = currentData.SupportSoliderBehaviorData;
+        SelectedCardsHolder.SelectedSupportSolider.Add(currentData.SupportSoliderBehaviorData);
     }
 }

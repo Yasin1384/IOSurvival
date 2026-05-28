@@ -38,16 +38,21 @@ public class Panel_MilitaryCards : MonoBehaviour
 
     public void Setup()
     {
+        SetupModeButton(TabMilitaryButtonType.Aggressive);
+        SetupModeAgressiveButtons(TabAggressiveButtonType.Solider);
+
         agressiveButton.onClick.RemoveAllListeners();
         agressiveButton.onClick.AddListener(() =>
         {
             SetupModeButton(TabMilitaryButtonType.Aggressive);
+            SetupModeAgressiveButtons(TabAggressiveButtonType.Solider);
         });
 
         defeansiveButton.onClick.RemoveAllListeners();
         defeansiveButton.onClick.AddListener(() =>
         {
             SetupModeButton(TabMilitaryButtonType.Defeansive);
+            SetupModeDefeansiveButtons(TabDefeansiveButtonType.Tower);
         });
 
         // ----------------------------------------------------------------
@@ -106,6 +111,11 @@ public class Panel_MilitaryCards : MonoBehaviour
 
     private void SetupModeButton(TabMilitaryButtonType tabMilitaryButtonType)
     {
+        foreach (Transform child in parent)
+        {
+            Destroy(child.gameObject);
+        }
+
         switch (tabMilitaryButtonType)
         {
             case TabMilitaryButtonType.None:

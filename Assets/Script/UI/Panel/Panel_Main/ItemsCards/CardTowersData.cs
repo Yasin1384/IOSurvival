@@ -12,6 +12,9 @@ public class CardTowersData : MonoBehaviour
     [SerializeField] private Button button;
     private ItemCardsTowerData_SO currentData;
 
+
+    private const int MAX_TOWERS = 5;
+
     private void Awake()
     {
         button.onClick.AddListener(OnCardClicked);
@@ -27,8 +30,17 @@ public class CardTowersData : MonoBehaviour
     }
     private void OnCardClicked()
     {
-        Debug.Log("Selected: " + currentData.NameItems);
+        if (currentData == null || currentData.TowerBehaviorData == null)
+        {
+            Debug.LogError("Tower data is missing!");
+            return;
+        }
 
-        SelectedCardsHolder.SelectedTower = currentData.TowerBehaviorData;
+        if (SelectedCardsHolder.SelectedTowers.Count >= MAX_TOWERS)
+        {
+            Debug.Log("Max towers reached!");
+            return;
+        }
+        SelectedCardsHolder.SelectedTowers.Add(currentData.TowerBehaviorData);
     }
 }

@@ -7,14 +7,33 @@ public class TowerManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Start TowerManager");
+
+        Debug.Log("Selected Towers: " + SelectedCardsHolder.SelectedTowers.Count);
+        Debug.Log("Spawn Points: " + TowerData.Count);
+
+        if (SelectedCardsHolder.SelectedTowers.Count == 0)
+        {
+            Debug.LogError("No towers selected!");
+            return;
+        }
         SpawnTowers();
     }
     private void SpawnTowers()
     {
-        for (int i = 0; i < TowerData.Count; i++)
+        int count = Mathf.Min(SelectedCardsHolder.SelectedTowers.Count, TowerData.Count);
+
+        for (int i = 0; i < count; i++)
         {
+            var tower = SelectedCardsHolder.SelectedTowers[i];
+
+            if (tower == null || tower.TowerPrefab == null)
+            {
+                Debug.LogError("Tower or Prefab is NULL at index " + i);
+                continue;
+            }
             Instantiate(
-                SelectedCardsHolder.SelectedTower.TowerPrefab,
+                SelectedCardsHolder.SelectedTowers[i].TowerPrefab,
                 TowerData[i].TowerPosition.position,
                 TowerData[i].TowerPosition.rotation
             );

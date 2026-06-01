@@ -5,7 +5,7 @@ public class ItemCardsSupportSoliderData_SO : ScriptableObject
 {
     public string NameItems;
     public Sprite Sprite;
-    public string Price;
+    public int Price;
 
     public SoliderSupport_SO SupportSoliderBehaviorData;
 }

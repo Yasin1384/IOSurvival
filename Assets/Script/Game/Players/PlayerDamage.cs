@@ -15,6 +15,16 @@ public class PlayerDamage : MonoBehaviour, ISavePlayer
     private void Start()
     {
         var playerData = SelectedCardsHolder.SelectedPlayer;
+
+        if (playerData == null)
+        {
+            Debug.Log("No player selected, using default.");
+
+            playerData = PlayerManager.Instance != null
+                ? PlayerManager.Instance.GetDefaultPlayer()
+                : null;
+        }
+
         _damage = playerData.Hp;
 
 

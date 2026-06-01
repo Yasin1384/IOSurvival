@@ -8,13 +8,15 @@ public class PlayerInput : MonoBehaviour
     Vector2 currentTouchPos;
     Vector3 input;
 
-    void Start()
+    public void SetPlayer(PlayerMovement playerMovement)
     {
-        movement = GetComponent<PlayerMovement>();
+        movement = playerMovement;
     }
 
     void Update()
     {
+        if (movement == null) return;
+
         if (Input.touchCount > 0)
         {
             movement.AnimationCarecter(true, false);
@@ -47,6 +49,11 @@ public class PlayerInput : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (movement == null)
+        {
+            Debug.Log("movement is NULL");
+            return;
+        }
         movement.Move(input);
     }
 }

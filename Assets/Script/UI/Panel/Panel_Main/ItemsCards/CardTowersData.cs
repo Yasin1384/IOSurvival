@@ -17,7 +17,7 @@ public class CardTowersData : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(OnCardClicked);
+
     }
     public void Setup(ItemCardsTowerData_SO data)
     {
@@ -25,22 +25,38 @@ public class CardTowersData : MonoBehaviour
 
         lable.text = data.NameItems;
         iconSprite.sprite = data.Sprite;
-        price.text = data.Price;
+        price.text = data.Price.ToString();
 
+        if (CurrencyManager.Instance.coins <= data.Price)
+        {
+            button.enabled = false;
+        }
+        else
+        {
+            button.enabled = true;
+        }
+
+        button.onClick.AddListener(() =>
+        {
+            OnCardClicked(currentData);
+        });
     }
-    private void OnCardClicked()
+
+    private void OnCardClicked(ItemCardsTowerData_SO data)
     {
+        currentData = data;
+
         if (currentData == null || currentData.TowerBehaviorData == null)
         {
-            Debug.LogError("Tower data is missing!");
             return;
         }
 
         if (SelectedCardsHolder.SelectedTowers.Count >= MAX_TOWERS)
         {
-            Debug.Log("Max towers reached!");
             return;
         }
+
         SelectedCardsHolder.SelectedTowers.Add(currentData.TowerBehaviorData);
+        CurrencyManager.Instance.SpendCoins(data.Price);
     }
 }

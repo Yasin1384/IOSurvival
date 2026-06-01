@@ -1,3 +1,4 @@
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,6 @@ public class CardsSupportSoliderData : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(OnCardClicked);
     }
     public void Setup(ItemCardsSupportSoliderData_SO data)
     {
@@ -20,13 +20,25 @@ public class CardsSupportSoliderData : MonoBehaviour
 
         lable.text = data.NameItems;
         iconSprite.sprite = data.Sprite;
-        price.text = data.Price;
+        price.text = data.Price.ToString();
 
+        if (CurrencyManager.Instance.coins <= data.Price)
+        {
+            button.enabled = false;
+        }
+        else
+        {
+            button.enabled = true;
+        }
+        button.onClick.AddListener(() =>
+        {   
+            OnCardClicked(currentData);
+        });
     }
-    private void OnCardClicked()
+    private void OnCardClicked(ItemCardsSupportSoliderData_SO data)
     {
-        Debug.Log("Selected: " + currentData.NameItems);
+        SelectedCardsHolder.SelectedSupportSolider.Add(currentData.SupportSoliderBehaviorData); 
+        CurrencyManager.Instance.SpendCoins(data.Price);
 
-        SelectedCardsHolder.SelectedSupportSolider.Add(currentData.SupportSoliderBehaviorData);
     }
 }

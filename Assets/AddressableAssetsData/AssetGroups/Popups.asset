@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Popups
   m_GUID: 90f8d38598b7f0749b65043071c5bd93
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 17f509805566ace4a9e02b8552622e5a
+    m_Address: Popup_Setting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f9edb927f9051a4482868477b1ff65b, type: 2}
   m_SchemaSet:

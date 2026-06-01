@@ -40,5 +40,18 @@ public class PlayerManager : MonoBehaviour
         GameObject solider = Instantiate(playerToSpawn.PlayerPrefab, SoliderPosition.position, SoliderPosition.rotation);
 
         cameraFollow.SetTarget(solider.transform);
+
+        PlayerInput input = FindObjectOfType<PlayerInput>();
+        PlayerMovement movement = solider.GetComponent<PlayerMovement>();
+
+        if (input != null && movement != null)
+        {
+            input.SetPlayer(movement);
+            Debug.Log("Player Connected");
+        }
+    }
+    public PlayerType_SO GetDefaultPlayer()
+    {
+        return defaultPlayer;
     }
 }

@@ -16,10 +16,11 @@ public class CurrencyManager : MonoBehaviour, ISavable
 
     private void Awake()
     {
+        LoadCurrnecy();
+
         if (Instance == null)
         {
             Instance = this;
-            LoadCurrnecy();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -42,6 +43,7 @@ public class CurrencyManager : MonoBehaviour, ISavable
     }
     private void LevelUp()
     {
+
         currentLevel++;
         xpToNextLevel = CalculateNextXP();
     }
@@ -97,6 +99,7 @@ public class CurrencyManager : MonoBehaviour, ISavable
         data.currentLevel = currentLevel;
         data.xpToNextLevel = xpToNextLevel;
         data.currentXP = currentXP;
+
     }
 
     public void ReadFromSaveData(SaveCurrencyData data)

@@ -23,13 +23,8 @@ public class BulletTowerCannon : MonoBehaviour
 
     private void Explode()
     {
-        Debug.Log($"Explode at {transform.position}, radius={explosionRadius}");
 
         Collider[] hitEnemies = Physics.OverlapSphere(transform.position, explosionRadius, enemyLayer);
-        Debug.Log($"Hit count = {hitEnemies.Length}");
-
-        Debug.Log("Attack");
-        Debug.Log(hitEnemies);
 
         foreach (var col in hitEnemies)
         {

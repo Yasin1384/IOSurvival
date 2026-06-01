@@ -14,7 +14,6 @@ public class TowerManager : MonoBehaviour
 
         if (SelectedCardsHolder.SelectedTowers.Count == 0)
         {
-            Debug.LogError("No towers selected!");
             return;
         }
         SpawnTowers();

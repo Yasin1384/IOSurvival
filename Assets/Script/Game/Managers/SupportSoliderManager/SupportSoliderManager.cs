@@ -15,7 +15,6 @@ public class SupportSoliderManager : MonoBehaviour
 
         if (SelectedCardsHolder.SelectedSupportSolider.Count == 0)
         {
-            Debug.LogError("No SupportSolider selected!");
             return;
         }
         SpawnSupportSolider();

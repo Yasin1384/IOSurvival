@@ -19,7 +19,8 @@ public class XpEnemy : MonoBehaviour
         {
             Destroy(gameObject);
 
-            AddXp();
+            UiGamePlay.Instance.AddXpInGame();
+
         }
     }
 

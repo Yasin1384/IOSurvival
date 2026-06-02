@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        CurrencyManager.Instance.AddXP(1000);
+
         if (timerGame != null)
         {
             timerGame.Finish += HandleFinishWave;

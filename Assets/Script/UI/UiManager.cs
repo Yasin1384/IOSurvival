@@ -15,7 +15,6 @@ public class UiManager : MonoBehaviour
     public static UiManager Instance { get; private set; }
     private void Awake()
     {
-        CurrencyManager.Instance.AddCoin(1000);
         if (Instance == null)
         {
             Instance = this;

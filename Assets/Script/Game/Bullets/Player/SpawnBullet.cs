@@ -4,7 +4,7 @@ using Unity.Properties;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class SpawnBullets : MonoBehaviour, ISavePlayer
+public class SpawnBullets : MonoBehaviour
 {
     private const string SAVE_KEY = "DATAPLAYER_SAVE";
 
@@ -30,8 +30,6 @@ public class SpawnBullets : MonoBehaviour, ISavePlayer
 
     private void Awake()
     {
-        LoadSpeedBullet();
-
         var bulletType = BulletManager.Instance.spawnBulletDatas[playerIndex];
         _spawnTimes = bulletType.GunTypes.SpeedSpawnBullet;
         _SpeedBullet = bulletType.GunTypes.BulletSpeed;
@@ -46,8 +44,6 @@ public class SpawnBullets : MonoBehaviour, ISavePlayer
 
         bulletPool = pool;
         StartCoroutine(SpawnBullet());
-        SaveSpeedBullet();
-
     }
 
     private void Spawn()
@@ -84,39 +80,5 @@ public class SpawnBullets : MonoBehaviour, ISavePlayer
             yield return new WaitForSeconds(_spawnTimes);
             Spawn();
         }
-    }
-
-
-    private void SaveSpeedBullet()
-    {
-        SavePlayerData data = new SavePlayerData();
-        WriteToSaveData(data);
-
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(SAVE_KEY, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadSpeedBullet()
-    {
-        if (!PlayerPrefs.HasKey(SAVE_KEY))
-            return;
-
-        string json = PlayerPrefs.GetString(SAVE_KEY);
-        SavePlayerData data = JsonUtility.FromJson<SavePlayerData>(json);
-
-        ReadFromSaveData(data);
-    }
-
-    public void WriteToSaveData(SavePlayerData data)
-    {
-        data.BulletSpeed = _SpeedBullet;
-        data.SpeedSpawnBullet= _spawnTimes;
-    }
-
-    public void ReadFromSaveData(SavePlayerData data)
-    {
-        _SpeedBullet = data.BulletSpeed;
-        _spawnTimes = data.SpeedSpawnBullet;
     }
 }

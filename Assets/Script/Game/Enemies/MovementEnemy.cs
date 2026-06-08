@@ -19,8 +19,6 @@ public class MovementEnemy : MonoBehaviour
     {
         var enemyManager = EnemyManager.Instance;
 
-        enemyManager.LoadSpeedEnemy();
-
         GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
         if (playerObj != null)
             player = playerObj.transform;
@@ -43,8 +41,6 @@ public class MovementEnemy : MonoBehaviour
         NavMeshAgentAI.speed = enemyType_SO.Speed;
 
         enemyManager.Speed = NavMeshAgentAI.speed;
-
-        enemyManager.SaveSpeedEnemy();
 
         if (player != null)
         {

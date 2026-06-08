@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerDamage : MonoBehaviour, ISavePlayer
+public class PlayerDamage : MonoBehaviour
 {
-    private const string SAVE_KEY = "DATAPLAYER_SAVE";
     public int playerIndex;
 
 
@@ -29,13 +28,11 @@ public class PlayerDamage : MonoBehaviour, ISavePlayer
 
 
         SetDamage(_damageStratgy);
-        SaveDamage();
     }
 
     private void SetDamage(IDamageStratgy damageStratgy)
     {
         _damageStratgy = new NormalDamageStratgy();
-        LoadDamage();
     }
 
     public void TakeDamage(int baseDamage)
@@ -64,36 +61,4 @@ public class PlayerDamage : MonoBehaviour, ISavePlayer
             TakeDamage(10);
         }
     }
-
-    private void SaveDamage()
-    {
-        SavePlayerData data = new SavePlayerData();
-        WriteToSaveData(data);
-
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(SAVE_KEY, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadDamage()
-    {
-        if (!PlayerPrefs.HasKey(SAVE_KEY))
-            return;
-
-        string json = PlayerPrefs.GetString(SAVE_KEY);
-        SavePlayerData data = JsonUtility.FromJson<SavePlayerData>(json);
-
-        ReadFromSaveData(data);
-    }
-
-    public void WriteToSaveData(SavePlayerData data)
-    {
-        data.Hp = _damage;
-    }
-
-    public void ReadFromSaveData(SavePlayerData data)
-    {
-        _damage = data.Hp;
-    }
-
 }

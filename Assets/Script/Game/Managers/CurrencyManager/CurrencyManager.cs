@@ -1,33 +1,35 @@
 using System.Drawing;
 using UnityEngine;
 
-public class CurrencyManager : MonoBehaviour, ISavable
+public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager Instance;
     public const string SAVE_KEY = "CURRENCY_SAVE";
 
-
+    public System.Action<int> OnCoinsChanged;
 
     public int currentLevel = 1;
     public int currentXP = 0;
     public int xpToNextLevel = 100;
-    public int coins {  get; private set; }
+    public int coins { get; private set; }
 
 
     private void Awake()
     {
-        LoadCurrnecy();
 
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            LoadCurrnecy();
+
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
     // XP 
     public void AddXP(int amount)
     {
@@ -39,7 +41,8 @@ public class CurrencyManager : MonoBehaviour, ISavable
             LevelUp();
 
         }
-        SaveCurrnecy();
+
+        SaveCurrency();
     }
     private void LevelUp()
     {
@@ -57,7 +60,9 @@ public class CurrencyManager : MonoBehaviour, ISavable
     public void AddCoin(int amount)
     {
         coins += amount;
-        SaveCurrnecy();
+        SaveCurrency();
+        OnCoinsChanged?.Invoke(coins);
+
     }
 
     public bool SpendCoins(int amount)
@@ -65,48 +70,40 @@ public class CurrencyManager : MonoBehaviour, ISavable
         if (coins >= amount)
         {
             coins -= amount;
+            SaveCurrency();
+            OnCoinsChanged?.Invoke(coins);
             return true;
         }
-        SaveCurrnecy();
         return false;
     }
 
 
-    // SVE DATA JSON
-    private void SaveCurrnecy()
+    public void SaveCurrency()
     {
         SaveCurrencyData data = new SaveCurrencyData();
-        WriteToSaveData(data);
+
+        data.Coins = coins;
+        data.currentLevel = currentLevel;
+        data.currentXP = currentXP;
+        data.xpToNextLevel = xpToNextLevel;
 
         string json = JsonUtility.ToJson(data);
+
         PlayerPrefs.SetString(SAVE_KEY, json);
         PlayerPrefs.Save();
     }
 
-    private void LoadCurrnecy()
+    public void LoadCurrnecy()
     {
-        if (!PlayerPrefs.HasKey(SAVE_KEY))
-            return;
+        string json = PlayerPrefs.GetString(SAVE_KEY, "");
 
-        string json = PlayerPrefs.GetString(SAVE_KEY);
+        if (string.IsNullOrEmpty(json)) return;
+
         SaveCurrencyData data = JsonUtility.FromJson<SaveCurrencyData>(json);
 
-        ReadFromSaveData(data);
-    }
-    public void WriteToSaveData(SaveCurrencyData data)
-    {
-        data.Coins = coins;
-        data.currentLevel = currentLevel;
-        data.xpToNextLevel = xpToNextLevel;
-        data.currentXP = currentXP;
-
-    }
-
-    public void ReadFromSaveData(SaveCurrencyData data)
-    {
         coins = data.Coins;
         currentLevel = data.currentLevel;
-        xpToNextLevel = data.xpToNextLevel;
         currentXP = data.currentXP;
+        xpToNextLevel = data.xpToNextLevel;
     }
 }

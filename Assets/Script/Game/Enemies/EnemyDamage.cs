@@ -6,11 +6,6 @@ public class EnemyDamage : MonoBehaviour
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
 
-    private void Awake()
-    {
-        EnemyManager.Instance.SaveDamageEnemy();
-    }
-
     public void Init(EnemyType_SO data)
     {
         float enemyHp = EnemyManager.Instance.CurrentHp;
@@ -18,8 +13,6 @@ public class EnemyDamage : MonoBehaviour
         EnemyType_SO = data;
         
         currentHp = data.Hp;
-
-        EnemyManager.Instance.LoadDamageEnemy();
 
         enemyHp = currentHp;
 

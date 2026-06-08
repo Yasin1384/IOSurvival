@@ -1,6 +1,7 @@
 using System.Xml.Linq;
 using Unity.Android.Gradle.Manifest;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class SetCurrencyData : MonoBehaviour
@@ -19,7 +20,6 @@ public class SetCurrencyData : MonoBehaviour
     public void CurrencySetting()
     {
         CurrencyManager currencyManager = CurrencyManager.Instance;
-        currentCoin = currencyManager.coins;
         currentLevel = currencyManager.currentLevel;
         currentXp = currencyManager.currentXP;
         xpToNextLevel = currencyManager.xpToNextLevel;
@@ -29,10 +29,15 @@ public class SetCurrencyData : MonoBehaviour
         Debug.Log(currentXp);
         Debug.Log(xpToNextLevel);
 
-        _coinText.text = currentCoin.ToString();
         _levelText.text = currentLevel.ToString();
         _xpText.text = currentXp.ToString() + "/" + xpToNextLevel.ToString();
+        CurrencyManager.Instance.OnCoinsChanged += UpdateUI;
+        _coinText.text = CurrencyManager.Instance.coins.ToString();
+    }
 
-
+    void UpdateUI(int amount)
+    {
+        
+        _coinText.text = amount.ToString();
     }
 }

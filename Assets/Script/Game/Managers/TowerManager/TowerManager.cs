@@ -5,19 +5,17 @@ public class TowerManager : MonoBehaviour
 {
     public List<SpawnTowerData> TowerData;
 
+    public List<TowerDataTypes_SO> towerDataTypes;
     private void Start()
     {
-        Debug.Log("Start TowerManager");
-
-        Debug.Log("Selected Towers: " + SelectedCardsHolder.SelectedTowers.Count);
-        Debug.Log("Spawn Points: " + TowerData.Count);
-
+        LoadTowers();
         if (SelectedCardsHolder.SelectedTowers.Count == 0)
         {
             return;
         }
         SpawnTowers();
     }
+
     private void SpawnTowers()
     {
         int count = Mathf.Min(SelectedCardsHolder.SelectedTowers.Count, TowerData.Count);
@@ -36,6 +34,29 @@ public class TowerManager : MonoBehaviour
                 TowerData[i].TowerPosition.position,
                 TowerData[i].TowerPosition.rotation
             );
+        }
+    }
+
+    void LoadTowers()
+    {
+        string json = PlayerPrefs.GetString("SelectedTowers", "");
+
+        if (string.IsNullOrEmpty(json)) return;
+
+        SpawnTowerData data = JsonUtility.FromJson<SpawnTowerData>(json);
+
+        SelectedCardsHolder.SelectedTowers.Clear();
+
+        foreach (var id in data.towerIDs)
+        {
+            foreach (var tower in towerDataTypes)
+            {
+                if (tower.Name == id)
+                {
+                    SelectedCardsHolder.SelectedTowers.Add(tower);
+                    break;
+                }
+            }
         }
     }
 }

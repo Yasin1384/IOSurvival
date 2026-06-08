@@ -1059,6 +1059,9 @@ MonoBehaviour:
   defaultPlayer: {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
   SoliderPosition: {fileID: 1348174588}
   cameraFollow: {fileID: 1398071067}
+  allPlayers:
+  - {fileID: 11400000, guid: 3aad831c0219ca9499ef7a291f7e3e40, type: 2}
+  - {fileID: 11400000, guid: 447bf3176b9a5fb49ad56580e9cabde6, type: 2}
 --- !u!114 &1348174590
 MonoBehaviour:
   m_ObjectHideFlags: 0

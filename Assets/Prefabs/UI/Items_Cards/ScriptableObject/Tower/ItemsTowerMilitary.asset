@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCardsData_SO
   NameItems: MilitaryTower
   Sprite: {fileID: 21300000, guid: c11b2d09d71ff6c47bb18412da80a263, type: 3}
-  Price: 100
-  TowerGameObject: {fileID: 2154088773743335582, guid: 13c95bb91d6cfb44a952d250b6802b7c, type: 3}
+  Price: 1
   TowerBehaviorData: {fileID: 11400000, guid: 64fa2d4ff16258c48aa83729a7ec8a20, type: 2}

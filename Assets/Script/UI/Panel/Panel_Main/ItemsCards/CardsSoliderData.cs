@@ -36,6 +36,7 @@ public class CardsSoliderData : MonoBehaviour
     {
         SelectedCardsHolder.SelectedPlayer = currentData.soliderType;
         CurrencyManager.Instance.SpendCoins(data.Price);
-
+        PlayerPrefs.SetString("SelectedPlayer", data.soliderType.Name);
+        PlayerPrefs.Save();
     }
 }

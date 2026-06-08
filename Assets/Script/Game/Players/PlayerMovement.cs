@@ -1,16 +1,11 @@
-using System.Collections.Generic;
-using Unity.Properties;
 using UnityEngine;
-using static UnityEditor.Progress;
-using static UnityEngine.GraphicsBuffer;
-public class PlayerMovement : MonoBehaviour, ISavePlayer
+public class PlayerMovement : MonoBehaviour
 {
-    private const string SAVE_KEY = "DATAPLAYER_SAVE";
 
     public int playerIndex;
     [SerializeField] private AutoAim _autoAim;
 
-    private float speed;
+    public float speed;
     Rigidbody rb;
 
     IStrategyMove moveStrategy;
@@ -21,14 +16,10 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
 
     void Awake()
     {
-        LoadSpeed();
-
         var playerData = SelectedCardsHolder.SelectedPlayer;
 
         if (playerData == null)
         {
-            Debug.Log("No player selected, using default.");
-
             playerData = PlayerManager.Instance != null
                 ? PlayerManager.Instance.GetDefaultPlayer()
                 : null;
@@ -49,44 +40,12 @@ public class PlayerMovement : MonoBehaviour, ISavePlayer
         }
         Vector3 dir = new Vector3(input.x, 0f, input.z).normalized;
         moveStrategy.Move(rb, input, speed);
-        SaveSpeed();
     }
 
     public void AnimationCarecter(bool isRun, bool isIdel)
     {
         _animator.SetBool("Idel", isIdel);
         _animator.SetBool("Run", isRun);
-    }
-
-    private void SaveSpeed()
-    {
-        SavePlayerData data = new SavePlayerData();
-        WriteToSaveData(data);
-
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(SAVE_KEY, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadSpeed()
-    {
-        if (!PlayerPrefs.HasKey(SAVE_KEY))
-            return;
-
-        string json = PlayerPrefs.GetString(SAVE_KEY);
-        SavePlayerData data = JsonUtility.FromJson<SavePlayerData>(json);
-
-        ReadFromSaveData(data);
-    }
-
-    public void WriteToSaveData(SavePlayerData data)
-    {
-        data.Speed = speed;
-    }
-
-    public void ReadFromSaveData(SavePlayerData data)
-    {
-        speed = data.Speed;
     }
 }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddcb640224bbd140b0a9482d57bf5ad, type: 3}
   m_Name: Tower_Cannon
   m_EditorClassIdentifier: Assembly-CSharp::DefenseTypes_SO
-  Name: Tower
+  Name: Tower_Cannon
   TowerPrefab: {fileID: 2154088773743335582, guid: 6fdbb3e8a521cae4c9ceb60592b5bc40, type: 3}
   BulletSpeed: 10
   SpeedSpawnBullet: 1

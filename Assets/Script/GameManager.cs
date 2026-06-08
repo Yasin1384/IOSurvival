@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        CurrencyManager.Instance.AddXP(1000);
 
         if (timerGame != null)
         {
@@ -41,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
+
         if (Instance == null)
         {
             Instance = this;

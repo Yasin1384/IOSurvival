@@ -8,9 +8,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerType_SO defaultPlayer;
     public Transform SoliderPosition;
     public CameraFollow cameraFollow;
-    
+    public List<PlayerType_SO> allPlayers;
+
+
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
@@ -25,16 +28,24 @@ public class PlayerManager : MonoBehaviour
     {
         PlayerType_SO playerToSpawn = SelectedCardsHolder.SelectedPlayer;
 
-        if (playerToSpawn == null)
+
+        string savedID = PlayerPrefs.GetString("SelectedPlayer", "");
+
+        if (!string.IsNullOrEmpty(savedID))
         {
-            Debug.Log("No player selected, using default.");
-            playerToSpawn = defaultPlayer;
+            foreach (var player in allPlayers)
+            {
+                if (player.Name == savedID)
+                {
+                    playerToSpawn = player;
+                    break;
+                }
+            }
         }
 
-        if (playerToSpawn == null || playerToSpawn.PlayerPrefab == null)
+        if (playerToSpawn == null)
         {
-            Debug.LogError("Player prefab is missing!");
-            return;
+            playerToSpawn = defaultPlayer;
         }
 
         GameObject solider = Instantiate(playerToSpawn.PlayerPrefab, SoliderPosition.position, SoliderPosition.rotation);
@@ -46,7 +57,9 @@ public class PlayerManager : MonoBehaviour
 
         if (input != null && movement != null)
         {
+            movement.speed = playerToSpawn.Speed;
             input.SetPlayer(movement);
+
             Debug.Log("Player Connected");
         }
     }

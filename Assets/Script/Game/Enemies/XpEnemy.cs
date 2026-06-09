@@ -6,8 +6,6 @@ using static UnityEditor.Progress;
 
 public class XpEnemy : MonoBehaviour
 {
-    public int killBonus;
-
     private void Start()
     {
         List<EnemyType_SO> enemyList;

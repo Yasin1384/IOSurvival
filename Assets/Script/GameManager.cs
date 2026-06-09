@@ -73,9 +73,10 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        CurrencyManager currencyManager = CurrencyManager.Instance;
         SceneManager.LoadScene(sceneToLoad);
-        CurrencyManager.Instance.AddCoin(50);
-        CurrencyManager.Instance.AddXP(50);
+        currencyManager.AddXP(50);
+        currencyManager.AddCoin(50);    
     }
 
 

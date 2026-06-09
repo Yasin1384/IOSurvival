@@ -32,13 +32,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector3 input)
     {
+        Vector3 dir = new Vector3(input.x, 0f, input.z).normalized;
+
         GameObject player = _autoAim.FindNearestEnemyInRange();
 
         if (player != null)
         {
             _autoAim.RotateToEnemy(player);
         }
-        Vector3 dir = new Vector3(input.x, 0f, input.z).normalized;
+        else
+        {
+            if (dir != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(dir);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+            }
+        }
+
         moveStrategy.Move(rb, input, speed);
     }
 

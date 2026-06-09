@@ -9,7 +9,6 @@ public class EnemyManager : MonoBehaviour
 
     public float Speed;
     public int CurrentHp;
-    public int KillBonus;
 
     public GameObject xpPrefab;
     public int xpAmount = 1;

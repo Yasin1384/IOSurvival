@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class SpawnEnemy : MonoBehaviour
@@ -15,13 +16,14 @@ public class SpawnEnemy : MonoBehaviour
 
     private TimerGame _timerGame;
 
-
     private Coroutine _spawnCoroutine;
 
     [SerializeField] private MeshCollider _spawnArea;
 
     private EnemyPool enemyPool;
     [SerializeField] private int maxEnemies = 10;
+
+    EnemyType enemyType;
 
     private void Awake()
     {
@@ -69,6 +71,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Spawn()
     {
+
         List<EnemyType_SO> enemyTypes = GameManager.Instance.EnemyTypes;
 
         EnemyType_SO selectedType = enemyTypes[Random.Range(0, enemyTypes.Count)];
@@ -80,8 +83,7 @@ public class SpawnEnemy : MonoBehaviour
         if (obj != null)
         {
             obj.GetComponent<EnemyDamage>().Init(selectedType);
-            obj.GetComponent<MovementEnemy>().SpeedSnemies(selectedType);
-            
+            obj.GetComponent<MovementEnemy>().SetupEnemyType(enemyType, selectedType);            
         }
     }
 

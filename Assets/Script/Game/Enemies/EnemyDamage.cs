@@ -29,7 +29,15 @@ public class EnemyDamage : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            GetComponent<MovementEnemy>().Die();
+            if (!GetComponent<MovementEnemy>())
+            {
+                GetComponent<ContorlEnemy>().Die();
+            }
+            else
+            {
+                GetComponent<MovementEnemy>().Die();
+            }
+
         }
     }
 

@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -32,4 +33,12 @@ public class EnemyManager : MonoBehaviour
             Instantiate(xpPrefab, dropPosition, Quaternion.identity);
         }
     }
+}
+
+
+public enum EnemyType
+{
+    EnemyWhite,
+    EnemyEyeBlack,
+    EnemyGuner,
 }

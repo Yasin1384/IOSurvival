@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4925132548206278775
 Transform:
   m_ObjectHideFlags: 0
@@ -77,7 +77,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   _autoAim: {fileID: 2197910631419812692}
   poolSize: 50
-  bulletPrefab: {fileID: 5473513466018784023, guid: e7d898b3c9bbe3045b3810ff6a8655c3, type: 3}
   playerIndex: 0
   defaultPosition: {fileID: 4925132548206278775}
 --- !u!1 &3110836165792559006
@@ -275,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerIndex: 0
   _autoAim: {fileID: 2197910631419812692}
+  speed: 0
   _animator: {fileID: 7353559281024601582}
 --- !u!114 &7175383732632487511
 MonoBehaviour:

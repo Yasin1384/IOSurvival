@@ -122,7 +122,6 @@ public class MapGenerator : MonoBehaviour
                                 Vector3 bushPosition = position + new Vector3(xOffset, yOffset, zOffset);
                                 Quaternion bushRotation = Quaternion.Euler(0, Random.Range(0f, 0), 0);
                                 tileObject = Instantiate(item.ObstaclesGameObjects[1], bushPosition, bushRotation, parent);
-                                meshSurface.BuildNavMesh();
                             }
                         }
                         break;
@@ -136,6 +135,9 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+
+        meshSurface.BuildNavMesh();
+
     }
 
     public TileType GetTileType(int x, int y)

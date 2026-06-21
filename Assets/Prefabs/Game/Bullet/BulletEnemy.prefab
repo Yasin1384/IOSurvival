@@ -164,14 +164,14 @@ GameObject:
   - component: {fileID: 3435729880039465344}
   - component: {fileID: 1181588397825556515}
   - component: {fileID: 2521747981369545127}
-  - component: {fileID: 9198705329221644707}
+  - component: {fileID: 770588287162299540}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: BulletEnemy
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7415245569660235364
 Transform:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &9198705329221644707
+--- !u!114 &770588287162299540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,9 +303,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5473513466018784023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24e848f092b8c74fa7a266d44f5ce1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f89a4231264095408bdcb6ae86697b0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
 --- !u!1 &5900011073525115301
 GameObject:
   m_ObjectHideFlags: 0

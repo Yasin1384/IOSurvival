@@ -2,61 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBullets : MonoBehaviour
+public class SpawnEnemyBullet : MonoBehaviour
 {
-    private const string SAVE_KEY = "DATAPLAYER_SAVE";
-
-    [SerializeField] private AutoAim _autoAim;
+    [SerializeField] private AutoAimEnemy _autoAim;
     [SerializeField] private int poolSize = 50;
 
 
-    public int playerIndex;
+    public int Index;
 
-    private List<BulletPool> pools = new List<BulletPool>();
+    private List<BulletEnemyPool> pools = new List<BulletEnemyPool>();
 
-    private BulletPool bulletPool;
+    private BulletEnemyPool bulletPool;
 
     [SerializeField] private Transform defaultPosition;
 
     private float _spawnTimes;
     private float _SpeedBullet;
-
-    private void Start()
+    void OnEnable()
     {
-
+        StopAllCoroutines();
+        StartCoroutine(SpawnBullet());
     }
-
     private void Awake()
     {
-        var bulletType = BulletManager.Instance.spawnBulletDatas[playerIndex];
+        var bulletType = BulletManager.Instance.spawnBulletDatas[Index];
         _spawnTimes = bulletType.GunTypes.SpeedSpawnBullet;
         _SpeedBullet = bulletType.GunTypes.BulletSpeed;
         GameObject _gameObject = bulletType.GunTypes.BulletPrefab;
 
+        pools = new List<BulletEnemyPool>();
 
-        pools = new List<BulletPool>();
-
-        BulletPool pool = gameObject.AddComponent<BulletPool>();
+        BulletEnemyPool pool = gameObject.AddComponent<BulletEnemyPool>();
         pool.Initialize(_gameObject, poolSize);
         pools.Add(pool);
 
         bulletPool = pool;
-        StartCoroutine(SpawnBullet());
     }
 
     private void Spawn()
     {
-
-        GameObject target = _autoAim.FindNearestEnemyInRange();
+        GameObject target = _autoAim.FindNearestPlayerInRange();
 
         if (target != null)
         {
-            Vector3 predictedPos = _autoAim.PredictEnemyPosition(target);
+            Debug.Log(target);
+
+            Vector3 predictedPos = _autoAim.PredictPlayerPosition(target);
 
             GameObject bulletInstance = bulletPool.Spawn(defaultPosition.position);
 
-            Bullet bullet = bulletInstance.GetComponent<Bullet>();
-            
+            BulletEnemy bullet = bulletInstance.GetComponent<BulletEnemy>();
+
             bullet.SetPool(bulletPool);
 
             Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
@@ -72,10 +68,9 @@ public class SpawnBullets : MonoBehaviour
     }
     private IEnumerator SpawnBullet()
     {
-
         while (true)
         {
-            yield return new WaitForSeconds(_spawnTimes);
+            yield return new WaitForSeconds(1);
             Spawn();
         }
     }

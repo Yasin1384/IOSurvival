@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: Assembly-CSharp::GunTypes_SO
   Name: AK
-  BulletPrefab: {fileID: 5473513466018784023, guid: ca8d6d8cd643e89469478a24c7e9b5b0, type: 3}
-  BulletSpeed: 30
-  SpeedSpawnBullet: 0.5
+  BulletPrefab: {fileID: 5473513466018784023, guid: ea5f5625635b4c14494e22101705ffec, type: 3}
+  BulletSpeed: 10
+  SpeedSpawnBullet: 1

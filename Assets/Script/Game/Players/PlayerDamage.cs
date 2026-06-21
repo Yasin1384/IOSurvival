@@ -60,5 +60,18 @@ public class PlayerDamage : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BulletEnemy"))
+        {
+            Debug.Log("AAYYYYYYYYYYY");
+            TakeDamage(5);
+            Debug.Log("AAYYYYYYYYYYY");
+
+        }
     }
 }

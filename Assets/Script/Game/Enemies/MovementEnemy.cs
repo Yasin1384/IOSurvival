@@ -134,7 +134,7 @@ public class MovementEnemy : MonoBehaviour
 
     public void Die()
     {
-        Vector3 deathPosition = transform.position;
+        Vector3 deathPosition = new Vector3(transform.position.x , 1, transform.position.z);
         EnemyManager.Instance.DropCoin(deathPosition);
         enemyPool.Despawn(gameObject);
     }

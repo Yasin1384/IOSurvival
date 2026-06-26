@@ -12,6 +12,7 @@ TagManager:
   - BulletTower
   - Star
   - BulletEnemy
+  - SoliderSupport
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - BulletTower
   - Enemy
   - BulletEnemy
-  - 
+  - SoliderSupport
   - 
   - 
   - 

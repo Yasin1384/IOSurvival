@@ -89,7 +89,7 @@ MonoBehaviour:
   firePoint: {fileID: 2382856168601307437}
   towerData: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}
   currentBulletType: Missile
-  arcHeight: 30
+  arcHeight: 10
 --- !u!1 &8297169793600821114
 GameObject:
   m_ObjectHideFlags: 0

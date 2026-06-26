@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SupportSolider_One
   m_EditorClassIdentifier: Assembly-CSharp::SoliderSupport_SO
   Name: a
-  SoliderSupportPrefab: {fileID: 4392147179597143704, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
+  SoliderSupportPrefab: {fileID: 4392147179597143704, guid: 7d25dce8e970aab44a97c5dcf850cd02, type: 3}
   Speed: 10
   Hp: 5

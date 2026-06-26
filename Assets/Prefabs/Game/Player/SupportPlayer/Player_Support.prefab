@@ -127,14 +127,13 @@ GameObject:
   - component: {fileID: 8879264084361910931}
   - component: {fileID: 545095214414576169}
   - component: {fileID: 3397594384658541410}
-  - component: {fileID: 8607792737340119638}
-  - component: {fileID: 7175383732632487511}
+  - component: {fileID: 1534203275294121783}
   - component: {fileID: 2996553409864378329}
   - component: {fileID: 2197910631419812692}
   - component: {fileID: 6652644339692521466}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Player_Support
+  m_TagString: SoliderSupport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +259,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8607792737340119638
+--- !u!114 &1534203275294121783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,25 +268,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4392147179597143704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 213c9a7c7050ff946bf2ec074df3aa95, type: 3}
+  m_Script: {fileID: 11500000, guid: a2decc7b22fae1240be401efaa16d428, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  playerIndex: 0
-  _autoAim: {fileID: 2197910631419812692}
-  speed: 0
-  _animator: {fileID: 7353559281024601582}
---- !u!114 &7175383732632487511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4392147179597143704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e53d56f68ba3b4988ce78ee348635e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
+  m_EditorClassIdentifier: Assembly-CSharp::SupportSolider
 --- !u!114 &2996553409864378329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,11 +826,6 @@ PrefabInstance:
       addedObject: {fileID: 4925132548206278775}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
---- !u!95 &7353559281024601582 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
-  m_PrefabInstance: {fileID: 7353559281031936142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7353559281031537202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400060, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}

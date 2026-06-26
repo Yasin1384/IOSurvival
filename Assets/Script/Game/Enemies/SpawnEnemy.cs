@@ -10,9 +10,9 @@ public class SpawnEnemy : MonoBehaviour
 
     private Dictionary<EnemyType_SO, EnemyPool> pools;
 
-    [SerializeField] private int poolSize = 10;
+    [SerializeField] private int poolSize;
 
-    private float[] _spawnTimes = { 1f, 2 };
+    [SerializeField] private float[] _spawnTimes;
 
     private TimerGame _timerGame;
 
@@ -21,7 +21,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private MeshCollider _spawnArea;
 
     private EnemyPool enemyPool;
-    [SerializeField] private int maxEnemies = 10;
+    [SerializeField] private int maxEnemies;
 
     EnemyType enemyType;
 

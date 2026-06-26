@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public List<LevelTypes_SO> LevelTypes;
     public List<EnemyType_SO> EnemyTypes;
 
-    public Vector3 spawnPos;
     [SerializeField] private string sceneToLoad;
 
     int countWave;

@@ -1562,7 +1562,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 227df81785ad9c54a889c12291a76e6e, type: 2}
   - {fileID: 11400000, guid: f172312e17356a346a874b8b93bac321, type: 2}
   - {fileID: 11400000, guid: aa13a5c11923c7b4eb5e51e9f79eea84, type: 2}
-  spawnPos: {x: 0, y: 0, z: 5}
   sceneToLoad: Ui
 --- !u!4 &1792469064
 Transform:
@@ -1808,6 +1807,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
   poolSize: 50
+  _spawnTimes:
+  - 0.5
+  - 1
   _spawnArea: {fileID: 1001803957}
   maxEnemies: 40
 --- !u!114 &7212930125048486801

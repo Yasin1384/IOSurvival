@@ -5,6 +5,7 @@ public class EnemyDamage : MonoBehaviour
     private IDamageStratgy _damageStratgy;
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     public void Init(EnemyType_SO data)
     {
@@ -46,6 +47,7 @@ public class EnemyDamage : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(10);
+            _particleSystem.Play();
         }
         else if (other.gameObject.CompareTag("Base") || other.gameObject.CompareTag("Player"))
         {

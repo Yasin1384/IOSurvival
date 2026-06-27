@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletTowerPool
   bulletPoolConfigs:
     bulletTypeName: issile
-    GunTypes: {fileID: 11400000, guid: a36a2498c450abf498d33627325bf0c8, type: 2}
+    GunTypes: {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
     poolSize: 30
 --- !u!114 &6939697387795042290
 MonoBehaviour:

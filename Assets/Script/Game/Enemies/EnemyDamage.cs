@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
     private EnemyType_SO EnemyType_SO;
     private int currentHp;
     [SerializeField] private ParticleSystem _particleSystem;
-
+    
     public void Init(EnemyType_SO data)
     {
         float enemyHp = EnemyManager.Instance.CurrentHp;
@@ -30,15 +30,7 @@ public class EnemyDamage : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            if (!GetComponent<MovementEnemy>())
-            {
-                GetComponent<ContorlEnemy>().Die();
-            }
-            else
-            {
-                GetComponent<MovementEnemy>().Die();
-            }
-
+            GetComponent<MovementEnemy>().Die();
         }
     }
 

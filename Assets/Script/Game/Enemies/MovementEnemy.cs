@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +18,8 @@ public class MovementEnemy : MonoBehaviour
 
     public EnemyType EnemyTypes;
 
+
+    [SerializeField] private Animator animator;
 
     void OnEnable()
     {
@@ -33,6 +38,10 @@ public class MovementEnemy : MonoBehaviour
     }
     void Start()
     {
+        GetComponent<BoxCollider>().enabled = true;
+
+        animator.SetBool("Looser", false);
+
         var enemyManager = EnemyManager.Instance;
 
         GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
@@ -117,8 +126,17 @@ public class MovementEnemy : MonoBehaviour
 
     public void Die()
     {
+        NavMeshAgentAI.isStopped = true;
+        GetComponent<BoxCollider>().enabled = false;
         Vector3 deathPosition = new Vector3(transform.position.x , 1, transform.position.z);
         EnemyManager.Instance.DropCoin(deathPosition);
+        animator.SetBool("Looser", true);
+        StartCoroutine(Dead());
+    }
+
+    IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(1.5f);
         enemyPool.Despawn(gameObject);
     }
 }

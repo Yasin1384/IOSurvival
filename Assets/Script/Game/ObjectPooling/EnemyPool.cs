@@ -25,16 +25,16 @@ public class EnemyPool : MonoBehaviour
     }
     public GameObject Spawn(Vector3 position)
     {
-        saveingPool = new List<GameObject>();
-
         foreach (var enemy in pool)
         {
-            if (!enemy.activeInHierarchy)
+            if (enemy != null)
             {
-                enemy.transform.position = position;
-                enemy.SetActive(true);
-
-                return enemy;
+                if (!enemy.activeInHierarchy)
+                {
+                    enemy.transform.position = position;
+                    enemy.SetActive(true);
+                    return enemy;
+                }
             }
         }
 

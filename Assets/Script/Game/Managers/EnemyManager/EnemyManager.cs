@@ -14,7 +14,6 @@ public class EnemyManager : MonoBehaviour
     public GameObject xpPrefab;
     public int xpAmount = 1;
     public Transform xpPrefabTrans;
-
     private void Awake()
     {
         if (Instance == null)

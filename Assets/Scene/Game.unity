@@ -313,7 +313,7 @@ MonoBehaviour:
   xOffset: -100
   yOffset: 0
   zOffset: -100
-  percentage: 0.01
+  percentage: 0.03
   centerExclusionRadius: 5
   meshSurface: {fileID: 7212930125048486802}
 --- !u!1 &187711077
@@ -766,6 +766,9 @@ MonoBehaviour:
     poolSize: 10
   - bulletTypeName: 
     GunTypes: {fileID: 11400000, guid: ff6cf3f76f3692c4aad02c88b09e405e, type: 2}
+    poolSize: 10
+  - bulletTypeName: 
+    GunTypes: {fileID: 11400000, guid: 9486c44e3b9b05140834fc292040dc15, type: 2}
     poolSize: 10
   - bulletTypeName: 
     GunTypes: {fileID: 11400000, guid: a36a2498c450abf498d33627325bf0c8, type: 2}

@@ -33,7 +33,6 @@ public class ContorlEnemy : MonoBehaviour
     {
         var enemyManager = EnemyManager.Instance;
 
-
         this.enemyType_SO = enemyType_SO;
 
         NavMeshAgentAI.speed = enemyType_SO.Speed;

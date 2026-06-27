@@ -392,7 +392,8 @@ GameObject:
   - component: {fileID: 4985691113074979274}
   - component: {fileID: 6988642073250096018}
   - component: {fileID: 7419138938250675219}
-  - component: {fileID: 5955500315949934603}
+  - component: {fileID: 7817466307570624587}
+  - component: {fileID: 9039034736743694418}
   - component: {fileID: 7980455561420812014}
   - component: {fileID: 7300342640803380786}
   - component: {fileID: 6883624459605638154}
@@ -496,7 +497,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.46, y: 1.37, z: 0.52572274}
   m_Center: {x: 0, y: 0.74, z: 0}
---- !u!114 &5955500315949934603
+--- !u!114 &7817466307570624587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,10 +509,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227946af7e2e1614b87dde1f8a02c301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementEnemy
-  playerTag: Player
-  NavMeshAgentAI: {fileID: 5631787549079771599}
-  stopDistance: 10
+  PlayerTransform: {fileID: 6396455195278411202, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
+  StopDistance: 10
+  PlayerTag: Player
   EnemyTypes: 2
+  navMeshAgent: {fileID: 5631787549079771599}
+--- !u!114 &9039034736743694418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136820629370392942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f89a4231264095408bdcb6ae86697b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
 --- !u!114 &7980455561420812014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,10 +666,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db34c57e32ab6a4bbe1f0613f301f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemyBullet
+  bulletPrefab: {fileID: 0}
   _autoAim: {fileID: 7300342640803380786}
   poolSize: 50
-  Index: 2
   defaultPosition: {fileID: 6421541062257961714}
+  Index: 3
 --- !u!1 &3782344883368244816
 GameObject:
   m_ObjectHideFlags: 0

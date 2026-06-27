@@ -313,7 +313,7 @@ MonoBehaviour:
   xOffset: -100
   yOffset: 0
   zOffset: -100
-  percentage: 0.008
+  percentage: 0.01
   centerExclusionRadius: 5
   meshSurface: {fileID: 7212930125048486802}
 --- !u!1 &187711077

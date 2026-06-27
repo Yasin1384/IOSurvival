@@ -505,10 +505,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227946af7e2e1614b87dde1f8a02c301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementEnemy
-  playerTag: Base
-  NavMeshAgentAI: {fileID: 5631787549079771599}
-  stopDistance: 10
+  PlayerTransform: {fileID: 6396455195278411202, guid: 03eb853f97724704ab84505b5fc8463d, type: 3}
+  StopDistance: 10
+  PlayerTag: Player
   EnemyTypes: 1
+  navMeshAgent: {fileID: 5631787549079771599}
 --- !u!114 &7980455561420812014
 MonoBehaviour:
   m_ObjectHideFlags: 0

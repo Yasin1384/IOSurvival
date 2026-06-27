@@ -16,5 +16,6 @@ MonoBehaviour:
   Level: 1
   Waves: 1
   ObstaclesGameObjects:
-  - {fileID: 899859727374615066, guid: 7c43636c3331e214aafd1fc1081a08bb, type: 3}
-  - {fileID: 1855007745486109050, guid: 971222daf526bdb4bb20b521d83e2a44, type: 3}
+  - {fileID: 5417922347044617409, guid: 2d77706a89966854f918bace15fa387b, type: 3}
+  - {fileID: 5821555253549381365, guid: 8721c15dda9be844d9220d4930e3cd96, type: 3}
+  - {fileID: 3530600504085828589, guid: f61ce8a6ba346ed43b1a22d2dcec3766, type: 3}

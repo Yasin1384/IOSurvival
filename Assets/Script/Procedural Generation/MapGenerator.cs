@@ -86,6 +86,21 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                Vector2 currentPosition = new Vector2(x, y);
+                if (Vector2.Distance(currentPosition, mapCenter) > centerExclusionRadius)
+                {
+                    if (mapData[x, y] == TileType.Ground && Random.value < percentage)
+                    {
+                        mapData[x, y] = TileType.Rock;
+                    }
+                }
+            }
+        }
+
     }
 
     void BuildMap()
@@ -126,6 +141,14 @@ public class MapGenerator : MonoBehaviour
                         }
                         break;
                     case TileType.Rock:
+                        {
+                            foreach (var item in levelTypesList)
+                            {
+                                Vector3 rockPotion = position + new Vector3(xOffset, yOffset, zOffset);
+                                Quaternion rockRotation = Quaternion.Euler(0, Random.Range(0f, 0), 0);
+                                tileObject = Instantiate(item.ObstaclesGameObjects[2], rockPotion, rockRotation, parent);
+                            }
+                        }
                         break;
                 }
 

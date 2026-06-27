@@ -47,23 +47,6 @@ public class MovementEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (player == null)
-        {
-            Debug.Log("player is null");
-            return;
-        }
-
-        if (enemyType_SO == null)
-        {
-            Debug.Log("enemyType_SO is null");
-            return;
-        }
-
-        if (!NavMeshAgentAI.isOnNavMesh)
-        {
-            Debug.Log("not on navmesh");
-            return;
-        }
         if (player == null || enemyType_SO == null || !NavMeshAgentAI.isOnNavMesh)
             return;
         switch (EnemyTypes)

@@ -9,6 +9,7 @@ public class BulletTowerCannon : MonoBehaviour
     [SerializeField] private float explosionRadius = 500f;
     [SerializeField] private int explosionDamage = 2050;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private ParticleSystem particleSystemGameObject;
 
     public void SetPoolCannon(BulletTowerPool p)
     {
@@ -18,6 +19,9 @@ public class BulletTowerCannon : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         poolCannon.Despawn(gameObject);
+        Vector3 deathPosition = new Vector3(transform.position.x, 1, transform.position.z);
+        Instantiate(particleSystemGameObject.gameObject, deathPosition, Quaternion.identity);
+        particleSystemGameObject.Play();
         Explode();
     }
 
@@ -34,13 +38,5 @@ public class BulletTowerCannon : MonoBehaviour
                 enemyHealth.TakeDamage(explosionDamage);
             }
         }
-    }
-
-    private void DespawnBullet()
-    {
-        if (poolCannon != null)
-            poolCannon.Despawn(gameObject);
-        else
-            Destroy(gameObject);
     }
 }

@@ -311,6 +311,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+  particleSystemGameObject: {fileID: 6861368520160046070, guid: 849fd3cc23a741b47ba435662fc71b28, type: 3}
 --- !u!1 &5900011073525115301
 GameObject:
   m_ObjectHideFlags: 0

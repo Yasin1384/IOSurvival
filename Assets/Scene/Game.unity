@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
   Speed: 0
   CurrentHp: 0
-  xpPrefab: {fileID: 2976959032818682172, guid: 89b1070e386f38145b7a17a127e84950, type: 3}
+  xpPrefab: {fileID: 5464343374108658936, guid: 86c3ee9f732a9b14fb3b7ab6ef5e497e, type: 3}
   xpAmount: 1
   xpPrefabTrans: {fileID: 3854269363171675655, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
 --- !u!1 &1893692463

@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Tower_Cannon
   TowerPrefab: {fileID: 2154088773743335582, guid: 6fdbb3e8a521cae4c9ceb60592b5bc40, type: 3}
   BulletSpeed: 10
-  SpeedSpawnBullet: 1
+  SpeedSpawnBullet: 3

@@ -23,6 +23,8 @@ public class MovementEnemy : MonoBehaviour
 
     void OnEnable()
     {
+        GetComponent<BoxCollider>().enabled = true;
+        animator.SetBool("Looser", false);
         if (NavMeshAgentAI == null) return;
 
         NavMeshAgentAI.enabled = false;
@@ -38,9 +40,8 @@ public class MovementEnemy : MonoBehaviour
     }
     void Start()
     {
-        GetComponent<BoxCollider>().enabled = true;
 
-        animator.SetBool("Looser", false);
+
 
         var enemyManager = EnemyManager.Instance;
 
@@ -126,17 +127,17 @@ public class MovementEnemy : MonoBehaviour
 
     public void Die()
     {
+        animator.SetBool("Looser", true);
         NavMeshAgentAI.isStopped = true;
         GetComponent<BoxCollider>().enabled = false;
+        StartCoroutine(Dead());
         Vector3 deathPosition = new Vector3(transform.position.x , 1, transform.position.z);
         EnemyManager.Instance.DropCoin(deathPosition);
-        animator.SetBool("Looser", true);
-        StartCoroutine(Dead());
     }
 
     IEnumerator Dead()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         enemyPool.Despawn(gameObject);
     }
 }

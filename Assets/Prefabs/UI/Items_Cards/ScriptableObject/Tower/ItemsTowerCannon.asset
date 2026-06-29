@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemCardsData_SO
   NameItems: CannonTower
   Sprite: {fileID: 21300000, guid: c77702a2b37fc884b84a6a5b8ba93373, type: 3}
-  Price: 1
+  Price: 400
   TowerBehaviorData: {fileID: 11400000, guid: b177082afb347504ba02ddff389cf42c, type: 2}

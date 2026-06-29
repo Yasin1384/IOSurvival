@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: AK
   BulletPrefab: {fileID: 5473513466018784023, guid: e7d898b3c9bbe3045b3810ff6a8655c3, type: 3}
   BulletSpeed: 30
-  SpeedSpawnBullet: 0.5
+  SpeedSpawnBullet: 0.2

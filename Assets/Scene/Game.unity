@@ -1082,9 +1082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SupportSoliderManager
   spawnSuportPlayerDatas:
   - PlayersPosition: {fileID: 333679892}
-  - PlayersPosition: {fileID: 800159535}
-  - PlayersPosition: {fileID: 42114212}
-  - PlayersPosition: {fileID: 965776384}
 --- !u!1 &1355195760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1239,7 @@ Camera:
     height: 1
   near clip plane: 0.7
   far clip plane: 100
-  field of view: 86
+  field of view: 102
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1809,12 +1806,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb261b587174d934ab9f1cf0234d01d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
-  poolSize: 50
+  poolSize: 5
   _spawnTimes:
-  - 0.5
   - 1
+  - 2
   _spawnArea: {fileID: 1001803957}
   maxEnemies: 40
+  minDistanceFromPlayer: 50
+  maxSpawnTries: 80
 --- !u!114 &7212930125048486801
 MonoBehaviour:
   m_ObjectHideFlags: 0

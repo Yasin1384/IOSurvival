@@ -7,23 +7,27 @@ using UnityEngine.UIElements;
 public class SpawnEnemy : MonoBehaviour
 {
     [Header("Enemy Types")]
-
     private Dictionary<EnemyType_SO, EnemyPool> pools;
-
-    [SerializeField] private int poolSize;
-
-    [SerializeField] private float[] _spawnTimes;
-
-    private TimerGame _timerGame;
-
-    private Coroutine _spawnCoroutine;
-
-    [SerializeField] private MeshCollider _spawnArea;
-
-    private EnemyPool enemyPool;
-    [SerializeField] private int maxEnemies;
-
     EnemyType enemyType;
+    
+    private TimerGame _timerGame;
+    private Coroutine _spawnCoroutine;
+    private EnemyPool enemyPool;
+    private Transform playerTransform;
+    
+    
+    [SerializeField] private int poolSize;
+    [SerializeField] private float[] _spawnTimes;
+    [SerializeField] private MeshCollider _spawnArea;
+    [SerializeField] private int maxEnemies;
+    [SerializeField] private float minDistanceFromPlayer;
+    [SerializeField] private int maxSpawnTries;
+
+
+
+
+
+
 
     private void Awake()
     {
@@ -94,10 +98,25 @@ public class SpawnEnemy : MonoBehaviour
         float width = 100f * t.localScale.x;
         float length = 100f * t.localScale.z;
 
-        float x = Random.Range(-width / 2f, width / 2f);
-        float z = Random.Range(-length / 2f, length / 2f);
+        for (int i = 0; i < maxSpawnTries; i++)
+        {
+            float x = Random.Range(-width / 2f, width / 2f);
+            float z = Random.Range(-length / 2f, length / 2f);
 
-        return t.position + new Vector3(x, 0f, z);
+            Vector3 pos = t.position + new Vector3(x, 0f, z);
+
+            if (playerTransform == null)
+                return pos;
+
+            float distance = Vector3.Distance(pos, playerTransform.position);
+
+            if (distance >= minDistanceFromPlayer)
+            {
+                return pos;
+            }
+        }
+
+        return t.position;
     }
     private IEnumerator SpawnEnemies()
     {

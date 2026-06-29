@@ -8,10 +8,6 @@ public class SupportSoliderManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start SupportSolider");
-
-        Debug.Log("Selected SupportSolider: " + SelectedCardsHolder.SelectedSupportSolider.Count);
-        Debug.Log("Spawn SupportSolider: " + spawnSuportPlayerDatas.Count);
 
         if (SelectedCardsHolder.SelectedSupportSolider.Count == 0)
         {
@@ -22,6 +18,8 @@ public class SupportSoliderManager : MonoBehaviour
     private void SpawnSupportSolider()
     {
         int count = Mathf.Min(SelectedCardsHolder.SelectedSupportSolider.Count, spawnSuportPlayerDatas.Count);
+
+
 
         for (int i = 0; i < count; i++)
         {

@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2decc7b22fae1240be401efaa16d428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SupportSolider
+  stopDistance: 2
 --- !u!114 &2996553409864378329
 MonoBehaviour:
   m_ObjectHideFlags: 0

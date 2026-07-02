@@ -1,5 +1,4 @@
 using System.Xml.Linq;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;

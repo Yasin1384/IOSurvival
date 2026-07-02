@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class CardTowersData : MonoBehaviour

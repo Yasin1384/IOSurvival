@@ -1,9 +1,6 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using TreeEditor;
 using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MapGenerator : MonoBehaviour
 {

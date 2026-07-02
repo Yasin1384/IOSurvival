@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: EnemyRedEye
   EnemyPrefab: {fileID: 3136820629370392942, guid: 935108cf8a66c6f4c90af5c932e4bb8c, type: 3}
   Speed: 3
-  Hp: 30
+  Hp: 20
   KillBonus: 1

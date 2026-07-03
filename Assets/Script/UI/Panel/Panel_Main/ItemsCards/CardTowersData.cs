@@ -26,13 +26,13 @@ public class CardTowersData : MonoBehaviour
         iconSprite.sprite = data.Sprite;
         price.text = data.Price.ToString();
 
-        if (CurrencyManager.Instance.coins <= data.Price)
+        if (CurrencyManager.Instance.coins < data.Price)
         {
-            button.enabled = false;
+            button.interactable = false;
         }
         else
         {
-            button.enabled = true;
+            button.interactable = true;
         }
 
         button.onClick.AddListener(() =>

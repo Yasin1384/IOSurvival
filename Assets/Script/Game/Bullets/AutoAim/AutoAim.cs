@@ -87,21 +87,24 @@ public class AutoAim : MonoBehaviour
     public Vector3 PredictEnemyPosition(GameObject enemy)
     {
         Vector3 currentPos = enemy.transform.position;
+        Vector3 enemyVelocity = Vector3.zero;
 
-        if (enemy != currentTarget)
+        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
+        if (enemyRb != null)
         {
-            lastEnemyPosition = currentPos;
-            return currentPos;
+            enemyVelocity = enemyRb.linearVelocity;
+        }
+        else
+        {
+            var agent = enemy.GetComponent<UnityEngine.AI.NavMeshAgent>();
+            if (agent != null)
+            {
+                enemyVelocity = agent.velocity;
+            }
         }
 
-        Vector3 velocity = (currentPos - lastEnemyPosition) / Time.fixedDeltaTime;
-
-        lastEnemyPosition = currentPos;
-
         float distance = Vector3.Distance(transform.position, currentPos);
-
         float timeToHit = distance / bulletSpeed;
-
-        return currentPos + velocity * timeToHit;
+        return currentPos + enemyVelocity * timeToHit;
     }
 }

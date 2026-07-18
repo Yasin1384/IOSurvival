@@ -9,71 +9,21 @@ public class CardTowersData : MonoBehaviour
     [SerializeField] private Text price;
 
     [SerializeField] private Button button;
-    private ItemCardsTowerData_SO currentData;
 
-
-    private const int MAX_TOWERS = 5;
-
-    private void Awake()
-    {
-
-    }
     public void Setup(ItemCardsTowerData_SO data)
     {
-        currentData = data;
-
         lable.text = data.NameItems;
         iconSprite.sprite = data.Sprite;
         price.text = data.Price.ToString();
 
-        if (CurrencyManager.Instance.coins < data.Price)
-        {
-            button.interactable = false;
-        }
-        else
-        {
-            button.interactable = true;
-        }
+
 
         button.onClick.AddListener(() =>
         {
-            OnCardClicked(currentData);
+            UiManager.Instance.OpenPopups<Popup_Upgrade>().Setup();
         });
     }
 
-    private void OnCardClicked(ItemCardsTowerData_SO data)
-    {
-        currentData = data;
+    
 
-        if (currentData == null || currentData.TowerBehaviorData == null)
-        {
-            return;
-        }
-
-        if (SelectedCardsHolder.SelectedTowers.Count >= MAX_TOWERS)
-        {
-            return;
-        }
-
-        SelectedCardsHolder.SelectedTowers.Add(currentData.TowerBehaviorData);
-        CurrencyManager.Instance.SpendCoins(data.Price);
-        SaveTowers();
-    }
-
-    private void SaveTowers()
-    {
-        List<string> ids = new List<string>();
-
-        foreach (var tower in SelectedCardsHolder.SelectedTowers)
-        {
-            ids.Add(tower.Name);
-        }
-
-        SpawnTowerData data = new SpawnTowerData(ids);
-
-        string json = JsonUtility.ToJson(data);
-
-        PlayerPrefs.SetString("SelectedTowers", json);
-        PlayerPrefs.Save();
-    }
 }

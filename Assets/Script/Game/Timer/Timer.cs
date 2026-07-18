@@ -2,7 +2,6 @@
 using System.Collections;
 using Unity.Properties;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class Timer

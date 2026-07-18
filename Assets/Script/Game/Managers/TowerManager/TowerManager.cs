@@ -45,8 +45,6 @@ public class TowerManager : MonoBehaviour
 
         SpawnTowerData data = JsonUtility.FromJson<SpawnTowerData>(json);
 
-        //SelectedCardsHolder.SelectedTowers.Clear();
-
         foreach (var id in data.towerIDs)
         {
             foreach (var tower in towerDataTypes)

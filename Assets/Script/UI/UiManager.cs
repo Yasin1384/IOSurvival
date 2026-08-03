@@ -29,7 +29,7 @@ public class UiManager : MonoBehaviour
 
     private void OpenPanelMain()
     {
-        OpenPanel<Panel_Main>().Setup();
+        OpenPanel<Panel_Loading>().Setup();
     }
 
 

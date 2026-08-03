@@ -94,7 +94,7 @@ public class Panel_Main : Panel
 
     private void StartButton()
     {
-        SceneManager.LoadScene(SceneToLoadString);
+        NakamaManager.Instance.FindMatch(SceneToLoadString);
     }
 
 

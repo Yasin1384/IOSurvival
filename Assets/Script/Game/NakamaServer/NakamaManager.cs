@@ -12,9 +12,14 @@ public partial class NakamaManager : MonoBehaviour
     private IClient client;
     private ISession session;
     public ISocket socket;
+    public IMatch CurrentMatch { get; private set; }
+    public IUserPresence SelfPresence => CurrentMatch?.Self;
+    public IUserPresence OpponentPresence { get; private set; }
+
 
     private string scheme = "http";
     private string host = "127.0.0.1";
+    //private string host = "10.28.252.218";
     private int port = 7350;
     private string serverKey = "defaultkey";
 
@@ -90,6 +95,7 @@ public partial class NakamaManager : MonoBehaviour
 
         Debug.Log("search player...");
 
+        socket.ReceivedMatchmakerMatched -= OnMatchmakerMatched;
         socket.ReceivedMatchmakerMatched += OnMatchmakerMatched;
 
         matchmakerTicket = await socket.AddMatchmakerAsync("*", 2, 2);
@@ -101,11 +107,43 @@ public partial class NakamaManager : MonoBehaviour
 
         socket.ReceivedMatchmakerMatched -= OnMatchmakerMatched;
 
+
         var match = await socket.JoinMatchAsync(matched);
         CurrentMatchId = match.Id;
+
+
+        foreach (var presence in CurrentMatch.Presences)
+        {
+            if (presence.SessionId != CurrentMatch.Self.SessionId)
+            {
+                OpponentPresence = presence;
+                break;
+            }
+        }
 
         Debug.Log($"{CurrentMatchId}");
 
         shouldLoadGameScene = true;
+    }
+
+    public async Task<bool> SetPlayerUsernameAsync(string username)
+    {
+        try
+        {
+            if (session == null) return false;
+
+            await client.UpdateAccountAsync(session, username);
+
+            PlayerPrefs.SetString("PlayerUsername", username);
+            PlayerPrefs.Save();
+
+            Debug.Log($"Username successfully updated to: {username}");
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Failed to update username: {ex.Message}");
+            return false;
+        }
     }
 }

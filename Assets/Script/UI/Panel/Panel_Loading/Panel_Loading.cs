@@ -16,12 +16,13 @@ public class Panel_Loading : Panel
         {
             Debug.Log("Connected! Loading Online Game/Lobby...");
             UiManager.Instance.OpenPanel<Panel_Main>().Setup();
+            UiManager.Instance.OpenPopups<Popup_EnterName>().Setup();
         }
         else
         {
             Debug.Log("Connection Failed! Loading Offline Mode...");
 
-            //TODO : Popup Disconnect
+            UiManager.Instance.OpenPopups<Popup_CheckInternet>().Setup();
         }
     }
 }

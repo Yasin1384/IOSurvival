@@ -3,12 +3,14 @@ using Nakama;
 using System.Threading.Tasks;
 using System;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public partial class NakamaManager : MonoBehaviour
 {
     public static NakamaManager Instance { get; private set; }
 
 
+    private IMatchmakerTicket matchmakerTicket;
     private IClient client;
     private ISession session;
     public ISocket socket;
@@ -18,8 +20,8 @@ public partial class NakamaManager : MonoBehaviour
 
 
     private string scheme = "http";
-    private string host = "127.0.0.1";
-    //private string host = "10.28.252.218";
+    //private string host = "127.0.0.1";
+    private string host = "10.28.252.218";
     private int port = 7350;
     private string serverKey = "defaultkey";
 
@@ -27,6 +29,10 @@ public partial class NakamaManager : MonoBehaviour
     private string targetSceneName = "Game";
 
     public bool IsOnline { get; private set; } = false;
+
+    public string MyUsername { get; private set; }
+    public string OpponentUsername { get; private set; }
+    public string CurrentMatchId { get; private set; }
 
 
 
@@ -80,11 +86,6 @@ public partial class NakamaManager : MonoBehaviour
             return false;
         }
     }
-
-
-    private IMatchmakerTicket matchmakerTicket;
-    public string CurrentMatchId { get; private set; }
-
     public async void FindMatch(string sceneToLoad)
     {
         if (socket == null)
@@ -108,22 +109,31 @@ public partial class NakamaManager : MonoBehaviour
         socket.ReceivedMatchmakerMatched -= OnMatchmakerMatched;
 
 
-        var match = await socket.JoinMatchAsync(matched);
-        CurrentMatchId = match.Id;
-
-
-        foreach (var presence in CurrentMatch.Presences)
+        try
         {
-            if (presence.SessionId != CurrentMatch.Self.SessionId)
-            {
-                OpponentPresence = presence;
-                break;
-            }
+            Debug.Log("before join");
+
+            CurrentMatch = await socket.JoinMatchAsync(matched);
+
+            Debug.Log("after join");
+
+            CurrentMatchId = CurrentMatch.Id;
+            MyUsername = matched.Self.Presence.Username;
+            OpponentUsername = matched.Users.FirstOrDefault()?.Presence.Username ?? "Unknown";
+
+            OpponentPresence = CurrentMatch.Presences
+                .FirstOrDefault(p => p.SessionId != CurrentMatch.Self.SessionId);
+
+            Debug.Log($"MatchId: {CurrentMatchId}");
+            Debug.Log($"My: {MyUsername}");
+            Debug.Log($"Opponent: {OpponentUsername}");
+
+            shouldLoadGameScene = true;
         }
-
-        Debug.Log($"{CurrentMatchId}");
-
-        shouldLoadGameScene = true;
+        catch (Exception e)
+        {
+            Debug.LogError($"JoinMatch failed: {e}");
+        }
     }
 
     public async Task<bool> SetPlayerUsernameAsync(string username)
@@ -136,6 +146,7 @@ public partial class NakamaManager : MonoBehaviour
 
             PlayerPrefs.SetString("PlayerUsername", username);
             PlayerPrefs.Save();
+
 
             Debug.Log($"Username successfully updated to: {username}");
             return true;

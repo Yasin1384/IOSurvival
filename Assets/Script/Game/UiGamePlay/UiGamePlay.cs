@@ -8,7 +8,8 @@ public class UiGamePlay : MonoBehaviour
 
     [SerializeField] private Text xpText;
     int xpIndex = 1;
-
+    [SerializeField] private Text userNameText;
+    [SerializeField] private Text opponentNameText;
 
     private void Awake()
     {
@@ -20,7 +21,16 @@ public class UiGamePlay : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        
         }
+
+        SetNames();
+    }
+
+    public void SetNames()
+    {
+        userNameText.text = NakamaManager.Instance.MyUsername;
+        opponentNameText.text = NakamaManager.Instance.OpponentUsername;
     }
 
     public int AddXpInGame()

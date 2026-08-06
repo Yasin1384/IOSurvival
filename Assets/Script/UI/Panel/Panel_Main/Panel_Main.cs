@@ -7,6 +7,7 @@ public class Panel_Main : Panel
 {
     [Header("--- Text & String ---")]
     public string SceneToLoadString;
+    [SerializeField] private Text userName;
 
 
     [Header("--- Button ---")]
@@ -29,6 +30,10 @@ public class Panel_Main : Panel
 
     public override void Setup()
     {
+        string savedName = PlayerPrefs.GetString("PlayerUsername");        
+        Debug.Log(savedName);
+        userName.text = savedName;
+
         data.CurrencySetting();
 
         startButton.onClick.RemoveAllListeners();

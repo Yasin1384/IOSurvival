@@ -47,5 +47,8 @@ public class Popup_EnterName : Popup
         {
             submitButton.interactable = true;
         }
+
+        UiManager.Instance.OpenPanel<Panel_Loading>().Setup();
+
     }
 }
